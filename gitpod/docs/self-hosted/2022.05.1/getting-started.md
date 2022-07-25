@@ -48,13 +48,13 @@ At this point, you should have:
 To start with installing Gitpod, you need a terminal where you can run `kubectl` to access your cluster. First, install the KOTS kubectl plugin:
 
 ```shell
-$ curl https://kots.io/install | bash
+curl https://kots.io/install | bash
 ```
 
 Now, you are ready to install Gitpod. Run the following command in your terminal:
 
 ```shell
-$ kubectl kots install gitpod
+kubectl kots install gitpod
 ```
 
 You will be asked for the namespace you want to install Gitpod to as well as a password for the admin console. After some time, you will see the following output:

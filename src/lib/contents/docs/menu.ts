@@ -57,7 +57,7 @@ export const MENU: MenuEntry[] = [
     M("JetBrains Gateway", "ides-and-editors/jetbrains-gateway", [], "beta"),
     M("VS Code Extensions", "ides-and-editors/vscode-extensions"),
     M("VS Code Settings Sync", "ides-and-editors/settings-sync"),
-    M("Command Line (e.g. Vim)", "ides-and-editors/command-line", []),
+    M("Command Line (SSH)", "ides-and-editors/command-line", []),
     M(
       "Configure your IDE/editor",
       "ides-and-editors/configure-your-editor-ide",

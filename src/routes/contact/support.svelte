@@ -4,7 +4,7 @@
 
 <script lang="ts">
   import type { Form } from "$lib/types/form.type";
-  import type { Email } from "../../functions/submit-form";
+  import type { Email } from "$lib/api/api";
   import OpenGraph from "$lib/components/open-graph.svelte";
   import SubmissionSuccess from "$lib/components/submission-success.svelte";
   import { onMount, tick } from "svelte";
@@ -22,7 +22,7 @@
     noOfEngineers as noOfEngineersArray,
   } from "$lib/contents/contact";
   import Select from "$lib/components/ui-library/select/select.svelte";
-  import InputsHalf from "./inputs-half.svelte";
+  import InputsHalf from "$lib/components/contact/inputs-half.svelte";
 
   const studentUnlimitedSubject = "Educational Discount Verification";
 
@@ -171,7 +171,7 @@
     };
 
     try {
-      const response = await fetch("/.netlify/functions/submit-form", {
+      const response = await fetch("/api/submit-form", {
         method: "POST",
         body: JSON.stringify(email),
       });

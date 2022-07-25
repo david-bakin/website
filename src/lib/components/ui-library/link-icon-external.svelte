@@ -1,9 +1,14 @@
 <script lang="ts">
   export let href: string;
   export let icon: string;
+  export let size: "small" | "big" = "small";
+  export let variant: "white" | "gray" = "white";
 </script>
 
 <style lang="postcss">
+  a {
+    @apply text-important;
+  }
   a,
   span {
     /* Move to markup once src/lib/assets/markdown-commons.scss is gone */
@@ -15,15 +20,17 @@
       filter: invert(80%) grayscale(80%);
       @apply transition-all duration-200;
     }
-
-    &:hover img {
-      filter: none;
-    }
   }
 </style>
 
 <a
-  class="link-icon-external inline-flex text-center py-2 px-4 text-btn-small leading-4 rounded-xl shadow-light dark:shadow-none font-semibold bg-card text-important hover:bg-tertiary focus:bg-tertiary dark:hover:bg-quaternary dark:hover:text-black"
+  class="link-icon-external inline-flex px-4 text-center leading-4 shadow-light dark:shadow-none font-semibold {variant ===
+  'white'
+    ? 'bg-card'
+    : 'bg-sand-dark dark:bg-light-black'} hover:bg-white focus:bg-tertiary dark:hover:bg-light-black-hover {size ===
+  'small'
+    ? 'py-2 text-btn-small rounded-xl'
+    : 'py-4 text-xl rounded-2xl'}"
   {href}
   target="_blank"
   rel="noopener"
