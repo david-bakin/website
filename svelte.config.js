@@ -47,6 +47,9 @@ const config = {
         preserveSymlinks: true,
       },
       server: {
+        fs: {
+          allow: [".."],
+        },
         hmr: {
           clientPort: process.env.GITPOD_WORKSPACE_URL ? 443 : 3000,
           host: process.env.GITPOD_WORKSPACE_URL

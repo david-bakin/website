@@ -18,32 +18,36 @@ function M(
 
 export const MENU: MenuEntry = M(
   `Gitpod Self-Hosted - v${version}`,
-  `self-hosted/${version}`,
+  `self-hosted/${version}/intro`,
   [
-    M(`Installation Guides`, `self-hosted/${version}/installation-guides`, [
-      M(`Local Preview`, `self-hosted/${version}/local-preview`, [], `alpha`),
-      M(`Getting Started`, `self-hosted/${version}/getting-started`),
+    M("Installation Guides", `self-hosted/${version}/installation-guides`, [
+      M("Local Preview", `self-hosted/${version}/local-preview`, [], "alpha"),
+      M("Getting Started", `self-hosted/${version}/getting-started`),
       M(
-        `Reference Architectures`,
+        "Reference Architectures",
         `self-hosted/${version}/reference-architecture`,
         [],
-        `alpha`
+        "alpha"
       ),
-      M(`Cluster Set-Up`, `self-hosted/${version}/cluster-set-up`),
-      M(`Advanced Installation`, `self-hosted/${version}/advanced`),
+      M("Cluster Set-Up", `self-hosted/${version}/cluster-set-up`),
+      M("Advanced Installation", `self-hosted/${version}/advanced`),
     ]),
-    M(`Operational Guides`, `self-hosted/${version}/operational-guides`, [
-      M(`Updating`, `self-hosted/${version}/updating`),
-      M(`Monitoring`, `self-hosted/${version}/monitoring`),
+    M("Operational Guides", `self-hosted/${version}/operational-guides`, [
+      M("Updating", `self-hosted/${version}/updating`),
+      M("Monitoring", `self-hosted/${version}/monitoring`),
+      M("Backing Up", `self-hosted/${version}/backup-restore`),
     ]),
-    M(`Troubleshooting`, `self-hosted/${version}/troubleshooting`, [
-      M(`Support Bundles`, `self-hosted/${version}/support-bundle`, []),
-      M(`Support Patches`, `self-hosted/${version}/support-patches`, []),
+    M("Troubleshooting", `self-hosted/${version}/troubleshooting`, [
+      M("Support Bundles", `self-hosted/${version}/support-bundle`, []),
+      M("Support Patches", `self-hosted/${version}/support-patches`, []),
     ]),
-    M(`Reference`, `self-hosted/${version}/reference`, [
-      M(`Required Components`, `self-hosted/${version}/required-components`),
-      M(`Releases`, `self-hosted/${version}/releases`),
-      M(`Telemetry`, `self-hosted/${version}/telemetry`),
+    M("Background", `self-hosted/${version}/background`, [
+      M("Disaster Recovery", `self-hosted/${version}/disaster-recovery`),
+    ]),
+    M("Reference", `self-hosted/${version}/reference`, [
+      M("Required Components", `self-hosted/${version}/required-components`),
+      M("Releases", `self-hosted/${version}/releases`),
+      M("Telemetry", `self-hosted/${version}/telemetry`),
     ]),
   ]
 );

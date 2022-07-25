@@ -14,6 +14,7 @@
 
     const split = url.pathname.split("/");
     split[3] = latestRelease.name;
+    split[4] = "intro";
     return {
       status: 301,
       redirect: split.join("/"),
