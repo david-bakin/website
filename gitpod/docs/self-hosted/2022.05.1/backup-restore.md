@@ -1,5 +1,5 @@
 ---
-section: self-hosted/latest
+section: self-hosted
 subsection: operational-guides
 title: How to backup and restore Gitpod
 ---
