@@ -62,7 +62,7 @@ title: "5-10hrs",
 text: "saved per engineer / month",
 },
 {
-title: "75+",
+title: "76+",
 text: "new developers hired",
 }]}
 />
