@@ -29,7 +29,7 @@ There are guides for the most popular cloud providers and Kubernetes distributio
 - [Microsoft Azure Kubernetes Service (AKS)](./cluster-set-up/on-microsoft-aks)
 - [K3s](./cluster-set-up/on-k3s)
 
-After completing the guides you will still need to configure [DNS](./requirements#dns) and have [certificates](./requirements#ssl) ready in order to proceed with the [installation](./getting-started).
+After completing the guides you will still need to configure [certificates](./getting-started#step-2-install-cert-manager) and have [DNS](./getting-started#step-3-configure-dns) ready in order to proceed with the [installation](./getting-started).
 
 ## Cluster Requirements
 
