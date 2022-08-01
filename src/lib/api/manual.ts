@@ -1,5 +1,4 @@
 import saveFeedbackInSheet from "$lib/api/save-to-spreadsheet";
-import sendFeedbackToSlack from "$lib/api/send-to-slack";
 import type { Feedback } from "$lib/api/api";
 
 const emotionSlackEmojiMap = {
@@ -37,13 +36,8 @@ export const submitFeedback = async (body: Feedback) => {
     sheetTitle: feedbackTypetoSheetTitle[body.type],
     data: [new Date(), body.emotion, body.url, body.note],
   });
-  const isSentToSlack = await sendFeedbackToSlack(`${
-    body.type.charAt(0).toUpperCase() + body.type.slice(1)
-  } feedback: ${emotionSlackEmojiMap[body.emotion]}
-Link: ${body.url}
-Note: ${body.note ? body.note : "N/A"}`);
 
-  const statusCode = isSavedInSheet && isSentToSlack ? 201 : 500;
+  const statusCode = isSavedInSheet ? 201 : 500;
   return {
     statusCode,
     body: statusCode === 201 ? "Feedback added" : "Oh no, something failed.",
