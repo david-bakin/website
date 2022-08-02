@@ -9,24 +9,35 @@ title: Configure your IDE/editor
 
 # {title}
 
-Customise the IDE or editor experience for a project, or yourself.
+Which IDE/editor is used when launching workspaces is configured via your [user preferences](https://gitpod.io/preferences) and take effect upon launching new workspaces.
 
-## Per Project
 
-Updating per-project settings are shared with anyone who starts a new gitpod workspace.
+... image of dashboard ...
 
-- Update the projects [.gitpod.yml](/docs/config-gitpod-file) file to install [VS Code extensions](/docs/references/gitpod-yml#vscode), or [JetBrains plugins](/docs/references/gitpod-yml#jetbrains).
-- Update the projects [start tasks](/docs/config-start-tasks) in `.gitpod.yml`
-- Add a custom [base image](/docs/config-docker) to your project
+... notice ... There are currently no ways to configure IDE/editor's on a per-team basis. ... link to GitHub issue/feature request...
 
-## Per User
 
-Updating per-user settings are shared only with the current user of a gitpod workspace.
 
-To configure a specific IDE or editor as a default user preference for all new workspaces, you will need to update your [user preferences](https://gitpod.io/preferences). There is currently no way to configure Gitpod to open different editors or IDEs for different projects. IDE and editor preferences only take effect for new or restarted workspaces. Changing your editor or IDE preference will not affect running workspaces.
+## Terminal / SSH
 
-Set up additional per-user configurations using [dotfiles](/docs/config-dotfiles).
+1. installation of dotfiles
 
-## Per Team
+## Visual Studio Browser
 
-There are currently no ways to configure IDE/editor's on a per-team basis.
+1. explain - configuration of plugins can be at project level
+1. explain - configuration of plugins can be at user level
+1. introduce - openvsx registry and visual studio marketplace is proprietary
+1. advice - if openvsx does not have extension how to add it
+...
+
+## Visual Studio Desktop
+
+1. explain Visual Studio desktop can access the official marketplace.
+1. introduce - `.vscode/settings.json`
+
+
+## Jetbrains
+
+1. explain - configuration of plugins can be at project level
+
+
