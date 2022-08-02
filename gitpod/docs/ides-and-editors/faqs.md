@@ -59,4 +59,4 @@ No, JetBrains Remote Development and Gateway are available only in the IntelliJ 
 
 ## Can I use JetBrains Projector with Gitpod?
 
-Gitpod does not officially support [JetBrains Projector](https://lp.jetbrains.com/projector/). Gitpod has support for [JetBrains Gateway](/docs/ides-and-editors/jetbrains-gateway), which is the primary tool for remote development when using JetBrains IDE's.
+JetBrains has ceased development of [JetBrains Projector](https://lp.jetbrains.com/projector/) and we no longer recommend using the standalone version of JetBrains Projector. Gitpod has support for [JetBrains Gateway](/docs/ides-and-editors/jetbrains-gateway), which is the successor and primary tool for remote development when using JetBrains IDE's.
