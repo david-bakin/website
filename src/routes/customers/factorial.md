@@ -5,7 +5,7 @@ slug: factorial
 image: teaser.png
 date: Thursday, 23 June 2022 06:00:00 UTC
 pageTitle: "Factorial case study: From in-house remote development to unlocking a collaboration culture"
-pageDescription: From in-house remote development to unlocking a collaboration culture. Saving each engineer 5 to 10 hours a month. Freeing the DevOps team to focus on production as Factorial grows from 45 developers to 120.
+pageDescription: From in-house remote development to unlocking a collaboration culture. Saving each engineer 5 to 10 hours a month. Freeing the DevOps team to focus on production as Factorial grows from 45 developers to 130.
 keywords: DevX, velocity, growth, onboarding, factorial
 ---
 
