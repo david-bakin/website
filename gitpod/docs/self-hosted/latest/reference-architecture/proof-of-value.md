@@ -389,7 +389,7 @@ aws iam delete-policy --policy-arn 'arn:aws:iam::12344:policy/gitpod_s3_access_p
 
 </CloudPlatformToggle>
 
-## Ingress
+## Networking
 
 <Networking />
 
