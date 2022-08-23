@@ -55,3 +55,15 @@ You want to use your own database, registry, object storage, or source control m
 ## Troubleshooting
 
 Refer to the [troubleshooting section](./latest/troubleshooting) for help with your Gitpod Self-Hosted Instance. You can also take a look at our [support page](/support) to learn how to reach our community and support team.
+
+## Supported web browsers
+
+Gitpod supports the **current** and **previous** major versions of the following web browsers:
+
+- Mozilla Firefox
+- Google Chrome
+- Chromium
+- Apple Safari
+- Microsoft Edge
+
+> **Note:** We don’t support running Gitpod with JavaScript disabled in the browser.
