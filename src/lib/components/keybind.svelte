@@ -14,11 +14,11 @@
           }
           switch (key) {
             case "AltOption":
-              return `<kbd title="Use ⌥ (Option) on macOS and Alt on Windows">${
+              return `<kbd title="Use ⌥ (Option) on macOS and Alt on Windows / Linux">${
                 isMac ? "⌥" : "Alt"
               }</kbd>`;
             case "CtrlCmd":
-              return `<kbd title="Use ⌘ (Command) on macOS and Ctrl on Windows">${
+              return `<kbd title="Use ⌘ (Command) on macOS and Ctrl on Windows / Linux">${
                 isMac ? "⌘" : "Ctrl"
               }</kbd>`;
             default:
