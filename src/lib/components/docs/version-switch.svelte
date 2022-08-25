@@ -1,0 +1,56 @@
+<!-- <script lang="ts">
+  import { goto } from "$app/navigation";
+  import { page } from "$app/stores";
+  import { tick } from "svelte";
+  import { versions } from "$lib/contents/docs/versions";
+  import topicsState from "./states/topics-state";
+  export let version: string;
+
+  console.log(versions);
+
+  async function versionChangeHandler() {
+    await tick();
+    const split = $page.url.pathname.split("/");
+    split[3] = version;
+    goto(split.join("/"));
+  }
+</script>
+
+<style lang="postcss">
+  select {
+    background-position: right 1em top 50%, 0 0;
+    background-image: url("/arrow-grey.svg");
+    background-size: 1em auto, 100%;
+    background-repeat: no-repeat, repeat;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .switcher:not(.topics-active) {
+    @apply hidden lg:block;
+  }
+</style>
+
+<div
+  class="w-full mb-4 sm:px-4 md:px-0 switcher {$topicsState
+    ? 'topics-active'
+    : ''}"
+>
+  <select
+    id="version-switch"
+    class="box-border bg-card rounded-2xl text-important border-divider border px-4 py-2 appearance-none w-full"
+    on:change={versionChangeHandler}
+    bind:value={version}
+  >
+    <option disabled>Self-Hosted Version</option>
+    {#each versions as release}
+      <option value={release.name}>{release.name}</option>
+    {/each}
+  </select>
+  {#if version !== versions[0].name}
+    <legend class="text-sm text-error mt-2"
+      >You are not using the latest Self-Hosted Version. Please consider
+      upgrading to the newest</legend
+    >
+  {/if}
+</div> -->

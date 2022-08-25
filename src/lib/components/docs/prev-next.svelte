@@ -1,7 +1,9 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import { getMenuContext } from "$lib/contents/docs/menu";
-  const menuCtx = getMenuContext($page.url.pathname);
+  import { getContext } from "svelte";
+  import { sidebarKey } from "$lib/contents/docs/key";
+  const menuCtx = getMenuContext($page.url.pathname, getContext(sidebarKey));
 </script>
 
 <div
