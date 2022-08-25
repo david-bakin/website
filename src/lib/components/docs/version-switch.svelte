@@ -43,7 +43,11 @@
     use:popperRef
   >
     {version}
-    <img src="/arrow-grey.svg" alt="dropdown arrow" />
+    <img
+      class:rotate-180={displayVersions}
+      src="/arrow-grey.svg"
+      alt="dropdown arrow"
+    />
   </button>
   {#if displayVersions}
     <ul
