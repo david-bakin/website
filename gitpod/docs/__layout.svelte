@@ -7,13 +7,13 @@
       versions.filter((item) => item.name === url.pathname.split("/")[2])
         .length > 0
         ? url.pathname.split("/")[2]
-        : "saas";
+        : "Saas";
 
     const sidebars = Object.entries(
       import.meta.globEager("/src/lib/contents/docs/versioned_sidebars/*ts")
     ).reduce((acc, [path, data]) => {
       const filename = path.split("/").pop().replace(/\.ts$/, "");
-      acc[filename] = data.MENU;
+      acc[filename.toLowerCase()] = data.MENU;
       return acc;
     }, {});
 
@@ -43,12 +43,13 @@
   import type { MenuEntry } from "$lib/types/menu-entry.type";
   import type { Load } from "@sveltejs/kit";
   import { sidebarKey } from "$lib/contents/docs/key";
+  import VersionSwitch from "$lib/components/docs/version-switch.svelte";
 
   let extendSticky: boolean = false;
   export let sidebars: { [key: string]: MenuEntry[] };
   export let version: string;
 
-  $: activeSidebar = sidebars[version];
+  $: activeSidebar = sidebars[version.toLowerCase()];
 
   $: {
     setContext(sidebarKey, activeSidebar);
@@ -77,8 +78,9 @@
     <Menu MENU={activeSidebar} />
   </div>
   <div class="lg:w-3/5 lg:pl-4">
-    <div class="block lg:hidden">
+    <div class="block lg:hidden relative">
       <Search />
+      <VersionSwitch {version} />
     </div>
     <MobileMenu MENU={activeSidebar} />
     <div class="lg:border-l lg:border-r lg:border-divider">
@@ -89,7 +91,8 @@
     class:extended-sticky={extendSticky}
     class="lg:w-1/5 flex-col top-24 self-start sticky gap-4 pl-8 hidden lg:flex max-w-none flex-auto min-w-0"
   >
-    <div class="lg:mb-4">
+    <div class="lg:mb-4 relative">
+      <VersionSwitch {version} />
       <EditInGitpod />
     </div>
     <OnThisPageNav />
