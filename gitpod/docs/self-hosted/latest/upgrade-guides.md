@@ -12,15 +12,25 @@ title: Upgrade Guides and Breaking Changes
 
 This page informs you if there are specific considerations to take into account when upgrading to a specific version. If no breaking changes and thus specific recommendations when updating are mentioned here, please follow the normal upgrade procedure mentioned on the [Updating your Gitpod Installation](../latest/updating) page.
 
+## 2022.08
+
+**Custom labels from the pod selector labels removed**
+
+[11954](https://github.com/gitpod-io/gitpod/pull/11954): remove custom labels from the pod selector labels. This removes this [limitation](https://www.gitpod.io/docs/self-hosted/latest/advanced/customization#limitations) so this is a long-term improvement. The impact of this should be handled transparently for you by the KOTS installer.
+
+**Usage of PodSecurityPolicies removed**
+
+[12336](https://github.com/gitpod-io/gitpod/pull/12336): Removal of PodSecurityPolicies. These were deprecated from Kubernetes 1.21 and removed from 1.25. This allows Gitpod to run on Kubernetes 1.25+, which is scheduled for imminent release. If you have PodSecurityPolicies enabled in your cluster, we suggest you enable them if possible. if an installation is deployed to a cluster with PSPs enabled, they will need to add `experimental.common.usePodSecurityPolicies = true` to a [config-patch file](./config-patches) - however, do note that this is not maintained and will be deprecated soon.
+
 ## 2022.07
 
-### Setting the service type of the proxy component
+**Setting the service type of the proxy component**
 
 You can now configure the service type of the proxy service in the installation UI (see image below) - you do not need to upload a `.yaml` file as a [config patch](./config-patches) anymore to configure this. However, having it in the config patch will still work until December.
 
 ![proxy service type UI](../../static/images/docs/self-hosted/proxy-service-type-ui.png)
 
-### Setting the default workspace image and which image registries the default image can be pulled from
+**Setting the default workspace image and which image registries the default image can be pulled from**
 
 We've moved the configuration of the default workspace image and the default base image registry whitelist out of the experimental section of the [config-patch](../latest/config-patches) file. The latter was also renamed. Using them in the experimental section will still work for the time being (until approx. December 2022).
 
