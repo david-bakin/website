@@ -36,7 +36,7 @@ For simplicity we use a GitHub template, but Gitpod works similarly with GitLab 
 
 The revised URL is: `https://gitpod.io/#prebuild/https://github.com/<github_username>/<my-python-template>`
 
-Gitpod displays the prebuild progress status by running the `init` commands in the _.gitpod.yml_ file before you even start a workspace. Later, when you create a new workspace on a branch, or pull/merge request the workspace loads much faster, because all dependencies are already downloaded and the code is compiled. For more information see [prebuilds](/docs/prebuilds).
+Gitpod displays the prebuild progress status by running the `init` commands in the _.gitpod.yml_ file before you even start a workspace. Later, when you create a new workspace on a branch, or pull/merge request the workspace loads much faster, because all dependencies are already downloaded and the code is compiled. For more information see [prebuilds](../prebuilds).
 
 ## Step 4: Enjoy being ready-to-code 🤙
 
@@ -52,7 +52,7 @@ The extension simply adds a Gitpod button on every project and branch across Git
 
 ![Browser Extension](../../../static/images/docs/browser-extension-lense.png)
 
-If you prefer to not install browser extensions then you can use the Gitpod [browser bookmarklet](/docs/browser-bookmarklet) instead.
+If you prefer to not install browser extensions then you can use the Gitpod [browser bookmarklet](../browser-bookmarklet) instead.
 
 For our partner GitLab we have a native integration into their UI that you can enable here.
 
@@ -74,5 +74,5 @@ Try it out and open 3 workspaces on the same context (e.g. on main or on an issu
 
 You've successfully ran your first workspace and experienced first hand what we mean with ephemeral dev environments. This is just the first step on your journey towards being always ready to code. Helpful resources from here are:
 
-- [Getting started with your own project](/docs/configure)
-- [Git Integrations](/docs/integrations)
+- [Getting started with your own project](../configure)
+- [Git Integrations](../integrations)

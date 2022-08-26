@@ -15,7 +15,7 @@ title: PhpStorm
 <!-- prettier-ignore -->
 # PhpStorm
 
-> {title} is currently in [Beta](/docs/references/gitpod-releases) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/6576).
+> {title} is currently in [Beta](../references/gitpod-releases) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/6576).
 
 ## Getting Started
 
@@ -54,7 +54,7 @@ Unlike with regular development, JetBrains [Remote development](https://www.jetb
 
 - [**{title} backend plugins**](#install-on-title-backend) - The JetBrains {title} backend runs within the remote Gitpod workspace. Backend plugins contribute functionality for IDE experiences relating to the filesystem, tools or languages and frameworks. When installed, **a backend plugin only applies to the currently running Gitpod workspace** and is not associated with a user. However, a plugin can be [preconfigured for all users of a repository](#preconfigure-for-repository) so that the plugin is enabled with every workspace start. It is not currently possible to install a backend plugin that applies to all workspaces of a Gitpod user or team.
 - [**JetBrains Client plugins**](#install-on-jetbrains-client) - The JetBrains client runs on the users local machine and can be thought of as the user interface to the remote {title} backend. Client plugins are different to backend plugins as they contribute to the user interface aspect of the IDE experience (e.g. keyboard shortcuts and themes). Once installed, **a client plugin is enabled for all Gitpod workspaces the user opens** (if the workspace is running the exact same version of the {title} backend where the plugin was initially installed).
-- [**JetBrains Gateway plugins**](/docs/ides-and-editors/jetbrains-gateway#getting-started) - The JetBrains Gateway is an application downloaded onto a users local machine which allows users to start JetBrains Clients that are compatible with the {title} backend, running in a Gitpod workspace. JetBrains Gateway plugins are installed directly in JetBrains Gateway and contribute to remote development connection experiences (e.g. the [Gitpod JetBrains Gateway](https://plugins.jetbrains.com/plugin/18438-gitpod-gateway) plugin).
+- [**JetBrains Gateway plugins**](./jetbrains-gateway#getting-started) - The JetBrains Gateway is an application downloaded onto a users local machine which allows users to start JetBrains Clients that are compatible with the {title} backend, running in a Gitpod workspace. JetBrains Gateway plugins are installed directly in JetBrains Gateway and contribute to remote development connection experiences (e.g. the [Gitpod JetBrains Gateway](https://plugins.jetbrains.com/plugin/18438-gitpod-gateway) plugin).
 
 ### Install on JetBrains Client
 
@@ -94,9 +94,9 @@ You can install a plugin only for **your current workspace** following these ste
 
 #### Preconfigure for repository
 
-> JetBrains plugin support is currently in [Beta](/docs/references/gitpod-releases) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/6576).
+> JetBrains plugin support is currently in [Beta](../references/gitpod-releases) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/6576).
 
-You can share a plugin on **{title} backend** with everybody working on the repository by adding it to [.gitpod.yml](/docs/config-gitpod-file) and pushing to your Git repository.
+You can share a plugin on **{title} backend** with everybody working on the repository by adding it to [.gitpod.yml](../config-gitpod-file) and pushing to your Git repository.
 Each workspace is preconfigured with plugins from the `gitpod.yml` configuration file. For example:
 
 ```yaml
@@ -119,7 +119,7 @@ It is not yet possible to install plugins on **{title} backend** for your user t
 
 ## Indexing using Prebuilds
 
-> JetBrains Prebuilds is currently in [Alpha](/docs/references/gitpod-releases) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/6576).
+> JetBrains Prebuilds is currently in [Alpha](../references/gitpod-releases) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/6576).
 
 When you open the project {title} starts indexing to load modules and
 enable the core functionality like code completion and navigation.
@@ -130,8 +130,8 @@ Gitpod prebuilds allow you to improve it further by indexing before you start a 
 
 To leverage it:
 
-- configure prebuilds for your repository, refer to [Prebuilds](/docs/prebuilds);
-- enable indexing for {title} in prebuilds by editing [.gitpod.yml](/docs/config-gitpod-file) in your repository:
+- configure prebuilds for your repository, refer to [Prebuilds](../prebuilds);
+- enable indexing for {title} in prebuilds by editing [.gitpod.yml](../config-gitpod-file) in your repository:
 
 ```yaml
 jetbrains:
@@ -147,7 +147,7 @@ Users can switch between `stable` and `latest` versions of {title} on the [user 
 
 ## Configure JVM options
 
-> Configuration of JVM options is currently in [Alpha](/docs/references/gitpod-releases) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/8704).
+> Configuration of JVM options is currently in [Alpha](../references/gitpod-releases) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/8704).
 
 You can adjust JVM options for {title} backend, especially if you want to increase the `-Xmx` memory size. For example:
 
@@ -161,12 +161,12 @@ For more detailed information on JVM options, refer to [Common JVM Options](http
 
 ## FAQ
 
-- For the questions about supported IDEs and Editors in Gitpod, refer to [FAQs](/docs/ides-and-editors/faqs).
+- For the questions about supported IDEs and Editors in Gitpod, refer to [FAQs](./faqs).
 
 - For the general questions about JetBrains Remote Development, refer to refer to <a href="https://www.jetbrains.com/help/phpstorm/faq-about-remote-development.html" target="_blank">{title} FAQ</a>.
 
 ## Troubleshooting
 
-- [What should I do if JetBrains Gateway and Gitpod aren’t working?](/docs/troubleshooting#what-should-i-do-if-jetbrains-gateway-and-gitpod-arent-working)
-- [Gitpod logs in JetBrains Client](/docs/troubleshooting#gitpod-logs-in-jetbrains-client)
-- [Gitpod logs in JetBrains Gateway](/docs/troubleshooting#gitpod-logs-in-jetbrains-gateway)
+- [What should I do if JetBrains Gateway and Gitpod aren’t working?](../troubleshooting#what-should-i-do-if-jetbrains-gateway-and-gitpod-arent-working)
+- [Gitpod logs in JetBrains Client](../troubleshooting#gitpod-logs-in-jetbrains-client)
+- [Gitpod logs in JetBrains Gateway](../troubleshooting#gitpod-logs-in-jetbrains-gateway)

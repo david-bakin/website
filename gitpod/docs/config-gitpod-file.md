@@ -22,13 +22,13 @@ ports:
     onOpen: open-preview
 ```
 
-To see a full reference of all available properties, please refer to the [`.gitpod.yml reference`](/docs/references/gitpod-yml) page.
+To see a full reference of all available properties, please refer to the [`.gitpod.yml reference`](./references/gitpod-yml) page.
 
 `youtube: fA2fpqP1xaM`
 
 ## How to provide the .gitpod.yml config file
 
-> **Note**: With the release of [Teams & Projects](/docs/teams-and-projects), you can optionally configure your project at https://gitpod.io/new. If you prefer to commit `.gitpod.yml` to your repository and benefit from source control, please read on.
+> **Note**: With the release of [Teams & Projects](./teams-and-projects), you can optionally configure your project at https://gitpod.io/new. If you prefer to commit `.gitpod.yml` to your repository and benefit from source control, please read on.
 
 In order to tell Gitpod how to prepare a dev environment for your project, you check in a `.gitpod.yml` file into the root of your repository. This way you can
 version your workspace configuration together with your code. If, for example, you need to go back to
@@ -51,6 +51,6 @@ Gitpod provides auto-complete, hover info and validation for the `.gitpod.yml` f
 
 ## See it in action
 
-To test your `.gitpod.yml` file, you need to commit and push the file to your repository and open a new workspace either by using the [Gitpod extension](/docs/browser-extension#browser-extension) or prefixing your repo URL with `https://gitpod.io/#`.
+To test your `.gitpod.yml` file, you need to commit and push the file to your repository and open a new workspace either by using the [Gitpod extension](./browser-extension#browser-extension) or prefixing your repo URL with `https://gitpod.io/#`.
 
 If you don't want to have multiple commits as you're testing and making changes to your `.gitpod.yml`, you can make changes from a new branch.

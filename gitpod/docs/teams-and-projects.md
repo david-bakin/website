@@ -9,7 +9,7 @@ title: Teams & Projects
 
 # {title}
 
-> {title} is currently in [Beta](/docs/references/gitpod-releases) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/5095).
+> {title} is currently in [Beta](./references/gitpod-releases) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/5095).
 
 When you sign up for Gitpod the first time, you automatically gain access to a **Personal Account** where you can also add projects.
 To collaborate with others on projects you can create a **Team** and invite others as team members.
@@ -18,7 +18,7 @@ To collaborate with others on projects you can create a **Team** and invite othe
 
 Teams are used to share projects amongst team members. All users with access to a team can view branches and prebuilds for the projects in the team. They can also open new workspaces directly from a branch in the dashboard.
 
-Owners of a team can manage other members, reset the invite URL, and setup [Team Billing](/docs/team-billing).
+Owners of a team can manage other members, reset the invite URL, and setup [Team Billing](./team-billing).
 
 ### View teams
 

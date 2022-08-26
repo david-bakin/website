@@ -21,7 +21,7 @@ Gitpod uses the name and email from your GitHub account ID to create a new Gitpo
 
 To start a new workspace after logging into Gitpod, use cmd-O (ctrl-O on Windows) or click on the **New Workspace** button in https://gitpod.io/workspaces. This will prompt for a repository URL, or suggest recent repositories opened with your account.
 
-You can also start a Gitpod workspace using a GitHub repository URL. Simply point your browser to the repository URL prefixed with `gitpod.io/#` as described in [Getting Started](/docs/getting-started).
+You can also start a Gitpod workspace using a GitHub repository URL. Simply point your browser to the repository URL prefixed with `gitpod.io/#` as described in [Getting Started](./getting-started).
 
 ## Granting additional GitHub OAuth permissions
 
@@ -35,7 +35,7 @@ You can grant these additional permissions for GitHub at https://gitpod.io/integ
 
 The first time you create a [new Gitpod project](https://gitpod.io/new) you will need to configure our [GitHub App](https://github.com/apps/gitpod-io) to watch your repositories and trigger prebuilds.
 
-> NOTE: Installing the GitHub App for webhooks is only required for github.com, not for [GitHub Enterprise](/docs/github-enterprise-integration) or other git providers.
+> NOTE: Installing the GitHub App for webhooks is only required for github.com, not for [GitHub Enterprise](./github-enterprise-integration) or other git providers.
 
 ![Gitpod new project prompt for GitHub App authorization](../../../static/images/integrations/github-new-project-install-app.png)
 

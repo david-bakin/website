@@ -12,4 +12,4 @@ title: Background
 
 This section gives you relevant background information about Gitpod Self-Hosted:
 
-- [Disaster Recovery](disaster-recovery) - Best practices around disaster recovery
+- [Disaster Recovery](./disaster-recovery) - Best practices around disaster recovery

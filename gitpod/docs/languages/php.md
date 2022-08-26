@@ -37,7 +37,7 @@ Gitpod supports PHP right out of the box, but more advanced features such as deb
 Gitpod installs PHP from [Ondřej Surý's PPA](https://launchpad.net/~ondrej/+archive/ubuntu/php) in [here](https://github.com/gitpod-io/workspace-images/blob/main/chunks/tool-nginx/Dockerfile). The default version should be set to PHP8.
 
 But let's say you want to switch to PHP7.4, follow along!
-At first, add a [.gitpod.Dockerfile](/docs/config-docker) file on your repo with the following content in it:
+At first, add a [.gitpod.Dockerfile](../config-docker) file on your repo with the following content in it:
 
 ```dockerfile
 # You can find the new timestamped tags here: https://hub.docker.com/r/gitpod/workspace-full/tags
@@ -54,7 +54,7 @@ image:
   file: .gitpod.Dockerfile
 ```
 
-Now you can [See it in action on a new workspace](/docs/config-gitpod-file#see-it-in-action)
+Now you can [See it in action on a new workspace](../config-gitpod-file#see-it-in-action)
 
 ## Debugging PHP in Gitpod
 
@@ -64,7 +64,7 @@ The PHP Debug extension allows debugging PHP applications from within Gitpod.
 
 To get this extension for your project, you must do two things:
 
-First, you must create a [.gitpod.Dockerfile](/docs/config-docker) for your repository:
+First, you must create a [.gitpod.Dockerfile](../config-docker) for your repository:
 
 ```dockerfile
 FROM gitpod/workspace-full:2022-05-08-14-31-53
@@ -72,7 +72,7 @@ FROM gitpod/workspace-full:2022-05-08-14-31-53
 RUN sudo install-packages php-xdebug
 ```
 
-Second, reference the above Dockerfile in a [.gitpod.yml](/docs/config-gitpod-file) file, and then also install the extension, like so:
+Second, reference the above Dockerfile in a [.gitpod.yml](../config-gitpod-file) file, and then also install the extension, like so:
 
 ```yaml
 image:
@@ -83,7 +83,7 @@ vscode:
     - felixfbecker.php-debug
 ```
 
-Now you can [See it in action on a new workspace](/docs/config-gitpod-file#see-it-in-action)
+Now you can [See it in action on a new workspace](../config-gitpod-file#see-it-in-action)
 
 Later, you can head over to `Run and Debug` on the left hand side and have fun debugging PHP! You can also create a `launch.json` file.
 
@@ -93,7 +93,7 @@ Finally, here is a full [example repository](https://github.com/gitpod-io/Gitpod
 
 ## PECL Package Manager
 
-Gitpod's default workspace image also comes with the [PECL](https://pecl.php.net/) package manager pre-installed. To install packages with it, you must use `sudo pecl install <EXTENSION>` in your repository's [.gitpod.Dockerfile](/docs/config-docker), e.g. like so:
+Gitpod's default workspace image also comes with the [PECL](https://pecl.php.net/) package manager pre-installed. To install packages with it, you must use `sudo pecl install <EXTENSION>` in your repository's [.gitpod.Dockerfile](../config-docker), e.g. like so:
 
 ```dockerfile
 FROM gitpod/workspace-full

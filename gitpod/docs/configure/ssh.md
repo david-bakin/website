@@ -9,9 +9,9 @@ title: Configure SSH
 
 # {title}
 
-Secure Shell Protocol (SSH) is the basis for connecting to your Gitpod workspace when using [VS Code Desktop](/docs/ides-and-editors/vscode), [JetBrains Gateway](/docs/ides-and-editors/jetbrains-gateway), or accessing via the [command-line](/docs/ides-and-editors/command-line) from a local machine.
+Secure Shell Protocol (SSH) is the basis for connecting to your Gitpod workspace when using [VS Code Desktop](../ides-and-editors/vscode), [JetBrains Gateway](../ides-and-editors/jetbrains-gateway), or accessing via the [command-line](../ides-and-editors/command-line) from a local machine.
 
-See [command-line](/docs/ides-and-editors/command-line) editors & IDEs documentation for more.
+See [command-line](../ides-and-editors/command-line) editors & IDEs documentation for more.
 
 ## Manage your SSH Keys
 
@@ -94,7 +94,7 @@ To delete an SSH key, click the kebab menu to the right of the SSH key in the da
 
 ## SSH Gateway
 
-SSH Gateway facilitates connection via SSH for direct SSH access using uploaded public keys, and using the workspace owner token. Both the [VS Code Desktop](/docs/ides-and-editors/vscode) and [JetBrains](/docs/ides-and-editors/jetbrains-gateway) integrations use SSH Gateway to connect to Gitpod workspaces.
+SSH Gateway facilitates connection via SSH for direct SSH access using uploaded public keys, and using the workspace owner token. Both the [VS Code Desktop](../ides-and-editors/vscode) and [JetBrains](../ides-and-editors/jetbrains-gateway) integrations use SSH Gateway to connect to Gitpod workspaces.
 
 ### What is SSH Gateway?
 
@@ -110,4 +110,4 @@ If you are running a [Self-Hosted](https://www.gitpod.io/self-hosted) Gitpod ins
 1. The installation has the SSH Gateway component configured and deployed
 2. Your networking and firewalls are configured to allow SSH traffic via port `22`.
 
-See the [Self-Hosted Reference Architectures](/docs/self-hosted/latest/reference-architecture) for more.
+See the [Self-Hosted Reference Architectures](../self-hosted/latest/reference-architecture) for more.

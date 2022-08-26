@@ -11,7 +11,7 @@ title: Browser Bookmarklet
 
 Creating a workspace is as easy as prefixing any GitHub URL with `gitpod.io/#`.
 
-For convenience, we developed a Gitpod browser bookmarklet as an alternative to [installing our browser extension](/docs/browser-extension) that does the
+For convenience, we developed a Gitpod browser bookmarklet as an alternative to [installing our browser extension](./browser-extension) that does the
 prefixing for you - as simple as that.
 
 1. Drag the following image to your bookmark bar.

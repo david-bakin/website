@@ -9,7 +9,7 @@ title: VS Code Desktop
 
 # {title}
 
-> VS Code Desktop is currently in [Beta](/docs/references/gitpod-releases) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/5712).
+> VS Code Desktop is currently in [Beta](../references/gitpod-releases) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/5712).
 
 With VS Code Desktop Support, you keep your local editor configurations<sup>1</sup> and benefit from Gitpod's high-spec servers & automated prebuilds. As usual, your code executes in an ephemeral Gitpod workspace, keeping each of your projects isolated from one another.
 
@@ -55,7 +55,7 @@ The three main methods granting VS Code Desktop access to your workspace are:
 2. SSH Gateway access using the owner token
 3. Using Local Companion (legacy)
 
-See [configure SSH](/docs/configure/ssh) for more on SSH Gateway.
+See [configure SSH](../configure/ssh) for more on SSH Gateway.
 
 > **Important:** You must first ensure that `gitpod.remote.useLocalApp` is set to `false` in your VS Code user preferences for Gitpod to connect via the two SSH Gateway methods.
 
@@ -108,7 +108,7 @@ If required, you manually can force VS Code Desktop to always fallback to the Lo
 ![The VS Code Desktop Gitpod extension useLocalApp setting](/images/editors/vscode-local-app-setting-light-theme.png)
 _The VS Code Desktop Gitpod extension "useLocalApp" setting_
 
-> **Deprecation Notice:** The fallback SSH connection using Local Companion for VS Code Desktop will be deprecated in a future release of Gitpod. If you cannot connect to your workspaces directly via SSH, for example, because your firewall is blocking the SSH connection, please [contact support](https://www.gitpod.io/support) with [troubleshooting logs](https://www.gitpod.io/docs/troubleshooting#gitpod-logs-in-vs-code-web-and-desktop).
+> **Deprecation Notice:** The fallback SSH connection using Local Companion for VS Code Desktop will be deprecated in a future release of Gitpod. If you cannot connect to your workspaces directly via SSH, for example, because your firewall is blocking the SSH connection, please [contact support](https://www.gitpod.io/support) with [troubleshooting logs](../troubleshooting#gitpod-logs-in-vs-code-web-and-desktop).
 
 ## Reconnect to VS Code Desktop
 
@@ -167,7 +167,7 @@ It is common convention to be asked for a fingerprint when accessing a new SSH s
 
 You should only be presented with a request to trust the Gitpod workspace when using the legacy Local Companion approach of connecting to VS Code Desktop.
 
-By swapping to the SSH Gateway approach of accessing VS Code Desktop, your known hosts file will be updated automatically. See [connecting to VS Code Desktop](/docs/ides-and-editors/vscode#connecting-to-vs-code-desktop-ssh) for more.
+By swapping to the SSH Gateway approach of accessing VS Code Desktop, your known hosts file will be updated automatically. See [connecting to VS Code Desktop](./vscode#connecting-to-vs-code-desktop-ssh) for more.
 
 ### Workspace Trust
 
@@ -244,7 +244,7 @@ _Passphrase prompt from VS Code requiring the SSH key passphrase_
 If you are still having issues connecting to VS Code Desktop from Gitpod, try:
 
 1. Checking your Gitpod VS Code Desktop extension version is using the latest version.
-2. Attempt to directly connect via SSH using the `-v` to show verbose SSH logs. For example: `ssh -v workspacename@hostname`. You can find the `ssh` command in the workspace list on your Gitpod dashboard, see the [command-line](/docs/ides-and-editors/command-line) docs for more.
-3. If you're a self-hosted customer, ensure [SSH Gateway](/docs/configure/ssh) is configured correctly.
+2. Attempt to directly connect via SSH using the `-v` to show verbose SSH logs. For example: `ssh -v workspacename@hostname`. You can find the `ssh` command in the workspace list on your Gitpod dashboard, see the [command-line](./command-line) docs for more.
+3. If you're a self-hosted customer, ensure [SSH Gateway](../configure/ssh) is configured correctly.
 
-If you are still experiencing issues using VS Code Desktop and Gitpod, please [contact support](/support) with any related [troubleshooting logs](/docs/troubleshooting#gitpod-logs-in-vs-code-web-and-desktop)
+If you are still experiencing issues using VS Code Desktop and Gitpod, please [contact support](/support) with any related [troubleshooting logs](../troubleshooting#gitpod-logs-in-vs-code-web-and-desktop)

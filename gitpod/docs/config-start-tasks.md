@@ -15,11 +15,11 @@ title: Start Tasks
   ! If you update the diagrams, make sure you replace the above, immutable URL !
 -->
 
-To get the most out of ephemeral developer environments, it is important to let Gitpod know how to build your project. We can achieve this by defining `tasks` in the [`.gitpod.yml`](/docs/references/gitpod-yml) configuration file.
+To get the most out of ephemeral developer environments, it is important to let Gitpod know how to build your project. We can achieve this by defining `tasks` in the [`.gitpod.yml`](./references/gitpod-yml) configuration file.
 
 > **Note**: In your local developer environment, you likely set up your project only once. If you work in a team, you probably have written instructions on how to get started. With Gitpod, you automate these manual steps so that a new environment can be set up repeatedly by Gitpod.
 
-Tasks are shell scripts that run on top of the Docker image you configure (learn more about [custom Docker images](/docs/config-docker)).
+Tasks are shell scripts that run on top of the Docker image you configure (learn more about [custom Docker images](./config-docker)).
 
 `youtube: fA2fpqP1xaM`
 
@@ -31,12 +31,12 @@ With Gitpod, you have the following three types of tasks:
 - `init`: Use this for heavy-lifting tasks such as downloading dependencies or compiling source code.
 - `command`: Use this to start your database or development server.
 
-The order in which these tasks execute depends on whether you have [Prebuilds](/docs/prebuilds) configured for your project and which startup scenario applies. Let's look at the details.
+The order in which these tasks execute depends on whether you have [Prebuilds](./prebuilds) configured for your project and which startup scenario applies. Let's look at the details.
 
 > **Caveats**
 >
-> - Any file changes made outside of `/workspace` file hierarchy from `init` tasks will be lost on workspace start when prebuilds are enabled. [Learn more](/docs/prebuilds#workspace-directory-only)
-> - User specific environment variables are not loaded automatically for `init` and `before` tasks but can be loaded if you want. [Learn more](/docs/prebuilds#user-specific-environment-variables-in-prebuilds)
+> - Any file changes made outside of `/workspace` file hierarchy from `init` tasks will be lost on workspace start when prebuilds are enabled. [Learn more](./prebuilds#workspace-directory-only)
+> - User specific environment variables are not loaded automatically for `init` and `before` tasks but can be loaded if you want. [Learn more](./prebuilds#user-specific-environment-variables-in-prebuilds)
 
 ### Prebuild and New Workspaces
 
@@ -144,7 +144,7 @@ tasks:
 
 ### Wait for commands to complete
 
-When working with multiple terminals, you may have a situation where terminal 1 runs build scripts and terminal 2 and 3 require that these scripts complete first. This can be achieved with [`gp sync-await`](/docs/command-line-interface#sync-await) and [`gp sync-done`](/docs/command-line-interface#sync-done).
+When working with multiple terminals, you may have a situation where terminal 1 runs build scripts and terminal 2 and 3 require that these scripts complete first. This can be achieved with [`gp sync-await`](./command-line-interface#sync-await) and [`gp sync-done`](./command-line-interface#sync-done).
 
 ```yaml
 tasks:

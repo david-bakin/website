@@ -10,14 +10,14 @@ title: Configure Ports
 
 # Configure Ports
 
-Gitpod supports exposing HTTP ports via a custom domain that is associated with your workspace. You can also use port forwarding, so that you do not need to update your application if it already references the localhost hostname. You can forward all ports using the [local companion](/docs/ides-and-editors/local-companion), natively in both [VS Code Desktop](/docs/ides-and-editors/vscode), [JetBrains](/docs/ides-and-editors/jetbrains-gateway) and also via the [command-line](/docs/ides-and-editors/command-line) using SSH.
+Gitpod supports exposing HTTP ports via a custom domain that is associated with your workspace. You can also use port forwarding, so that you do not need to update your application if it already references the localhost hostname. You can forward all ports using the [local companion](./ides-and-editors/local-companion), natively in both [VS Code Desktop](./ides-and-editors/vscode), [JetBrains](./ides-and-editors/jetbrains-gateway) and also via the [command-line](./ides-and-editors/command-line) using SSH.
 
 ## Default port behaviors
 
 By default, when a port is opening in a Gitpod workspace, Gitpod will:
 
 1. **Direct HTTP traffic** - When an application starts listening to an HTTP port, Gitpod detects the port and exposes it on a URL that requires authentication. Setting the port to "public" would make the port URL accessible to anyone on the internet (or the installed network if using self-hosted Gitpod).
-1. **Notify the user** - Gitpod sends the user a popup notification in their [IDE or editor](/docs/ides-and-editors) to let the user know that a port has been detected.
+1. **Notify the user** - Gitpod sends the user a popup notification in their [IDE or editor](./ides-and-editors) to let the user know that a port has been detected.
 
 <figure>
 <img class="shadow-medium w-full rounded-xl max-w-3xl mt-x-small" alt="Setting a port public/private in VS Code Browser" src="/images/editors/port-notification-vscode.png">
@@ -35,13 +35,13 @@ You can access the dedicated port URL by pre-pending the port number to the work
 
 e.g `3000-yourworkspace.ws-eu45.gitpod.io`
 
-You can also print the port URL using the [gp url](/docs/command-line-interface) command (e.g. `gp url 3000`).
+You can also print the port URL using the [gp url](./command-line-interface) command (e.g. `gp url 3000`).
 
-And if you prefer listing all open ports URLs at once, use [gp ports list](/docs/command-line-interface) command.
+And if you prefer listing all open ports URLs at once, use [gp ports list](./command-line-interface) command.
 
 ## Configuring port behaviors
 
-To modify or change default port behaviors, update the `ports` section of your [`.gitpod.yml`](/docs/references/gitpod-yml).
+To modify or change default port behaviors, update the `ports` section of your [`.gitpod.yml`](./references/gitpod-yml).
 
 All changes to port behaviors take effect immediately, not requiring a workspace restart.
 
@@ -51,7 +51,7 @@ All changes to port behaviors take effect immediately, not requiring a workspace
 
 The port open event is triggered when a new port is detected as open within the workspace.
 
-Port opening behavior can only be set via the [`.gitpod.yml`](/docs/references/gitpod-yml)
+Port opening behavior can only be set via the [`.gitpod.yml`](./references/gitpod-yml)
 
 The property `onOpen` configures port opening behaviors:
 
@@ -74,14 +74,14 @@ ports:
 
 You can give ports a `name` and a `description` (both optional). These properties will help you to add context about what the port is being used for.
 
-You can execute [`gp ports list`](/docs/command-line-interface#list-1) to output a table-formatted list of ports along with their status, URL, name and description.
+You can execute [`gp ports list`](./command-line-interface#list-1) to output a table-formatted list of ports along with their status, URL, name and description.
 
 <figure>
     <img class="shadow-medium w-full rounded-xl max-w-3xl mt-x-small" alt="Display port name and description on vscode Remote Explorer" src="/images/docs/ports-with-name-cmd.png" />
     <figcaption>Display ports info with gp cli</figcaption>
 </figure>
 
-The port's name and description will be displayed in the Remote Explorer of VS Code Browser's sidebar immediately after you change them in your [`.gitpod.yml`](/docs/references/gitpod-yml).
+The port's name and description will be displayed in the Remote Explorer of VS Code Browser's sidebar immediately after you change them in your [`.gitpod.yml`](./references/gitpod-yml).
 
 <figure>
     <img class="shadow-medium w-full rounded-xl max-w-3xl mt-x-small" alt="Display port name and description on vscode Remote Explorer" src="/images/docs/ports-with-name-vscode.png" />
@@ -95,7 +95,7 @@ The property `visibility` configures who can access a port:
 
 ### Configure port visibility
 
-Port visibility can be set in [`.gitpod.yml`](/docs/references/gitpod-yml), or manually changed within the IDE or editor.
+Port visibility can be set in [`.gitpod.yml`](./references/gitpod-yml), or manually changed within the IDE or editor.
 
 <IdeToggle id="ide-toggle-ports">
 
@@ -166,7 +166,7 @@ Local port forwarding allows you to forward a port running in your Gitpod worksp
 
 ### Local port forwarding via SSH
 
-Using [SSH command-line](/docs/ides-and-editors/command-line) access to your workspace, ports can also be forwarded manually using tools such as the OpenSSH remote login client.
+Using [SSH command-line](./ides-and-editors/command-line) access to your workspace, ports can also be forwarded manually using tools such as the OpenSSH remote login client.
 
 **Example:** Forwarding port `3000` to `localhost:3000`
 

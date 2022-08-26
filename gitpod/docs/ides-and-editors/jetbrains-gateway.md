@@ -9,7 +9,7 @@ title: JetBrains Gateway
 
 # {title}
 
-> {title} is currently in [Beta](/docs/references/gitpod-releases) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/6576).
+> {title} is currently in [Beta](../references/gitpod-releases) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/6576).
 
 [JetBrains Gateway](https://www.jetbrains.com/remote-development/gateway/) is your single entry point to all remote development environments when using JetBrains IDE's. JetBrains Gateway is a compact desktop app that allows you to work remotely with a JetBrains IDE without downloading the full IDE. Gitpod works with JetBrains Gateway via a custom Gitpod [JetBrains Gateway plugin](https://plugins.jetbrains.com/plugin/18438-gitpod-gateway).
 
@@ -24,10 +24,10 @@ All without leaving needing to leave your desktop.
 
 JetBrains Gateway is the underlying technology which enables the Gitpod integration. Support for JetBrains IDEs will be rolled out incrementally. The [JetBrains Gateway plugin](https://plugins.jetbrains.com/plugin/18438-gitpod-gateway) is a standalone feature, so its release cycle is independent individual JetBrains IDE support.
 
-- [IntelliJ](/docs/ides-and-editors/intellij)
-- [GoLand](/docs/ides-and-editors/goland)
-- [PhpStorm](/docs/ides-and-editors/phpstorm)
-- [PyCharm](/docs/ides-and-editors/pycharm)
+- [IntelliJ](./intellij)
+- [GoLand](./goland)
+- [PhpStorm](./phpstorm)
+- [PyCharm](./pycharm)
 
 ## Getting Started
 
@@ -84,7 +84,7 @@ You can also start, and connect to Gitpod workspaces directly from JetBrains Gat
 
 By default the JetBrains Gateway Gitpod plugin points to `gitpod.io` as the default host for listing, opening and managing Gitpod workspaces.
 
-If you're using Gitpod [Self-Hosted](/docs/self-hosted/latest), to update the host:
+If you're using Gitpod [Self-Hosted](../self-hosted/latest), to update the host:
 
 1. Open JetBrains Gateway
 2. Navigate to "preferences" (OSX) or "settings" (Windows/Linux)
@@ -109,6 +109,6 @@ The following diagram details how the JetBrains Gateway client connects and comm
 
 ## Troubleshooting
 
-- [What should I do if JetBrains Gateway and Gitpod aren’t working?](/docs/troubleshooting#what-should-i-do-if-jetbrains-gateway-and-gitpod-arent-working)
-- [Gitpod logs in JetBrains Gateway](/docs/troubleshooting#gitpod-logs-in-jetbrains-gateway)
-- [Gitpod logs in JetBrains Client](/docs/troubleshooting#gitpod-logs-in-jetbrains-client)
+- [What should I do if JetBrains Gateway and Gitpod aren’t working?](../troubleshooting#what-should-i-do-if-jetbrains-gateway-and-gitpod-arent-working)
+- [Gitpod logs in JetBrains Gateway](../troubleshooting#gitpod-logs-in-jetbrains-gateway)
+- [Gitpod logs in JetBrains Client](../troubleshooting#gitpod-logs-in-jetbrains-client)

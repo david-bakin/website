@@ -24,7 +24,7 @@ Gitpod doesn't currently support settings sync with other hosted VS Code environ
 ## My VS Code extensions are not syncing, what should I do?
 
 1. When installing an extension in Gitpod using the `Install (Do Not Sync)` option.
-2. Extensions defined in [`gitpod.yml`](https://www.gitpod.io/docs/config-gitpod-file/)
+2. Extensions defined in [`gitpod.yml`](../config-gitpod-file)
 3. Extensions manually installed from a `vsix` file
 
 ## Can I use both a desktop IDE and a browser editor in Gitpod?
@@ -35,11 +35,11 @@ Yes, you can. Both desktop and browser IDEs/editors have full access to files an
 
 There are many supported ways to edit your code in Gitpod, there is no preferred experience. Gitpod is intended to be flexible to allow you and your team to use the tools you are most familiar and comfortable with. You can edit code in Gitpod using:
 
-1. [JetBrains IDE's](/docs/ides-and-editors) via [JetBrains Gateway](/docs/ides-and-editors/jetbrains-gateway)
-2. [VS Code in the browser](/docs/ides-and-editors/vscode-browser) and [VS Code on desktop](/docs/ides-and-editors/vscode)
-3. [Command-line](/docs/ides-and-editors/command-line) based editors such as Vim
+1. [JetBrains IDE's](../ides-and-editors) via [JetBrains Gateway](./jetbrains-gateway)
+2. [VS Code in the browser](./vscode-browser) and [VS Code on desktop](./vscode)
+3. [Command-line](./command-line) based editors such as Vim
 
-Please see the [IDEs & editors](/docs/ides-and-editors) documentation for more details.
+Please see the [IDEs & editors](../ides-and-editors) documentation for more details.
 
 ## Do I need a license to use JetBrains and Gitpod?
 
@@ -55,7 +55,7 @@ No, JetBrains Remote Development and Gateway are available only in the IntelliJ 
 
 ## Will Gitpod support JetBrains Fleet?
 
-[JetBrains Fleet](https://www.jetbrains.com/fleet/) is a next-generation IDE from JetBrains. The currently supported method of using JetBrains IDE's with Gitpod is on desktop via [JetBrains Gateway](/docs/ides-and-editors/jetbrains-gateway), please refer to our documentation for current [IDE and editor support](/docs/ides-and-editors) and the [Gitpod roadmap](https://www.gitpod.io/roadmap) for future updates.
+[JetBrains Fleet](https://www.jetbrains.com/fleet/) is a next-generation IDE from JetBrains. The currently supported method of using JetBrains IDE's with Gitpod is on desktop via [JetBrains Gateway](./jetbrains-gateway), please refer to our documentation for current [IDE and editor support](../ides-and-editors) and the [Gitpod roadmap](https://www.gitpod.io/roadmap) for future updates.
 
 ## Can I use JetBrains Projector with Gitpod?
 

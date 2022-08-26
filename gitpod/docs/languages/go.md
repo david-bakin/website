@@ -38,7 +38,7 @@ Here are a few Go example projects that are already automated with Gitpod:
 
 </div>
 
-To install Go Test Explorer for your repository, add the following to your [.gitpod.yml](/docs/config-gitpod-file)
+To install Go Test Explorer for your repository, add the following to your [.gitpod.yml](../config-gitpod-file)
 
 ```YAML
 vscode:
@@ -46,7 +46,7 @@ vscode:
     - premparihar.gotestexplorer
 ```
 
-### **[Start-up tasks](/docs/config-start-tasks)**
+### **[Start-up tasks](../config-start-tasks)**
 
 Here is how to have your dependencies automatically fetched before you open your Gitpod workspace!
 
@@ -55,7 +55,7 @@ tasks:
   - init: go get -v -t -d ./...
 ```
 
-A full example of a [.gitpod.yml](/docs/config-gitpod-file) file might look like this
+A full example of a [.gitpod.yml](../config-gitpod-file) file might look like this
 
 ```yaml
 image: gitpod/workspace-full
@@ -70,7 +70,7 @@ vscode:
 
 ### Using the `dep` dependency manager in Gitpod
 
-If your project uses the [`dep`](https://golang.github.io/dep/) dependency manager then you need to add a [.gitpod.Dockerfile](/docs/config-docker) to your project. A basic example that extends the default workspace image might be something like:
+If your project uses the [`dep`](https://golang.github.io/dep/) dependency manager then you need to add a [.gitpod.Dockerfile](../config-docker) to your project. A basic example that extends the default workspace image might be something like:
 
 ```dockerfile
 FROM gitpod/workspace-full
@@ -97,7 +97,7 @@ vscode:
 # Installing custom `go` version on a minimal workspace
 
 Let's say you want go v1.17, follow along!
-At first, add a [.gitpod.Dockerfile](/docs/config-docker) file on your repo with the following content in it:
+At first, add a [.gitpod.Dockerfile](../config-docker) file on your repo with the following content in it:
 
 ```dockerfile
 # You can find the new timestamped tags here: https://hub.docker.com/r/gitpod/workspace-base/tags
@@ -122,7 +122,7 @@ image:
   file: .gitpod.Dockerfile
 ```
 
-Now you can [See it in action on a new workspace](/docs/config-gitpod-file#see-it-in-action)
+Now you can [See it in action on a new workspace](../config-gitpod-file#see-it-in-action)
 
 ## Debugging
 

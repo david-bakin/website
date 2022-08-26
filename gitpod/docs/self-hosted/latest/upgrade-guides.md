@@ -10,7 +10,7 @@ title: Upgrade Guides and Breaking Changes
 
 # Upgrade Guides and Breaking Changes
 
-This page informs you if there are specific considerations to take into account when upgrading to a specific version. If no breaking changes and thus specific recommendations when updating are mentioned here, please follow the normal upgrade procedure mentioned on the [Updating your Gitpod Installation](../latest/updating) page.
+This page informs you if there are specific considerations to take into account when upgrading to a specific version. If no breaking changes and thus specific recommendations when updating are mentioned here, please follow the normal upgrade procedure mentioned on the [Updating your Gitpod Installation](./updating) page.
 
 ## 2022.07
 
@@ -22,7 +22,7 @@ You can now configure the service type of the proxy service in the installation 
 
 ### Setting the default workspace image and which image registries the default image can be pulled from
 
-We've moved the configuration of the default workspace image and the default base image registry whitelist out of the experimental section of the [config-patch](../latest/config-patches) file. The latter was also renamed. Using them in the experimental section will still work for the time being (until approx. December 2022).
+We've moved the configuration of the default workspace image and the default base image registry whitelist out of the experimental section of the [config-patch](./config-patches) file. The latter was also renamed. Using them in the experimental section will still work for the time being (until approx. December 2022).
 
 **Before:**
 

@@ -22,7 +22,7 @@ Gitpod always comes with the latest available Rust toolchain pre-installed using
 
 You can also use `rustup` yourself in Gitpod in order to switch to a different Rust version, or to install extra components. See [the rustup book](https://rust-lang.github.io/rustup/index.html) to learn more about `rustup` itself.
 
-Note: If you try to use `rustup` in your repository's [.gitpod.Dockerfile](/docs/config-docker), you might get the following error:
+Note: If you try to use `rustup` in your repository's [.gitpod.Dockerfile](../config-docker), you might get the following error:
 
 ```
 /bin/sh: rustup command not found
@@ -60,7 +60,7 @@ Here are a few Rust example projects that are already automated with Gitpod:
 
 The most popular Rust VSCode extensions are already pre-installed in Gitpod. But here are a few "nice to have" extensions you may choose to install as well.
 
-In order to install one of these extensions for your repository, simply head to Gitpod's [Extensions panel](/docs/ides-and-editors/vscode-extensions) (find it in the IDE's left vertical menu), then search for the desired extension by name, and install it for your project. This will add an entry to your [.gitpod.yml](/docs/config-gitpod-file) file that ensures all future Gitpod workspaces for your repository will already have this extension pre-installed.
+In order to install one of these extensions for your repository, simply head to Gitpod's [Extensions panel](../ides-and-editors/vscode-extensions) (find it in the IDE's left vertical menu), then search for the desired extension by name, and install it for your project. This will add an entry to your [.gitpod.yml](../config-gitpod-file) file that ensures all future Gitpod workspaces for your repository will already have this extension pre-installed.
 
 ### Rust Test Explorer
 
@@ -92,7 +92,7 @@ Better TOML adds syntax highlighting to your `Cargo.toml`.
 
 To cross-compile with MUSL in Gitpod, you can:
 
-- Run `rustup target add x86_64-unknown-linux-musl`, for example in your [.gitpod.Dockerfile](/docs/config-docker)
+- Run `rustup target add x86_64-unknown-linux-musl`, for example in your [.gitpod.Dockerfile](../config-docker)
 - Then, build with `cargo build --target x86_64-unknown-linux-musl`
 
 To learn more, see [MUSL support for fully static binaries](https://doc.rust-lang.org/edition-guide/rust-2018/platform-and-target-support/musl-support-for-fully-static-binaries.html).
@@ -103,11 +103,11 @@ In this section we will show you how to configure your project for debugging in 
 
 First, before we get to that we need to get some prerequisites set-up.
 
-First we'll install the needed extension. If you haven't already, head over to Gitpod's [Extensions panel](/docs/ides-and-editors/vscode-extensions) (left vertical menu in the IDE) and search for an extension called `Native Debug` by webfreak. When you see it, click to install it for your project.
+First we'll install the needed extension. If you haven't already, head over to Gitpod's [Extensions panel](../ides-and-editors/vscode-extensions) (left vertical menu in the IDE) and search for an extension called `Native Debug` by webfreak. When you see it, click to install it for your project.
 
 The next prerequisite is a Docker configuration.
 
-If you already have a [.gitpod.Dockerfile](/docs/config-docker) just add the following:
+If you already have a [.gitpod.Dockerfile](../config-docker) just add the following:
 
 ```dockerfile
 RUN sudo apt-get -q update \
@@ -135,7 +135,7 @@ RUN sudo apt-get -q update \
 ENV RUST_LLDB=/usr/bin/lldb-8
 ```
 
-Next, add the following to your [.gitpod.yml](/docs/config-gitpod-file) file:
+Next, add the following to your [.gitpod.yml](../config-gitpod-file) file:
 
 ```yaml
 image:

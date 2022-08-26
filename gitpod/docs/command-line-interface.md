@@ -42,7 +42,7 @@ Use "gp [command] --help" for more information about a command.
 
 ## init
 
-Gitpod workspaces can be configured - see [Configuring Workspaces](/docs/configure) for more details. `gp init` generates a default `.gitpod.yml` file. You can customize it to match your requirements.
+Gitpod workspaces can be configured - see [Configuring Workspaces](./configure) for more details. `gp init` generates a default `.gitpod.yml` file. You can customize it to match your requirements.
 
 Alternatively, `gp init -i` is an interactive guide which helps create the `.gitpod.yml` configuration file based on a few questions you answer.
 
@@ -89,7 +89,7 @@ For instance:
 gp preview $(gp url 3000)/my/path/index.html
 ```
 
-If you put this into the `.gitpod.yml` to open the a certain page on startup, make sure you [ignore the default action](/docs/config-ports) when the port opens.
+If you put this into the `.gitpod.yml` to open the a certain page on startup, make sure you [ignore the default action](./config-ports) when the port opens.
 
 ## env
 
@@ -109,7 +109,7 @@ gp env
 
 In situations where you work with multiple terminals and one depends on a task in another terminal to complete, `gp sync-await <name>` waits until you call `gp sync-done <name>` in another terminal.
 
-See [Start Tasks](/docs/config-start-tasks#wait-for-commands-to-complete) for a real-world example.
+See [Start Tasks](./config-start-tasks#wait-for-commands-to-complete) for a real-world example.
 
 ## sync-done
 
@@ -121,11 +121,11 @@ A common use case is the following where we have three terminals:
 - Terminal 2: You use `gp sync-await build && npm run start-database` to wait for the build to complete before you start a database
 - Terminal 3: You use `gp sync-await build && npm run dev` to wait for the build to complete before you start the dev server.
 
-See [Start Tasks](/docs/config-start-tasks#wait-for-commands-to-complete) for a real-world example.
+See [Start Tasks](./config-start-tasks#wait-for-commands-to-complete) for a real-world example.
 
 ## snapshot
 
-For sharing a complete clone of a workspace with others, `gp snapshot` is basically the CLI method for getting a snapshot URL. To learn more about snapshots, see [Collaboration & Sharing of Workspaces](/docs/sharing-and-collaboration#sharing-snapshots)
+For sharing a complete clone of a workspace with others, `gp snapshot` is basically the CLI method for getting a snapshot URL. To learn more about snapshots, see [Collaboration & Sharing of Workspaces](./sharing-and-collaboration#sharing-snapshots)
 
 ```sh
 gp snapshot
@@ -143,7 +143,7 @@ gp stop
 
 ## tasks
 
-Programmatically view and interact with workspace tasks as defined in the project's [.gitpod.yml](/docs/references/gitpod-yml). Useful when using the command line, such as ssh'ing into a workspace or after accidentally losing view of a terminal and it's output.
+Programmatically view and interact with workspace tasks as defined in the project's [.gitpod.yml](./references/gitpod-yml). Useful when using the command line, such as ssh'ing into a workspace or after accidentally losing view of a terminal and it's output.
 
 ### list
 
@@ -173,7 +173,7 @@ gp tasks attach <id>
 
 ## timeout
 
-Interact with workspace timeout configuration. You can learn more in [Life of a Workspace](/docs/life-of-workspace#timeouts).
+Interact with workspace timeout configuration. You can learn more in [Life of a Workspace](./life-of-workspace#timeouts).
 
 ```sh
 gp timeout
@@ -203,7 +203,7 @@ gp timeout show
 
 ## ports
 
-Provides a way to manage a workspace's ports. Applies to both: ports defined in [.gitpod.yml](/docs/references/gitpod-yml) and ports that are undeclared but are opened during the lifetime of the workspace.
+Provides a way to manage a workspace's ports. Applies to both: ports defined in [.gitpod.yml](./references/gitpod-yml) and ports that are undeclared but are opened during the lifetime of the workspace.
 
 ### list
 

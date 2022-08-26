@@ -66,7 +66,6 @@ export const MENU: MenuEntry[] = [
     M(`Java`, `${version}languages/java`),
     M(`C++`, `${version}languages/cpp`),
     M(`Go`, `${version}languages/go`),
-    M(`Bash`, `${version}languages/bash`),
     M(`Ruby`, `${version}languages/ruby`),
     M(`PHP`, `${version}languages/php`),
     M(`Vue`, `${version}languages/vue`),

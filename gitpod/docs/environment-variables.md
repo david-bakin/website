@@ -106,7 +106,7 @@ Subsequently `*/*` makes that variable available in every workspace.
 
 ## Project-Specific Environment Variables
 
-Environment variables which are defined in [project](/docs/teams-and-projects#projects) settings will be visible in prebuilds, and optionally also in workspaces. This is useful for prebuilds to access restricted services.
+Environment variables which are defined in [project](./teams-and-projects#projects) settings will be visible in prebuilds, and optionally also in workspaces. This is useful for prebuilds to access restricted services.
 
 Important notes:
 
@@ -129,7 +129,7 @@ tasks:
     command: echo "$PRINT_ME"
 ```
 
-See [`.gitpod.yml`](/docs/references/gitpod-yml#tasksnenv) for more details.
+See [`.gitpod.yml`](./references/gitpod-yml#tasksnenv) for more details.
 
 ## Providing one-time environment variables via URL
 

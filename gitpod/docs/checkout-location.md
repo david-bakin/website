@@ -36,7 +36,7 @@ tasks:
 In more detail:
 
 - By default, Gitpod clones the repository into the directory `/workspace`, which becomes the
-  root directory for the workspace. With [`checkoutLocation`](/docs/references/gitpod-yml#checkoutlocation) and [`workspaceLocation`](/docs/references/gitpod-yml#workspacelocation) you can
+  root directory for the workspace. With [`checkoutLocation`](./references/gitpod-yml#checkoutlocation) and [`workspaceLocation`](./references/gitpod-yml#workspacelocation) you can
   change this behavior (the paths are taken relative to `/workspace`).
 - Gitpod preconfigures the `$GOPATH` environment variable to include the directory `/workspace/go`.
 - With `go get -v ./...` we retrieve the sources of the dependencies from GitHub.
