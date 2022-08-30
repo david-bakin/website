@@ -228,7 +228,7 @@ managedNodeGroups:
     instanceTypes: ["m6i.xlarge"]
     desiredCapacity: 1
     minSize: 1
-    maxSize: 4
+    maxSize: 50
     maxPodsPerNode: 110
     disableIMDSv1: false
     volumeSize: 300
