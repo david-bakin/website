@@ -250,6 +250,12 @@ managedNodeGroups:
     tags:
       k8s.io/cluster-autoscaler/enabled: "true"
       k8s.io/cluster-autoscaler/gitpod: "owned"
+      # Important - If you change the name of your EKS cluster from the
+      # default cluster name ("gitpod-pov"), update this tag to match
+      # your cluster (`k8s.io/cluster-autoscaler/<cluster-name>: "owned"`)
+      #
+      # For example: `k8s.io/cluster-autoscaler/gitpod-bigcorp-pov: "owned"`
+      k8s.io/cluster-autoscaler/gitpod-pov: "owned"
 
     labels:
       gitpod.io/workload_meta: "true"
