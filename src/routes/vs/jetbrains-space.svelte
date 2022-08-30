@@ -54,7 +54,11 @@
   }}
   btnPrimary={{
     href: "https://www.gitpod.io/docs/ides-and-editors/jetbrains-gateway",
-    text: "Try Now",
+    text: "Try now",
+  }}
+  btnSecondary={{
+    href: "/contact/sales?get-a-demo",
+    text: "Get a demo",
   }}
 />
 
