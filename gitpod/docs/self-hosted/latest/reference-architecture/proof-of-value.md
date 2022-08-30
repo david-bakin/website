@@ -231,7 +231,7 @@ managedNodeGroups:
     maxSize: 50
     maxPodsPerNode: 110
     disableIMDSv1: false
-    volumeSize: 300
+    volumeSize: 512
     volumeType: gp3
     volumeIOPS: 6000
     volumeThroughput: 500
