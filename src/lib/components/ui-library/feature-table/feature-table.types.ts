@@ -24,6 +24,7 @@ export type FeatureTableHeader = {
 export type FeatureImage = {
   path: string;
   alt: string;
+  height?: string;
 };
 
 export type FeatureTableColumnEntry = {
