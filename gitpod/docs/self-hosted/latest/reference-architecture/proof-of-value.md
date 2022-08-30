@@ -157,7 +157,8 @@ metadata:
   name: gitpod-pov
   region: eu-west-1
   version: "1.22"
-  # update tags to ensure all generated resources have atleast these tags applied
+  # Update tags on your other Gitpod AWS resources (such as securitygroup rules)
+  # to match these tags.
   tags:
     department: eng
     team: selfhosted
