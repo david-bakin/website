@@ -80,7 +80,7 @@ You can also start, and connect to Gitpod workspaces directly from JetBrains Gat
     <figcaption>Opening a JetBrains IDE from Gateway</figcaption>
 </figure>
 
-### Configuring the JetBrains Gateway Host
+## Configuring the JetBrains Gateway Host
 
 By default the JetBrains Gateway Gitpod plugin points to `gitpod.io` as the default host for listing, opening and managing Gitpod workspaces.
 
@@ -96,7 +96,7 @@ If you're using Gitpod [Self-Hosted](/docs/self-hosted/latest), to update the ho
     <figcaption>Setting the Gitpod host in the JetBrains Gateway plugin (OSX)</figcaption>
 </figure>
 
-### Configuring JetBrains Gateway Networking
+## Configuring JetBrains Gateway Networking
 
 The following diagram details how the JetBrains Gateway client connects and communicates with Gitpod workspaces, for situations such as configuring corporate networking requirements.
 
@@ -106,6 +106,21 @@ The following diagram details how the JetBrains Gateway client connects and comm
 
 ![JetBrains networking setup](/images/editors/jetbrains-architecture-dark-theme.png)
 ![JetBrains networking setup](/images/editors/jetbrains-architecture-light-theme.png)
+
+## Debugging Performance issues on JetBrains Gateway
+
+When using a Gitpod workspace you might experience performance issues caused by:
+
+- An application using more resources than expected
+- Resource consumption in adjacent containers running on the workspace node.
+
+In your JetBrains IDE within the JetBrains Gateway [Backend Control Center](https://www.jetbrains.com/help/idea/work-inside-remote-project.html#control_center) you can find two metrics relating to your running workspace: `Workspace CPU` and `Workspace Memory`.
+
+The remaining metrics you can find in the Backend Control Center regarding the node that your workspace is running on, and not the workspace itself.
+
+- The performance information is the same that can be found from running the command `gp top` in your workspace.
+
+![](/images/jetbrains-gateway/jetbrains-performance-center.png)
 
 ## Troubleshooting
 
