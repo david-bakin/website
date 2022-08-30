@@ -366,6 +366,32 @@ K8S:.status.nodeInfo.kubeletVersion,\
 Instance-ID:.spec.providerID"
 ```
 
+### Configure cluster autoscaling
+
+```bash
+helm repo add autoscaler https://kubernetes.github.io/autoscaler
+helm repo update
+helm upgrade \
+    --atomic \
+    --cleanup-on-fail \
+    --install \
+    --namespace kube-system \
+    --reset-values \
+    --wait \
+    --set cloudProvider=aws \
+    --set awsRegion=$AWS_REGION \
+    --set autoDiscovery.clusterName=$CLUSTER_NAME \
+    --set serviceAccount.create=false \
+    --set serviceAccount.name=cluster-autoscaler \
+    --set securityContext.fsGroup=65534 \
+    --set extraArgs.skip-nodes-with-local-storage=false \
+    --set extraArgs.skip-nodes-with-system-pods=false \
+    --set extraArgs.expander=least-waste \
+    --set extraArgs.balance-similar-node-groups=true \
+    --set extraArgs.scale-down-utilization-threshold=0.2 \
+    autoscaler autoscaler/cluster-autoscaler
+```
+
 ### Deleting the cluster
 
 When deleting this cluster following your proof of value evaluation, any additional resources added to the VPC will need to be deleted before deleting the cluster, otherwise, cloudformations will fail to delete the VPC and complete deleting the cluster. The alternative is to create a VPC managed separately and install EKS using the additions for working [with existing VPCs](https://eksctl.io/usage/vpc-networking/#use-existing-vpc-other-custom-configuration) in `eksctl`.
