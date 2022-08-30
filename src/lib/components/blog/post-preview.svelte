@@ -37,7 +37,7 @@
     : ''} {layout === 'column'
     ? ''
     : 'lg:flex-row lg:max-w-6xl mx-auto'} rounded-xl bg-card transition-all duration-200 {availability &&
-    'hover:shadow-normal focus:shadow-normal'}"
+    'hover:shadow-default focus:shadow-default'}"
   data-analytics={`{"context":"grid","variant":"preview"}`}
 >
   {#if isMostRecent}

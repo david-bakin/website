@@ -13,7 +13,7 @@
 
 <Card
   size="medium"
-  class="shadow-normal p-xx-small sm:p-x-small md:px-10 md:py-16 flex gap-micro sm:gap-x-small flex-col w-full items-center {fullWidth
+  class="shadow-default p-xx-small sm:p-x-small md:px-10 md:py-16 flex gap-micro sm:gap-x-small flex-col w-full items-center {fullWidth
     ? ''
     : 'max-w-[400px] md:max-w-[544px]'} {className}"
 >

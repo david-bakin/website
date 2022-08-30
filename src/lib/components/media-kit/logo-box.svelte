@@ -22,7 +22,7 @@
 </style>
 
 <div
-  class="logo-box px-small py-medium sm:p-large rounded-4xl shadow-normal md:mx-micro mb-micro md:mb-small {isDark
+  class="logo-box px-small py-medium sm:p-large rounded-4xl shadow-default md:mx-micro mb-micro md:mb-small {isDark
     ? 'dark bg-black dark:bg-card text-white'
     : 'bg-white text-dark-grey'}"
 >

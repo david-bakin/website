@@ -15,7 +15,7 @@
 </script>
 
 <div
-  class="flex flex-col justify-between items-center bg-card rounded-2xl mx-macro px-xx-small py-xx-small md:py-small mb-micro md:mb-small shadow-normal {clazz}"
+  class="flex flex-col justify-between items-center bg-card rounded-2xl mx-macro px-xx-small py-xx-small md:py-small mb-micro md:mb-small shadow-default {clazz}"
   style="width: {width}"
 >
   <div>

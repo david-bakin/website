@@ -16,7 +16,7 @@
 </style>
 
 <div
-  class="relative bg-card rounded-xl max-w-lg mx-auto shadow-normal mb-12 pl-6 sm:pl-7 {clazz}"
+  class="relative bg-card rounded-xl max-w-lg mx-auto shadow-default mb-12 pl-6 sm:pl-7 {clazz}"
 >
   <label for="search" class="sr-only">{label}</label>
   <MagGlass

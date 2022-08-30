@@ -6,7 +6,7 @@
 
 <Card
   size="small"
-  class="sticky left-full lgx:top-40 max-w-[642px] z-10 shadow-normal {clazz}"
+  class="sticky left-full lgx:top-40 max-w-[642px] z-10 shadow-default {clazz}"
 >
   <slot />
 </Card>

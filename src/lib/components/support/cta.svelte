@@ -6,7 +6,7 @@
 
 <Card
   size="medium"
-  class="max-w-[810px] mx-auto shadow-normal p-xx-small sm:p-x-small md:p-small"
+  class="max-w-[810px] mx-auto shadow-default p-xx-small sm:p-x-small md:p-small"
 >
   <section class="flex flex-col sm:flex-row items-center sm:max-w-2xl mx-auto">
     <img

@@ -119,7 +119,7 @@
 <Section>
   <Card
     size="medium"
-    class="shadow-normal flex xl:items-center max-w-none text-left explore"
+    class="shadow-default flex xl:items-center max-w-none text-left explore"
   >
     <div class="explore__text md:py-medium xl:py-0">
       <h2 class="h1">{@html title}</h2>

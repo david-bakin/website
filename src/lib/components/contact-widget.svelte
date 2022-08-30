@@ -183,7 +183,7 @@
     <div data-analytics={`{"label":"Hide/Show Contact Widget"}`}>
       <button
         in:fade={{ duration: 200 }}
-        class="stroked flex group justify-center items-center bg-card h-12 w-12 rounded-full shadow-normal"
+        class="stroked flex group justify-center items-center bg-card h-12 w-12 rounded-full shadow-default"
         on:click={() => {
           areButtonsShown = !areButtonsShown;
         }}

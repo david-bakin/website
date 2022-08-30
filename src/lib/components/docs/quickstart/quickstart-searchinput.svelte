@@ -5,7 +5,7 @@
 </script>
 
 <div class="w-full">
-  <div class="bg-card w-full shadow-normal py-2 rounded-2xl my-4">
+  <div class="bg-card w-full shadow-default py-2 rounded-2xl my-4">
     <div class="flex justify-items-start items-center relative">
       <label for="quickstart-searchinput" class="sr-only">Search</label>
       <MagGlass

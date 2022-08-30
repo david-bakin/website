@@ -34,8 +34,11 @@
 
   --brand-gradient: linear-gradient(137.41deg, #ffad33 14.37%, #ff8a00 91.32%);
 
-  --shadow-slight: 0px 2px 4px var(--off-black);
-  --shadow-highlight: 0px 0px 40px rgba(255, 168, 0, 0.5);
+  // --shadow-slight: 0px 2px 4px var(--off-black);
+  // --shadow-highlight: 0px 0px 40px rgba(255, 168, 0, 0.5);
+
+  --shadow-highlight: 0 0 1.5rem #ffca64;
+  --shadow-image: 0 0 2.5rem rgba(255, 168, 0, 0.5);
 
   --h1: 5rem;
   --h2: 3.375rem;
@@ -97,12 +100,14 @@ body.light {
 
   --less-important: var(--black-hover);
 
-  --shadow-light: 0 1px 1px rgba(0, 0, 0, 0.1);
-  --shadow: 0 0.625rem 1.5rem 0rem rgba(0, 0, 0, 0.08);
-  --shadow-medium: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.1);
-  --shadow-brand: 0 0.625rem 1.5rem var(--brand-quaternary);
-  --shadow-light-1: 0px 3.58399px 8.95998px rgba(0, 0, 0, 0.08),
-    0px 8.95998px 35.8399px rgba(0, 0, 0, 0.12);
+  // --shadow-light: 0 1px 1px rgba(0, 0, 0, 0.1);
+  // --shadow: 0 0.625rem 1.5rem 0rem rgba(0, 0, 0, 0.08);
+  // --shadow-medium: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.1);
+  // --shadow-brand: 0 0.625rem 1.5rem var(--brand-quaternary);
+  // --shadow-light-1: 0px 3.58399px 8.95998px rgba(0, 0, 0, 0.08),
+  //   0px 8.95998px 35.8399px rgba(0, 0, 0, 0.12);
+
+  --shadow-default: 0 0.625rem 1.5rem rgba(0, 0, 0, 0.08);
 }
 
 body.dark {
@@ -116,10 +121,12 @@ body.dark {
 
   --divider: var(--light-black);
 
-  --shadow-light: 0px 10px 24px #000000;
-  --shadow: 0 1rem 2.5rem 0rem rgba(0, 0, 0, 0.4);
-  --shadow-medium: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.5);
-  --shadow-brand: 0px 0px 24px #ffca64;
-  --shadow-light-1: 0px 3.58399px 8.95998px rgba(0, 0, 0, 0.5),
-    0px 8.95998px 35.8399px rgba(0, 0, 0, 0.12);
+  // --shadow-light: 0px 10px 24px #000000;
+  // --shadow: 0 1rem 2.5rem 0rem rgba(0, 0, 0, 0.4);
+  // --shadow-medium: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.5);
+  // --shadow-brand: 0px 0px 24px #ffca64;
+  // --shadow-light-1: 0px 3.58399px 8.95998px rgba(0, 0, 0, 0.5),
+  //   0px 8.95998px 35.8399px rgba(0, 0, 0, 0.12);
+
+  --shadow-default: 0 0.625rem 1.5rem #000000;
 }

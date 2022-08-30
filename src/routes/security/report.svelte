@@ -217,6 +217,6 @@
 <Section>
   <Action
     action={thanksAction}
-    class="mx-auto text-center bg-white max-w-md p-small shadow-normal rounded-2xl"
+    class="mx-auto text-center bg-white max-w-md p-small shadow-default rounded-2xl"
   />
 </Section>

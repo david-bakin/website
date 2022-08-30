@@ -21,7 +21,7 @@
   ];
 </script>
 
-<Card size="medium" class="shadow-normal">
+<Card size="medium" class="shadow-default">
   <Section
     class="flex flex-col max-w-2xl mx-auto lg:max-w-none lg:flex-row items-center px-micro py-small sm:px-small sm:py-medium lg:space-x-small xl:py-24 xl:px-20 xl:space-x-20"
   >

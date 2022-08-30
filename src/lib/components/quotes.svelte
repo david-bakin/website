@@ -51,7 +51,7 @@
 
 <Card
   size="medium"
-  class="shadow-normal quotes pt-micro px-0 sm:px-xx-small sm:pt-x-small sm:pb-micro md:pb-medium lg:px-small mx-auto {clazz}"
+  class="shadow-default quotes pt-micro px-0 sm:px-xx-small sm:pt-x-small sm:pb-micro md:pb-medium lg:px-small mx-auto {clazz}"
 >
   <div class="max-w-4xl mx-auto">
     <div class="flex justify-around flex-wrap max-w-3xl mx-auto">

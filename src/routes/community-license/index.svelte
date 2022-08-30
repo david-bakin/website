@@ -187,7 +187,7 @@
 
 <Card
   size="small"
-  class="shadow-normal p-xx-small sm:py-small sm:px-x-small md:p-medium mb-32 sm:mx-8"
+  class="shadow-default p-xx-small sm:py-small sm:px-x-small md:p-medium mb-32 sm:mx-8"
 >
   {#if isEmailSent}
     <SubmissionSuccess

@@ -8,7 +8,7 @@
 <Section class="max-w-3xl mx-auto">
   <Card
     size="medium"
-    class="flex flex-col items-center max-w-lg mx-auto md:max-w-none md:flex-row py-medium px-small shadow-normal"
+    class="flex flex-col items-center max-w-lg mx-auto md:max-w-none md:flex-row py-medium px-small shadow-default"
   >
     <img
       src="/images/docs/book.png"

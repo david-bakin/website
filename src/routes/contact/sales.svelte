@@ -268,7 +268,7 @@
 <div class="wrapper">
   <Card
     size="small"
-    class="shadow-normal p-xx-small sm:py-small sm:px-x-small md:p-medium lg:mb-xx-large"
+    class="shadow-default p-xx-small sm:py-small sm:px-x-small md:p-medium lg:mb-xx-large"
     styles="margin-top: 0"
   >
     <Section id="form" style="padding: 0; margin: 0">

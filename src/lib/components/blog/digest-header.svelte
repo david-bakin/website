@@ -11,7 +11,7 @@
 </style>
 
 <section
-  class="text-center shadow-normal stroked rounded-2xl p-9 mt-x-large mb-huge bg-card"
+  class="text-center shadow-default stroked rounded-2xl p-9 mt-x-large mb-huge bg-card"
 >
   <h2>More about DevX Digest</h2>
   <p class="text-medium mb-x-small">

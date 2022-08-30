@@ -14,7 +14,7 @@
 </script>
 
 {#if isCard}
-  <Card size="medium" class="shadow-normal">
+  <Card size="medium" class="shadow-default">
     <Section class="text-center {clazz}" {...$$restProps}>
       <h2 class="h3">{title}</h2>
       <Brands {isCustomerStoriesLinkShown} {brands} />

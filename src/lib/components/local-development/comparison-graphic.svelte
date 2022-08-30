@@ -18,7 +18,7 @@
   }
 </style>
 
-<Card size="medium" class="shadow-normal max-w-lg md:max-w-6xl mx-auto">
+<Card size="medium" class="shadow-default max-w-lg md:max-w-6xl mx-auto">
   <Section
     class="flex flex-col py-small px-xx-small sm:px-small md:p-0 md:flex-row items-center  {className}"
   >
