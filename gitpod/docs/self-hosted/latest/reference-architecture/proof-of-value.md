@@ -389,6 +389,7 @@ helm upgrade \
     --set extraArgs.expander=least-waste \
     --set extraArgs.balance-similar-node-groups=true \
     --set extraArgs.scale-down-utilization-threshold=0.2 \
+    --set extraArgs.v=2 \
     autoscaler autoscaler/cluster-autoscaler
 ```
 
