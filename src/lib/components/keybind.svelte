@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { isMac } from "$lib/utils/helpers";
+
   let slotData: HTMLSpanElement;
   let keys: string;
   $: {
@@ -8,18 +10,14 @@
         .split("+")
         .map((key) => key.trim())
         .map((key) => {
-          let isMac = false;
-          if (!navigator.userAgent.toLowerCase().match(/mobile/i)) {
-            isMac = /(Mac)/i.test(navigator.userAgent);
-          }
           switch (key) {
             case "AltOption":
               return `<kbd title="Use ⌥ (Option) on macOS and Alt on Windows / Linux">${
-                isMac ? "⌥" : "Alt"
+                isMac() ? "⌥" : "Alt"
               }</kbd>`;
             case "CtrlCmd":
               return `<kbd title="Use ⌘ (Command) on macOS and Ctrl on Windows / Linux">${
-                isMac ? "⌘" : "Ctrl"
+                isMac() ? "⌘" : "Ctrl"
               }</kbd>`;
             default:
               return `<kbd>${key}</kbd>`;
