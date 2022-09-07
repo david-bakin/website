@@ -40,7 +40,9 @@ export const scrollToElement = async (
 };
 export const isAnExternalLink = (href: string) => href.startsWith("http");
 
-export const isMac = () => navigator.userAgent.includes("Macintosh");
+export const isMac = () =>
+  navigator.userAgent.includes("Macintosh") ||
+  navigator.userAgent.includes("iPad");
 
 export const removeTrailingSlash = (site: string) => {
   return site.replace(/\/$/, "");
