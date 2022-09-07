@@ -798,6 +798,8 @@ az aks create \
 	--resource-group "${RESOURCE_GROUP}"
 ```
 
+After cluster and nodepool creation has been completed fetch the AKS credentials:
+
 ```bash
 az aks get-credentials \
     --name "${CLUSTER_NAME}" \
