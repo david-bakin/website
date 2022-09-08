@@ -83,8 +83,8 @@ https://community.gitpod.io/* https://www.gitpod.io/chat 301!
 /docs/r-in-gitpod /docs/languages/r 301
 /docs/ruby-in-gitpod /docs/languages/ruby 301
 /docs/rust-in-gitpod /docs/languages/rust 301
-/docs/self-hosted/latest/self-hosted /docs/self-hosted/latest 301
-/docs/self-hosted/latest/installation/on-kubernetes /docs/self-hosted/latest/installation 301
+/docs/self-hosted/latest/self-hosted /docs/self-hosted 301
+/docs/self-hosted/latest/installation/on-kubernetes /docs/self-hosted/installation 301
 /docs/vue-in-gitpod /docs/languages/vue 301
 /docs/editors/jetbrains-private-beta /docs/editors/ 301
 /education /pricing#do-you-offer-discounts-for-students-and-educational-institutions 301
@@ -113,8 +113,60 @@ https://community.gitpod.io/* https://www.gitpod.io/chat 301!
 /github-teacher-toolbox /pricing 301
 /customers/4geeks /for/education/4geeks 301
 /customers/bruno-rocha /for/education/bruno-rocha 301
-/docs/self-hosted/latest/reference-architecture/production-ready-single-cluster /docs/self-hosted/latest/reference-architecture/single-cluster-ref-arch 301
+/docs/self-hosted/latest/reference-architecture/production-ready-single-cluster /docs/self-hosted/reference-architecture/single-cluster-ref-arch 301
 /docs/self-hosted/latest/support-patches /docs/self-hosted/latest/config-patches 301
-/docs/self-hosted/latest/getting-started#step-4-install-gitpod /docs/self-hosted/latest/installing-gitpod#install-gitpod 301
-/docs/self-hosted/latest/getting-started /docs/self-hosted/latest/installing-gitpod 301
-/docs/self-hosted/latest/resource-configuration /docs/self-hosted/latest/advanced/resource-configuration 301
+/docs/self-hosted/latest/getting-started#step-4-install-gitpod /docs/self-hosted/installing-gitpod#install-gitpod 301
+/docs/self-hosted/latest/getting-started /docs/self-hosted/installing-gitpod 301
+/docs/self-hosted/latest/resource-configuration /docs/self-hosted/advanced/resource-configuration 301
+
+  /docs/self-hosted/latest/background /docs/self-hosted/background 301
+  /docs/self-hosted/latest/backup-restore /docs/self-hosted/backup-restore 301
+  /docs/self-hosted/latest/cluster-requirements /docs/self-hosted/cluster-requirements 301
+  /docs/self-hosted/latest/config-patches /docs/self-hosted/config-patches 301
+  /docs/self-hosted/latest/disaster-recovery /docs/self-hosted/disaster-recovery 301
+  /docs/self-hosted/latest /docs/self-hosted 301
+  /docs/self-hosted/latest/installation-guides /docs/self-hosted/installation-guides 301
+  /docs/self-hosted/latest/installing-gitpod /docs/self-hosted/installing-gitpod 301
+  /docs/self-hosted/latest/local-preview /docs/self-hosted/local-preview 301
+  /docs/self-hosted/latest/monitoring /docs/self-hosted/monitoring 301
+  /docs/self-hosted/latest/operational-guides /docs/self-hosted/operational-guides 301
+  /docs/self-hosted/latest/reference /docs/self-hosted/reference 301
+  /docs/self-hosted/latest/required-components /docs/self-hosted/required-components 301
+  /docs/self-hosted/latest/requirements /docs/self-hosted/requirements 301
+  /docs/self-hosted/latest/support-bundle /docs/self-hosted/support-bundle 301
+  /docs/self-hosted/latest/telemetry /docs/self-hosted/telemetry 301
+  /docs/self-hosted/latest/troubleshooting /docs/self-hosted/troubleshooting 301
+  /docs/self-hosted/latest/updating /docs/self-hosted/updating 301
+  /docs/self-hosted/latest/upgrade-guides /docs/self-hosted/upgrade-guides 301
+  /docs/self-hosted/latest/administration /docs/self-hosted/administration 301
+  /docs/self-hosted/latest/advanced/air-gap /docs/self-hosted/advanced/air-gap 301
+  /docs/self-hosted/latest/advanced/components /docs/self-hosted/advanced/components 301
+  /docs/self-hosted/latest/advanced/customization /docs/self-hosted/advanced/customization 301
+  /docs/self-hosted/latest/advanced/default-workspace-image /docs/self-hosted/advanced/default-workspace-image 301
+  /docs/self-hosted/latest/advanced/eks-with-alb-and-nlb /docs/self-hosted/advanced/eks-with-alb-and-nlb 301
+  /docs/self-hosted/latest/advanced /docs/self-hosted/advanced 301
+  /docs/self-hosted/latest/advanced/private-registries /docs/self-hosted/advanced/private-registries 301
+  /docs/self-hosted/latest/advanced/resource-configuration /docs/self-hosted/advanced/resource-configuration 301
+  /docs/self-hosted/latest/advanced/tls /docs/self-hosted/advanced/tls 301
+  /docs/self-hosted/latest/cluster-set-up/on-amazon-eks /docs/self-hosted/cluster-set-up/on-amazon-eks 301
+  /docs/self-hosted/latest/cluster-set-up/on-gke /docs/self-hosted/cluster-set-up/on-gke 301
+  /docs/self-hosted/latest/cluster-set-up/on-k3s /docs/self-hosted/cluster-set-up/on-k3s 301
+  /docs/self-hosted/latest/cluster-set-up/on-microsoft-aks /docs/self-hosted/cluster-set-up/on-microsoft-aks 301
+  /docs/self-hosted/latest/configuration/authentication /docs/self-hosted/configuration/authentication 301
+  /docs/self-hosted/latest/configuration/database /docs/self-hosted/configuration/database 301
+  /docs/self-hosted/latest/configuration/docker-registry /docs/self-hosted/configuration/docker-registry 301
+  /docs/self-hosted/latest/configuration /docs/self-hosted/configuration 301
+  /docs/self-hosted/latest/configuration/ingress /docs/self-hosted/configuration/ingress 301
+  /docs/self-hosted/latest/configuration/nodes /docs/self-hosted/configuration/nodes 301
+  /docs/self-hosted/latest/configuration/storage /docs/self-hosted/configuration/storage 301
+  /docs/self-hosted/latest/configuration/vsx-registry /docs/self-hosted/configuration/vsx-registry 301
+  /docs/self-hosted/latest/configuration/workspaces /docs/self-hosted/configuration/workspaces 301
+  /docs/self-hosted/latest/installation /docs/self-hosted/installation 301
+  /docs/self-hosted/latest/installation/on-amazon-eks /docs/self-hosted/installation/on-amazon-eks 301
+  /docs/self-hosted/latest/installation/on-gke 301
+  /docs/self-hosted/latest/installation/on-microsoft-aks /docs/self-hosted/installation/on-microsoft-aks 301
+  /docs/self-hosted/latest/reference-architecture /docs/self-hosted/reference-architecture 301
+  /docs/self-hosted/latest/reference-architecture/proof-of-value /docs/self-hosted/reference-architecture/proof-of-value 301
+  /docs/self-hosted/latest/reference-architecture/single-cluster-ref-arch /docs/self-hosted/reference-architecture/single-cluster-ref-arch 301
+  /docs/self-hosted/latest/releases /docs/self-hosted/releases  301
+
