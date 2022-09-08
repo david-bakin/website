@@ -21,6 +21,7 @@ export const MENU: MenuEntry[] = [
     M(`Dotfiles`, `${version}config-dotfiles`, []),
     M(`SSH`, `${version}configure/ssh`),
     M(`Multi-Repo`, `${version}multi-repo-workspaces`, [], `beta`),
+    M(`Workspace Classes`, `${version}workspace-classes`, [], `beta`),
   ]),
   M(`Develop`, `${version}develop`, [
     M(`One workspace per task`, `${version}workspaces`),
@@ -36,7 +37,7 @@ export const MENU: MenuEntry[] = [
     M(`VS Code Desktop`, `${version}ides-and-editors/vscode`, [], `beta`),
     M(`IntelliJ IDEA`, `${version}ides-and-editors/intellij`, [], `beta`),
     M(`GoLand`, `${version}ides-and-editors/goland`, [], `beta`),
-    M(`PhpStorm`, `i${version}des-and-editors/phpstorm`, [], `beta`),
+    M(`PhpStorm`, `${version}ides-and-editors/phpstorm`, [], `beta`),
     M(`PyCharm`, `${version}ides-and-editors/pycharm`, [], `beta`),
     M(`CLion`, `${version}ides-and-editors/clion`, [], `soon`),
     M(`Rider`, `${version}ides-and-editors/rider`, [], `soon`),
@@ -59,7 +60,7 @@ export const MENU: MenuEntry[] = [
     M(`Command Line (SSH)`, `${version}ides-and-editors/command-line`, []),
     M(`FAQs`, `${version}ides-and-editors/faqs`, []),
   ]),
-  M(`Languages`, `${version}${version}languages`, [
+  M(`Languages`, `${version}languages`, [
     M(`JavaScript`, `${version}languages/javascript`),
     M(`Python`, `${version}languages/python`),
     M(`HTML/CSS`, `${version}languages/html`),
@@ -99,14 +100,15 @@ export const MENU: MenuEntry[] = [
           [],
           `beta`
         ),
-        M(`Getting Started`, `${version}self-hosted/latest/getting-started`),
         M(
           `Reference Architectures`,
           `${version}self-hosted/latest/reference-architecture`,
-          [],
-          `alpha`
+          []
         ),
-        M(`Cluster Set-Up`, `${version}self-hosted/latest/cluster-set-up`),
+        M(
+          `Installing Gitpod`,
+          `${version}self-hosted/latest/installing-gitpod`
+        ),
         M(`Advanced Installation`, `${version}self-hosted/latest/advanced`),
       ]
     ),
@@ -127,12 +129,24 @@ export const MENU: MenuEntry[] = [
         `Required Components`,
         `${version}self-hosted/latest/required-components`
       ),
+      M(
+        `Cluster Requirements`,
+        `${version}self-hosted/latest/cluster-requirements`
+      ),
+      M(
+        `Compatibility Matrix`,
+        `${version}references/product-compatibility-matrix?admin`
+      ),
       M(`Telemetry`, `${version}self-hosted/latest/telemetry`),
       M(`Release Policies`, `${version}self-hosted/latest/releases`),
       M(`Upgrade Guides`, `${version}self-hosted/latest/upgrade-guides`),
     ]),
   ]),
   M(`References`, `${version}references`, [
+    M(
+      `Compatibility Matrix`,
+      `${version}references/product-compatibility-matrix?user`
+    ),
     M(`.gitpod.yml`, `${version}references/gitpod-yml`),
     M(`Command Line Interface`, `${version}command-line-interface`),
     // M(`Custom Docker image`, `references/gitpod-dockerfile`),

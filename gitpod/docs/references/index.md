@@ -11,6 +11,7 @@ title: References
 
 Below are links to Gitpod reference material you may find helpful:
 
+- [Product Compatibility Matrix](./references/product-compatibility-matrix?user)
 - [`.gitpod.yml`](./references/gitpod-yml)
 - [Command Line Interface](./command-line-interface)
 - [Roadmap](./references/roadmap)
