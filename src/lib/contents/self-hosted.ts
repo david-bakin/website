@@ -73,7 +73,7 @@ export const communityPlanTableData: FeatureTableColumn = {
   },
   link: {
     label: "Install now",
-    href: "/docs/self-hosted/latest",
+    href: "/docs/self-hosted",
   },
   enteries: [
     {
@@ -546,7 +546,7 @@ export const selfhostedFAQ: FAQ = {
     {
       title: "How can I install Self-Hosted?",
       content:
-        '<p> You can either install <strong>Gitpod Self-Hosted</strong> on Google GKE, Amazon EKS, Azure AKS, or K3s. See <a href="/docs/self-hosted/latest">Self-Hosted Docs</a> for more information. </p>',
+        '<p> You can either install <strong>Gitpod Self-Hosted</strong> on Google GKE, Amazon EKS, Azure AKS, or K3s. See <a href="/docs/self-hosted">Self-Hosted Docs</a> for more information. </p>',
     },
     {
       title: "How can I pay?",

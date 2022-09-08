@@ -89,57 +89,39 @@ export const MENU: MenuEntry[] = [
     M(`Browser Bookmarklet`, `${version}browser-bookmarklet`),
     M(`Browser Extension`, `${version}browser-extension`),
   ]),
-  M(`Gitpod Self-Hosted`, `${version}self-hosted/latest`, [
-    M(
-      `Installation Guides`,
-      `${version}self-hosted/latest/installation-guides`,
-      [
-        M(
-          `Local Preview`,
-          `${version}self-hosted/latest/local-preview`,
-          [],
-          `beta`
-        ),
-        M(
-          `Reference Architectures`,
-          `${version}self-hosted/latest/reference-architecture`,
-          []
-        ),
-        M(
-          `Installing Gitpod`,
-          `${version}self-hosted/latest/installing-gitpod`
-        ),
-        M(`Advanced Installation`, `${version}self-hosted/latest/advanced`),
-      ]
-    ),
-    M(`Operational Guides`, `${version}self-hosted/latest/operational-guides`, [
-      M(`Updating`, `${version}self-hosted/latest/updating`),
-      M(`Monitoring`, `${version}self-hosted/latest/monitoring`),
-      M(`Backing Up`, `${version}self-hosted/latest/backup-restore`),
-    ]),
-    M(`Troubleshooting`, `${version}self-hosted/latest/troubleshooting`, [
-      M(`Support Bundles`, `${version}self-hosted/latest/support-bundle`, []),
-      M(`Config Patches`, `${version}self-hosted/latest/config-patches`, []),
-    ]),
-    M(`Background`, `${version}self-hosted/latest/background`, [
-      M(`Disaster Recovery`, `${version}self-hosted/latest/disaster-recovery`),
-    ]),
-    M(`Reference`, `${version}self-hosted/latest/reference`, [
+  M(`Gitpod Self-Hosted`, `${version}self-hosted`, [
+    M(`Installation Guides`, `${version}self-hosted/installation-guides`, [
+      M(`Local Preview`, `${version}self-hosted/local-preview`, [], `beta`),
       M(
-        `Required Components`,
-        `${version}self-hosted/latest/required-components`
+        `Reference Architectures`,
+        `${version}self-hosted/reference-architecture`,
+        []
       ),
-      M(
-        `Cluster Requirements`,
-        `${version}self-hosted/latest/cluster-requirements`
-      ),
+      M(`Installing Gitpod`, `${version}self-hosted/installing-gitpod`),
+      M(`Advanced Installation`, `${version}self-hosted/advanced`),
+    ]),
+    M(`Operational Guides`, `${version}self-hosted/operational-guides`, [
+      M(`Updating`, `${version}self-hosted/updating`),
+      M(`Monitoring`, `${version}self-hosted/monitoring`),
+      M(`Backing Up`, `${version}self-hosted/backup-restore`),
+    ]),
+    M(`Troubleshooting`, `${version}self-hosted/troubleshooting`, [
+      M(`Support Bundles`, `${version}self-hosted/support-bundle`, []),
+      M(`Config Patches`, `${version}self-hosted/config-patches`, []),
+    ]),
+    M(`Background`, `${version}self-hosted/background`, [
+      M(`Disaster Recovery`, `${version}self-hosted/disaster-recovery`),
+    ]),
+    M(`Reference`, `${version}self-hosted/reference`, [
+      M(`Required Components`, `${version}self-hosted/required-components`),
+      M(`Cluster Requirements`, `${version}self-hosted/cluster-requirements`),
       M(
         `Compatibility Matrix`,
         `${version}references/product-compatibility-matrix?admin`
       ),
-      M(`Telemetry`, `${version}self-hosted/latest/telemetry`),
-      M(`Release Policies`, `${version}self-hosted/latest/releases`),
-      M(`Upgrade Guides`, `${version}self-hosted/latest/upgrade-guides`),
+      M(`Telemetry`, `${version}self-hosted/telemetry`),
+      M(`Release Policies`, `${version}self-hosted/releases`),
+      M(`Upgrade Guides`, `${version}self-hosted/upgrade-guides`),
     ]),
   ]),
   M(`References`, `${version}references`, [

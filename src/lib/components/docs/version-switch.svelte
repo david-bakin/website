@@ -2,12 +2,28 @@
   import { navigating } from "$app/stores";
   import { versions } from "$lib/contents/docs/versions";
   import { createPopperActions } from "svelte-popperjs";
+  import { page } from "$app/stores";
   import topicsState from "./states/topics-state";
   export let version: string;
 
   $: if ($navigating) {
     displayVersions = false;
   }
+
+  function prepareURL(version: string) {
+    const { pathname } = $page.url;
+    const path = pathname.split("/").filter((p) => p !== "");
+    const urlVersion = path[1];
+    const isVersion = !!versions.find((v) => v.name === urlVersion);
+    if (!isVersion) {
+      path.splice(1, 0, version);
+    } else {
+      path[1] = version;
+    }
+    return "/" + path.filter((v) => v !== "").join("/");
+  }
+
+  prepareURL("");
 
   let displayVersions: boolean = false;
 
@@ -55,11 +71,11 @@
       use:popperContent={popperOptions}
     >
       <li>
-        <a href="/docs">Saas</a>
+        <a href={prepareURL("")}>Saas</a>
       </li>
       {#each versions as release}
         <li>
-          <a href="/docs/{release.name}">{release.name}</a>
+          <a href={prepareURL(release.name)}>{release.name}</a>
         </li>
       {/each}
     </ul>
