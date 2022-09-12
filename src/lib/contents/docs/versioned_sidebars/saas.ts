@@ -30,6 +30,7 @@ export const MENU: MenuEntry[] = [
     M(`Collaboration & Sharing`, `${version}sharing-and-collaboration`),
     M(`Teams & Projects`, `${version}teams-and-projects`, [], `beta`),
     M(`Team Billing`, `${version}team-billing`, [], `beta`),
+    M("Usage-based Billing", `${version}usage-based-billing`, [], "beta"),
     M(`Create a Team Plan`, `${version}teams`, []),
   ]),
   M(`IDEs & Editors`, `${version}ides-and-editors`, [
