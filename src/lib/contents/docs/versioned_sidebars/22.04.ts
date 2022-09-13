@@ -36,7 +36,7 @@ export const MENU: MenuEntry[] = [
     M(`VS Code Desktop`, `${version}ides-and-editors/vscode`, [], `beta`),
     M(`IntelliJ IDEA`, `${version}ides-and-editors/intellij`, [], `beta`),
     M(`GoLand`, `${version}ides-and-editors/goland`, [], `beta`),
-    M(`PhpStorm`, `i${version}des-and-editors/phpstorm`, [], `beta`),
+    M(`PhpStorm`, `${version}ides-and-editors/phpstorm`, [], `beta`),
     M(`PyCharm`, `${version}ides-and-editors/pycharm`, [], `beta`),
     M(`CLion`, `${version}ides-and-editors/clion`, [], `soon`),
     M(`Rider`, `${version}ides-and-editors/rider`, [], `soon`),
