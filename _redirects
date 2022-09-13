@@ -115,6 +115,7 @@ https://community.gitpod.io/* https://www.gitpod.io/chat 301!
 /customers/bruno-rocha /for/education/bruno-rocha 301
 /docs/self-hosted/latest/reference-architecture/production-ready-single-cluster /docs/self-hosted/reference-architecture/single-cluster-ref-arch 301
 /docs/self-hosted/latest/support-patches /docs/self-hosted/latest/config-patches 301
+<<<<<<< HEAD
 /docs/self-hosted/latest/getting-started#step-4-install-gitpod /docs/self-hosted/installing-gitpod#install-gitpod 301
 /docs/self-hosted/latest/getting-started /docs/self-hosted/installing-gitpod 301
 /docs/self-hosted/latest/resource-configuration /docs/self-hosted/advanced/resource-configuration 301
@@ -170,3 +171,9 @@ https://community.gitpod.io/* https://www.gitpod.io/chat 301!
   /docs/self-hosted/latest/reference-architecture/single-cluster-ref-arch /docs/self-hosted/reference-architecture/single-cluster-ref-arch 301
   /docs/self-hosted/latest/releases /docs/self-hosted/releases  301
 
+=======
+/docs/self-hosted/latest/getting-started#step-4-install-gitpod /docs/self-hosted/latest/installing-gitpod#install-gitpod 301
+/docs/self-hosted/latest/getting-started /docs/self-hosted/latest/installing-gitpod 301
+/docs/self-hosted/latest/resource-configuration /docs/self-hosted/latest/advanced/resource-configuration 301
+/blog/gitpodify /guides/gitpodify 301
+>>>>>>> main
