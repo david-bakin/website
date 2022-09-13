@@ -163,7 +163,7 @@ https://community.gitpod.io/* https://www.gitpod.io/chat 301!
 /docs/self-hosted/latest/configuration/workspaces /docs/self-hosted/configuration/workspaces 301
 /docs/self-hosted/latest/installation /docs/self-hosted/installation 301
 /docs/self-hosted/latest/installation/on-amazon-eks /docs/self-hosted/installation/on-amazon-eks 301
-/docs/self-hosted/latest/installation/on-gke 301
+/docs/self-hosted/latest/installation/on-gke /docs/self-hosted/installation/on-gke 301
 /docs/self-hosted/latest/installation/on-microsoft-aks /docs/self-hosted/installation/on-microsoft-aks 301
 /docs/self-hosted/latest/reference-architecture /docs/self-hosted/reference-architecture 301
 /docs/self-hosted/latest/reference-architecture/proof-of-value /docs/self-hosted/reference-architecture/proof-of-value 301
