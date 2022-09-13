@@ -72,7 +72,7 @@
     >
       <li>
         <!-- <a href={prepareURL("")}>Saas</a> -->
-        <a href={"/docs"}>Saas</a>
+        <a class="no-underline" href={"/docs"}>Saas</a>
       </li>
       {#each versions as release}
         <li>
