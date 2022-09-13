@@ -77,7 +77,9 @@
       {#each versions as release}
         <li>
           <!-- <a href={prepareURL(release.name)}>{release.name}</a> -->
-          <a href={`/docs/${release.name}`}>{release.name}</a>
+          <a class="no-underline" href={`/docs/${release.name}`}
+            >{release.name}</a
+          >
         </li>
       {/each}
     </ul>
