@@ -35,11 +35,11 @@ RUN brew tap dart-lang/dart && brew install dart
 
 This Extension adds cool syntax highlighting
 
-![Syntax highlighting example](../../../static/images/docs/AfterSyntaxHighlighting.png)
+![Syntax highlighting example](/images/docs/AfterSyntaxHighlighting.png)
 
 It adds [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) support for autocompletion
 
-![Dart IntelliSense example](../../../static/images/docs/DartIntellisenseExample.png)
+![Dart IntelliSense example](/images/docs/DartIntellisenseExample.png)
 
 ## Try it
 

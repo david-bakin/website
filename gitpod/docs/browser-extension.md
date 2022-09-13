@@ -14,7 +14,7 @@ Creating a workspace is as easy as prefixing any GitHub URL with `gitpod.io/#`.
 For convenience, we developed a Gitpod browser extension. It adds a button to GitHub, GitLab or Bitbucket that does the
 prefixing for you - as simple as that.
 
-![Browser Extension](../../../static/images/docs/browser-extension-lense.png)
+![Browser Extension](/images/docs/browser-extension-lense.png)
 
 We provide the extension for:
 

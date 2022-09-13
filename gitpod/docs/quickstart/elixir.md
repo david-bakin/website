@@ -52,7 +52,7 @@ You can install the Gitpod browser extension on any [Chromium-based](https://chr
 
 The extension simply adds a Gitpod button on every project and branch across GitHub, and Bitbucket that prefixes the URL with `gitpod.io/#` so that you can easily open a new workspace from any Git context.
 
-![Browser Extension](../../../static/images/docs/browser-extension-lense.png)
+![Browser Extension](/images/docs/browser-extension-lense.png)
 
 If you prefer to not install browser extensions then you can use the Gitpod [browser bookmarklet](../browser-bookmarklet) instead.
 

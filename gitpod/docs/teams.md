@@ -23,19 +23,19 @@ You can choose between the **Team Professional** plan, or the **Team Unleashed**
 
 Team Plans are accessed from [gitpod.io/teams/](https://gitpod.io/teams/) in your user settings.
 
-![New Team Plan](../../../static/images/docs/team-plan-new.png)
+![New Team Plan](/images/docs/team-plan-new.png)
 
 Once the payment process is complete, you can manage team members, add more team seats, and also invite team members using a unique public URL.
 
-| Team Plan Billing                                                       | Manage Team Plan Members                                                          |
-| ----------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| ![Team Plan Billing](../../../static/images/docs/team-plan-billing.png) | ![Manage Team Plan Members](../../../static/images/docs/team-plan-membership.png) |
+| Team Plan Billing                                        | Manage Team Plan Members                                           |
+| -------------------------------------------------------- | ------------------------------------------------------------------ |
+| ![Team Plan Billing](/images/docs/team-plan-billing.png) | ![Manage Team Plan Members](/images/docs/team-plan-membership.png) |
 
 You can either directly assign a seat by entering your team member's GitHub, GitLab, or Bitbucket username, or use the `Invite Members` link from the more actions button to get a shareable link. Send the link to your team so they can claim a seat.
 
-| Manage a Team                                             | Invite Members                                            |
-| --------------------------------------------------------- | --------------------------------------------------------- |
-| ![New Team](../../../static/images/docs/teams-manage.jpg) | ![New Team](../../../static/images/docs/teams-invite.jpg) |
+| Manage a Team                              | Invite Members                             |
+| ------------------------------------------ | ------------------------------------------ |
+| ![New Team](/images/docs/teams-manage.jpg) | ![New Team](/images/docs/teams-invite.jpg) |
 
 ## Good to know
 

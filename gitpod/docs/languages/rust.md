@@ -64,7 +64,7 @@ In order to install one of these extensions for your repository, simply head to 
 
 ### Rust Test Explorer
 
-![Rust test explorer example](../../../static/images/docs/rustTest.png)
+![Rust test explorer example](/images/docs/rustTest.png)
 <br>
 <br>
 The Rust Test Explorer makes it easy to run Rust tests.
@@ -73,18 +73,18 @@ The Rust Test Explorer makes it easy to run Rust tests.
 
 > **_Note: This extension outputs emojis by default if the crate version is set at the latest. You can disable this by using `crates.upToDateDecorator` option in your preferences_** > <br>
 
-![A crates extension demo](../../../static/images/docs/cratesDemo.gif)
+![A crates extension demo](/images/docs/cratesDemo.gif)
 The VSCode extension Crates makes it easier to manage your Cargo dependency versions.
 
 ### Search Crates.io
 
-![An example of search crates.io extension](../../../static/images/docs/searchCratesio.gif)
+![An example of search crates.io extension](/images/docs/searchCratesio.gif)
 
 Do you have an idea of a library you want to use but don't know the version well just type in the name of the library and Search Crates.io will get the version.
 
 ### Better TOML
 
-![TOML Syntax highlighting example](../../../static/images/docs/feature_syntax_highlight.png)
+![TOML Syntax highlighting example](/images/docs/feature_syntax_highlight.png)
 
 Better TOML adds syntax highlighting to your `Cargo.toml`.
 
@@ -144,7 +144,7 @@ image:
 
 Now that's out of the way, here is a video on how to configure the debug configuration
 
-![Rust debugging example](../../../static/images/docs/RustDebug.gif)
+![Rust debugging example](/images/docs/RustDebug.gif)
 
 So, basically in this video we:
 

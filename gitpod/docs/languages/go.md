@@ -128,7 +128,7 @@ Now you can [See it in action on a new workspace](../config-gitpod-file#see-it-i
 
 Here is a quick clip on how to automatically configure debugging for Go!
 
-![Go debugging example](../../../static/images/docs/GoDebug.gif)
+![Go debugging example](/images/docs/GoDebug.gif)
 
 So, basically in this video we:
 

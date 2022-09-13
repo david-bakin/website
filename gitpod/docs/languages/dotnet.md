@@ -55,7 +55,7 @@ Alternatively, you can also run your application in so-called watch-mode. In suc
 
 The official C# extension from Microsoft [is proprietary](https://aka.ms/VSCode-DotNet-DbgLicense) and unfortunately cannot be used. The MIT licensed [muhammad-sammy.csharp](https://open-vsx.org/extension/muhammad-sammy/csharp) extension from Samsung brings code completion, snippets, auto-formatting, peek definition, refactoring, hover documentation and breakpoint debugging for C# however!
 
-![C# Extension Demo](../../../static/images/docs/CSharpDemo.png)
+![C# Extension Demo](/images/docs/CSharpDemo.png)
 
 To add this extension to your repository, add the following to your [.gitpod.yml](../config-gitpod-file):
 
@@ -77,7 +77,7 @@ The [Ionide-fsharp](https://ionide.io/) extensin gives F# developers the followi
 - Peek definition
 - And more...
 
-![Ionide fsharp Example](../../../static/images/docs/Iondine_Example.png)
+![Ionide fsharp Example](/images/docs/Iondine_Example.png)
 
 To add this extension to your repository, add the following to your [.gitpod.yml](../config-gitpod-file):
 

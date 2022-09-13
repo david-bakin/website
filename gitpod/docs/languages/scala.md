@@ -42,7 +42,7 @@ Finally, please note that these changes will only take effect in new workspaces.
 
 ## Using the Ammonite REPL
 
-![The Ammonite REPL in action](../../../static/images/docs/AmmoniteRepl.png)
+![The Ammonite REPL in action](/images/docs/AmmoniteRepl.png)
 
 To install the [Ammonite REPL](https://ammonite.io/) in Gitpod, you must add the following to our previously-created [.gitpod.Dockerfile](../config-docker):
 
@@ -129,7 +129,7 @@ image:
 
 ### Scala Syntax (official)
 
-![Scala Syntax demo](../../../static/images/docs/scala-syntax.png)
+![Scala Syntax demo](/images/docs/scala-syntax.png)
 
 Scala Syntax adds basic syntax highlighting for Scala and `sbt` files.
 
@@ -137,7 +137,7 @@ To get it, open Gitpod's **Extensions** panel (left vertical menu in the IDE), t
 
 ### Metals
 
-![An example of the metals in Gitpod](../../../static/images/docs/metals-demo.png)
+![An example of the metals in Gitpod](/images/docs/metals-demo.png)
 
 Metals adds helpful Scala features to Gitpod, for example, advanced autocompletion and debugging support just to name a few. Although to use it you must also have the previously mentioned Scala Syntax.
 
@@ -149,7 +149,7 @@ Boom! You're done! (Just a reminder, don't forget to push the changes.)
 
 To debug Scala code in Gitpod you should use the Metals extension which we just went over. Here is an example of Scala Debugging in action:
 
-![Example of debugging Scala in Gitpod](../../../static/images/docs/scala-debug.gif)
+![Example of debugging Scala in Gitpod](/images/docs/scala-debug.gif)
 
 In general when debugging Scala code, go to the main method, and click the Debug button over it! And boom you're debugging.
 

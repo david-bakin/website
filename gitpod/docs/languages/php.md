@@ -58,7 +58,7 @@ Now you can [See it in action on a new workspace](../config-gitpod-file#see-it-i
 
 ## Debugging PHP in Gitpod
 
-![PHP debugging example](../../../static/images/docs/phpDebug.png)
+![PHP debugging example](/images/docs/phpDebug.png)
 
 The PHP Debug extension allows debugging PHP applications from within Gitpod.
 

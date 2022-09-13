@@ -385,7 +385,7 @@ See [dotfiles](../config-dotfiles) for more.
 
 ### Browser Extension
 
-![Browser Extension](../../../static/images/docs/browser-extension-lense.png)
+![Browser Extension](/images/docs/browser-extension-lense.png)
 
 To make opening Gitpod workspaces easier, install the Gitpod browser extension, which enables an "Open in Gitpod" button on GitHub, GitLab and Bitbucket.
 

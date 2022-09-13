@@ -29,27 +29,27 @@ Users or teams who have been granted free credits, or who have purchased credits
 
 Team owners can configure usage-based billing in their team settings.
 
-![Configure Team Billing](../../../static/images/docs/billing/configure-team-billing.png)
+![Configure Team Billing](/images/docs/billing/configure-team-billing.png)
 
 You can add a payment method with credit card details in Euros or Dollars.
 
-![Add payment details](../../../static/images/docs/billing/add-payment-details.png)
+![Add payment details](/images/docs/billing/add-payment-details.png)
 
 Once billing has been configured, all team members' usage will be billed to the team.
 
-![Active Team Billing](../../../static/images/docs/billing/active-team-billing.png)
+![Active Team Billing](/images/docs/billing/active-team-billing.png)
 
 ## Configure a usage limit
 
 Configuring a usage limit, in total credits, will prevent users from starting workspaces once the limit has been reached.
 
-![Active Team Billing](../../../static/images/docs/billing/update-usage-limit.png)
+![Active Team Billing](/images/docs/billing/update-usage-limit.png)
 
 ## View usage details
 
 Team owners can view usage details for their team for the current (unbilled) billing period, and for previous billing periods.
 
-![Active Team Billing](../../../static/images/docs/billing/view-team-usage-details.png)
+![Active Team Billing](/images/docs/billing/view-team-usage-details.png)
 
 ## Good to know
 
