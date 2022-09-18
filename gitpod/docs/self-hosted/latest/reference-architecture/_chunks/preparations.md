@@ -113,9 +113,8 @@ Make sure your credentials are available by running `az login`. If you're authen
 This guide uses the following tools:
 
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli)
-- [Azure kubelogin](https://github.com/Azure/kubelogin)
 
-If `kubectl` is not present the Azure CLI can be used to install `kubectl` and `kubelogin`.
+If `kubectl` is not present the Azure CLI can be used to install `kubectl`:
 
 ```bash
 sudo az aks install-cli
