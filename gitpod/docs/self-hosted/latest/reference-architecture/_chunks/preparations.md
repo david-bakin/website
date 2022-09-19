@@ -105,6 +105,7 @@ To deploy Gitpod on [Azure Kubernetes Service](https://docs.microsoft.com/en-us/
 - Azure Container Registries
 - Load balancers
 - Azure DNS managed domains (and rights to assign roles on managed zones)
+- Rights to make role assignments in Azure Active Directory
 
 Make sure your credentials are available by running `az login`. If you're authenticating to Azure in an environment that doesn't have a browser you can login with the [Azure device authorization flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-device-code) by running `az login --use-device-code`.
 
