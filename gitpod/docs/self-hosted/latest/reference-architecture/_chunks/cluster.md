@@ -789,8 +789,6 @@ az aks create \
 
 Create a node pool for regular workspaces:
 
-**NOTE**: Same VM size used for both workspaces and services; these need to be adjusted.
-
 ```bash
 az aks nodepool add \
     --name "regularws" \
