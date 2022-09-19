@@ -763,8 +763,6 @@ AKS_VERSION=$(az aks get-versions \
 
 Create the AKS cluster and a default node pool. Gitpod services and other supporting components will run on this node pool.
 
-**TODO**: By default AKS creates cluster using the `kubenet` plugin. Do we need to use the Calico CNI?
-
 ```bash
 az aks create \
     --name "${CLUSTER_NAME}" \
@@ -772,6 +770,8 @@ az aks create \
     --location "${LOCATION}" \
     --resource-group "${RESOURCE_GROUP}" \
     --kubernetes-version "${AKS_VERSION}" \
+    --network-plugin kubenet \
+    --network-policy calico \
     --enable-cluster-autoscaler \
     --enable-managed-identity \
     --min-count "1" \
@@ -793,7 +793,7 @@ Create a node pool for regular workspaces:
 
 ```bash
 az aks nodepool add \
-    --name "regular-workspaces" \
+    --name "regularws" \
     --cluster-name "${CLUSTER_NAME}" \
     --resource-group "${RESOURCE_GROUP}" \
     --kubernetes-version "${AKS_VERSION}" \
@@ -810,14 +810,14 @@ Create a node pool for headless workspaces. As headless workspaces typically run
 
 ```bash
 az aks nodepool add \
-    --name "headless-workspaces" \
+    --name "headlessws" \
     --cluster-name "${CLUSTER_NAME}" \
     --resource-group "${RESOURCE_GROUP}" \
     --kubernetes-version "${AKS_VERSION}" \
     --labels gitpod.io/workload_workspace_headless=true \
     --enable-cluster-autoscaler \
-    --node-count "0" \
-    --min-count "0" \
+    --node-count "1" \
+    --min-count "1" \
     --max-count "50" \
     --max-pods "110" \
     --node-osdisk-size "512" \

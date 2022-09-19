@@ -225,7 +225,7 @@ az network dns zone create --name $DOMAIN_NAME --resource-group $RESOURCE_GROUP
 Authorize the AKS cluster to control DNS records in the zone:
 
 ```bash
-ZONE_ID=$(az network dns zone show --name "${DOMAIN}" --resource-group "${RESOURCE_GROUP}" --query "id" -o tsv)
+ZONE_ID=$(az network dns zone show --name "${DOMAIN_NAME}" --resource-group "${RESOURCE_GROUP}" --query "id" -o tsv)
 KUBELET_OBJECT_ID=$(az aks show --name "${CLUSTER_NAME}" --resource-group "${RESOURCE_GROUP}" --query "identityProfile.kubeletidentity.objectId" -o tsv)
 KUBELET_CLIENT_ID=$(az aks show --name "${CLUSTER_NAME}" --resource-group "${RESOURCE_GROUP}" --query "identityProfile.kubeletidentity.clientId" -o tsv)
 
