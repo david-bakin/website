@@ -85,7 +85,7 @@ The Docker approach gets a bit clumsy if your development tools have a UI such a
 
 Some desktop IDEs have tools that allow automating setups. Eclipse, for instance, has a tool called Oomph. Oomph allows you to declaratively describe an Eclipse IDE including plug-ins, configuration and even workspace setup. (i.e. Git information).
 
-By far the best option is an IDE that runs in browsers, like the new [Theia I](https://theia-ide.org)DE. Theia is open-source under the Eclipse Foundation. It can be seen as VS Code that runs on browsers and desktops and is a bit more customizable.
+By far the best option is an IDE that runs in browsers, like the new [Theia](https://theia-ide.org) IDE. Theia is open-source under the Eclipse Foundation. It can be seen as VS Code that runs on browsers and desktops and is a bit more customizable.
 
 For a simple Docker-based dev environment you could add Theia to your Docker image. It offers a full IDE including terminals to your workspace image.
 

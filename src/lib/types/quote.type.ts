@@ -7,10 +7,13 @@ export type Quote = {
     href: string;
     text: string;
   };
-  companyLogo: {
-    src: string;
-    alt: string;
-  };
+  companyLogo:
+    | {
+        src: string;
+        alt: string;
+      }
+    | any;
+  companyLogoProps?: any;
   img?: {
     src: string;
     alt: string;

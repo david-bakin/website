@@ -19,7 +19,17 @@ keywords: open-source, community, redwoodJS, OSS
 	import Section from "$lib/components/section.svelte";
 	import Story from "$lib/components/customers/story.svelte";
 	import Quote from "$lib/components/quote.svelte";
+  	import OpenGraph from "$lib/components/open-graph.svelte";
 </script>
+
+<OpenGraph
+data={{
+    description:
+      "RedwoodJS was founded by Tom Preston-Werner, the Founder and former CEO of GitHub. Gitpod removed the friction of contributing to RedwoodJS, growing the community.",
+    title: "RedwoodJS case study: Building a community by removing friction",
+    keywords: "open-source, community, redwoodJS, OSS",
+  }}
+/>
 
 <CustomerHero
 title="Increasing Redwood's development velocity by removing the friction to&nbsp;contribute"
@@ -100,7 +110,7 @@ As the configuration is on the repo level, it allows the community to spin up fu
 
 At Gitpod we also created [contribute.dev](https://contribute.dev/), an initiative to discover open source projects like Redwood’s that describe their dev environment as code using Gitpod. This way users know that they can focus on core contributions rather than sacrificing time on developer environment configurations.
 
-Redwood also integrated the “Open in Gitpod” button in their <code>[contributing.md](https://github.com/redwoodjs/redwood/blob/main/CONTRIBUTING.md#browser-based-development-setup)</code> and recorded a 3min Gitpod + RedwoodJS walkthrough [video](https://www.youtube.com/watch?v=_kMuTW3x--s) to help contributors understand the alternative to a tedious setup on their local machine.
+Redwood also integrated the “Open in Gitpod” button in their <code>[contributing.md](https://github.com/redwoodjs/redwood/blob/main/CONTRIBUTING.md#browser-based-development-setup)</code> and recorded a 3min Gitpod + RedwoodJS walk-through [video](https://www.youtube.com/watch?v=_kMuTW3x--s) to help contributors understand the alternative to a tedious setup on their local machine.
 
 <img src="/images/customers/redwoodjs/about-gitpod.png" alt="About Gitpod" class="rounded-t-2xl" />
 

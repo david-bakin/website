@@ -21,6 +21,8 @@ To get the most out of ephemeral developer environments, it is important to let 
 
 Tasks are shell scripts that run on top of the Docker image you configure (learn more about [custom Docker images](/docs/config-docker)).
 
+`youtube: fA2fpqP1xaM`
+
 ## Execution order
 
 With Gitpod, you have the following three types of tasks:
@@ -31,11 +33,17 @@ With Gitpod, you have the following three types of tasks:
 
 The order in which these tasks execute depends on whether you have [Prebuilds](/docs/prebuilds) configured for your project and which startup scenario applies. Let's look at the details.
 
+> **Caveats**
+>
+> - Any file changes made outside of `/workspace` file hierarchy from `init` tasks will be lost on workspace start when prebuilds are enabled. [Learn more](/docs/prebuilds#workspace-directory-only)
+> - User specific environment variables are not loaded automatically for `init` and `before` tasks but can be loaded if you want. [Learn more](/docs/prebuilds#user-specific-environment-variables-in-prebuilds)
+
 ### Prebuild and New Workspaces
 
 In this startup scenario, you can see how Prebuilds impact the execution order of tasks:
 
-![Start tasks for Prebuilds & New Workspace](../../../static/images/docs/beta/configure/start-tasks/prebuilds-new-workspace.png)
+![Start tasks for Prebuilds & New Workspace](../../../static/images/docs/beta/configure/start-tasks/prebuilds-new-workspace-light-theme.png)
+![Start tasks for Prebuilds & New Workspace](../../../static/images/docs/beta/configure/start-tasks/prebuilds-new-workspace-dark-theme.png)
 
 The `init` task is where you want to do the heavy lifting, things like:
 
@@ -48,7 +56,7 @@ As displayed in the diagram above, we highly recommend you enable Prebuilds for 
 
 By the time you start a new workspace, all that's left to do is execute the `before` (optional) and `command` tasks. The latter most often starts a database and/or development server.
 
-> Let Gitpod run the time-consuming `init` tasks continously behind the scene so you and anyone who opens your project on Gitpod doesn't have to wait.
+> Let Gitpod run the time-consuming `init` tasks continuously behind the scene so you and anyone who opens your project on Gitpod doesn't have to wait.
 
 ### Restart a Workspace
 
@@ -56,7 +64,8 @@ When you restart a workspace, Gitpod already executed the `init` task ([see abov
 
 As part of a workspace restart, Gitpod executes the `before` and `command` tasks:
 
-![Restart a workspace](../../../static/images/docs/beta/configure/start-tasks/restart-workspace.png)
+![Restart a workspace](../../../static/images/docs/beta/configure/start-tasks/restart-workspace-light-theme.png)
+![Restart a workspace](../../../static/images/docs/beta/configure/start-tasks/restart-workspace-dark-theme.png)
 
 ### Start a Snapshot
 
@@ -64,7 +73,8 @@ When you start a snapshot, Gitpod already executed the `init` task ([see above](
 
 As part of starting a snapshot, Gitpod executes the `before` and `command` tasks:
 
-![Start a snapshot](../../../static/images/docs/beta/configure/start-tasks/start-snapshot.png)
+![Start a snapshot](../../../static/images/docs/beta/configure/start-tasks/start-snapshot-light-theme.png)
+![Start a snapshot](../../../static/images/docs/beta/configure/start-tasks/start-snapshot-dark-theme.png)
 
 ## Configure the terminal
 
@@ -163,7 +173,7 @@ tasks:
 
 Let's say you have a web app dev server that takes a moment to start up to listen on port 3000. Once it's up and running, you want to run end-to-end tests against `http://localhost:3000`.
 
-You can achieve this with two terminals and the `gp await-port` CLI command.
+You can achieve this with two terminals and the `gp ports await` CLI command.
 
 ```yaml
 tasks:
@@ -173,7 +183,7 @@ tasks:
 
   - name: e2e Tests
     command: |
-      gp await-port 3000
+      gp ports await 3000
       npm run test
 ```
 

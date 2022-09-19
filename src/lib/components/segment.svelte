@@ -9,28 +9,67 @@
     }
   }
 
-  export const trackEvent = (event_name: string, props: any) => {
-    window.analytics?.track(event_name, props, {
-      context: {
-        ip: "0.0.0.0",
-        page: {
-          referrer: window.prevPages?.length == 2 ? window.prevPages[0] : "",
-          url: window.location.href,
-        },
+  const allowsAnalytics = () => {
+    //isDoNotTrack is adopted from Segment snippet, see https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/quickstart/#step-2-add-the-segment-snippet
+    const isDoNotTrack = () =>
+      typeof navigator !== "undefined" &&
+      (parseInt(navigator.doNotTrack) === 1 ||
+        parseInt(window.doNotTrack) === 1 ||
+        // @ts-ignore
+        parseInt(navigator.msDoNotTrack) === 1 ||
+        navigator.doNotTrack === "yes");
+
+    return !!Cookies.get(cookies.ANALYTICAL) && !isDoNotTrack();
+  };
+
+  export const trackEvent = (
+    eventName: string,
+    props: any,
+    isStrictlyNecessary?: boolean
+  ) => {
+    if (!(allowsAnalytics() || isStrictlyNecessary)) {
+      return;
+    }
+    window.analytics?.track(
+      eventName,
+      {
+        ...props,
+        authenticated: !!Cookies.get("gitpod-user"),
       },
-    });
+      {
+        context: {
+          ip: "0.0.0.0",
+          page: {
+            referrer: window.prevPages?.length == 2 ? window.prevPages[0] : "",
+            url: window.location.href,
+          },
+        },
+      }
+    );
   };
 
   export const trackPage = (props: any) => {
-    window.analytics?.page(props, {
-      context: {
-        ip: "0.0.0.0",
-        page: props,
+    if (!allowsAnalytics()) {
+      return;
+    }
+    window.analytics?.page(
+      {
+        ...props,
+        authenticated: !!Cookies.get("gitpod-user"),
       },
-    });
+      {
+        context: {
+          ip: "0.0.0.0",
+          page: props,
+        },
+      }
+    );
   };
 
-  export const trackIdentity = (traits: any) => {
+  export const trackIdentity = (traits: any, isStrictlyNecessary?: boolean) => {
+    if (!(allowsAnalytics() || isStrictlyNecessary)) {
+      return;
+    }
     window.analytics?.identify(traits, {
       context: {
         ip: "0.0.0.0",
@@ -47,6 +86,7 @@
   import { onMount } from "svelte";
   import { page } from "$app/stores";
   import Cookies from "js-cookie";
+  import { cookies } from "$lib/constants";
 
   interface TrackWebsiteClick {
     path: string;
@@ -151,6 +191,15 @@
     //props that were passed directly to the event target take precedence over those passed to ancestor elements, which take precedence over those implicitly determined.
     trackingMsg = { ...trackingMsg, ...ancestorProps, ...passedProps };
 
+    //"signup" context always takes preferences over others (relevant for marketing attribution)
+    if (
+      !Cookies.get("gitpod-user") &&
+      target instanceof HTMLAnchorElement &&
+      (target as HTMLAnchorElement).href.startsWith("https://gitpod.io/")
+    ) {
+      trackingMsg.context = "signup";
+    }
+
     //if dnt was passed to event target or any ancestor, no track call is done
     if (trackingMsg.dnt) {
       return;
@@ -163,14 +212,6 @@
     window.location.hostname === "www.gitpod.io"
       ? "5aJzy2ASNbqx8I0kwppRflDZpL7pS1GO" // Website Production
       : "Xe5zR3MbnyxHsveZr4HvrY35PL9iT0EH"; // Website Staging
-
-  const isDoNotTrack = () =>
-    typeof navigator !== "undefined" &&
-    (parseInt(navigator.doNotTrack) === 1 ||
-      parseInt(window.doNotTrack) === 1 ||
-      // @ts-ignore
-      parseInt(navigator.msDoNotTrack) === 1 ||
-      navigator.doNotTrack === "yes");
 
   onMount(async () => {
     // Override anonymous ID in local storage if it exists in Cookie
@@ -251,14 +292,7 @@
     // Add a version to keep track of what's in the wild.
     analytics.SNIPPET_VERSION = "4.13.2";
 
-    if (isDoNotTrack()) {
-      analytics.initialize = true;
-      // All tracking calls will only trigger a stub.
-    } else {
-      // Load Analytics.js with your key, which will automatically
-      // load the tools you've enabled for your account. Boosh!
-      analytics.load(writeKey);
-    }
+    analytics.load(writeKey);
 
     // Track first page
     trackPage({});

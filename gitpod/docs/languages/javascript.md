@@ -1,5 +1,5 @@
 ---
-section: references
+section: languages
 title: JavaScript in Gitpod
 ---
 
@@ -40,7 +40,6 @@ tasks:
 <span aria-hidden="true">👆</span> In the above example, we are telling Gitpod to run what is in the `init` phase at the time of workspace initialization and then afterwards run whatever is in the `command` phase.
 
 Read more about [start tasks](/docs/config-start-tasks).
-f
 
 ## Node Versions
 
@@ -86,5 +85,5 @@ This section was moved into [Svelte guide](/docs/languages/svelte).
 
 - [Sustainable Node.js development with only a browser](/blog/node-js-development).
 - [Developing a Nuxt.js app entirely in your browser](/blog/developing-nuxtjs-in-browser)
-- [Gitpodifying — The Ultimate Guide](/blog/gitpodify)
+- [Gitpodifying — The Ultimate Guide](/guides/gitpodify)
 - [Debugging Node.js applications in Theia](/blog/node-js-gitpod)

@@ -67,4 +67,4 @@ We are also planning on doing more DNS resiliency work and you [can track it in 
 
 As hard as we try to prevent outages, they sometimes happen. The best we can do is learn from them and improve our infrastructure going forward. We have plans on better support for multi-region clusters (currently we only have two, US and EU), as well as going multi-cloud at some point in the future.
 
-As an apology to our users, [we are also issuing credits to out customers](https://www.gitpod.io/contact/support). If you are a paid user, we’d like to offer you a refund for the last three months. If you are on the free plan, we’d like to offer you a coupon for 3 months of our unleashed plan.
+As an apology to our users, [we are also issuing credits to out customers](/contact/support). If you are a paid user, we’d like to offer you a refund for the last three months. If you are on the free plan, we’d like to offer you a coupon for 3 months of our unleashed plan.

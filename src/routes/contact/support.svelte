@@ -4,29 +4,64 @@
 
 <script lang="ts">
   import type { Form } from "$lib/types/form.type";
-  import type { Email } from "../../functions/submit-form";
+  import type { Email } from "$lib/api/api";
   import OpenGraph from "$lib/components/open-graph.svelte";
   import SubmissionSuccess from "$lib/components/submission-success.svelte";
-  import { onMount } from "svelte";
+  import { onMount, tick } from "svelte";
   import Section from "$lib/components/section.svelte";
   import { trackEvent, trackIdentity } from "$lib/components/segment.svelte";
   import Header from "$lib/components/header.svelte";
+  import Textarea from "$lib/components/ui-library/textarea";
+  import Input from "$lib/components/ui-library/input";
+  import Checkbox from "$lib/components/ui-library/checkbox";
   import Button from "$lib/components/ui-library/button";
+  import Card from "$lib/components/ui-library/card";
+  import { scrollToElement } from "$lib/utils/helpers";
+  import {
+    cloudPlatforms,
+    noOfEngineers as noOfEngineersArray,
+  } from "$lib/contents/contact";
+  import Select from "$lib/components/ui-library/select/select.svelte";
+  import InputsHalf from "$lib/components/contact/inputs-half.svelte";
 
   const studentUnlimitedSubject = "Educational Discount Verification";
 
+  const selfHostingSubject = "Self-hosting Gitpod";
+
   const otherSubject = "Other";
   const subjects = [
-    "Abuse Report",
+    "Question",
+    "Technical Support",
     "Billing",
     studentUnlimitedSubject,
-    "Self-hosting Gitpod",
+    selfHostingSubject,
     "Open Source Sponsorship",
     otherSubject,
   ];
 
+  let isCloudPlatformsSelectShown = false;
+
+  let cloudInfrastructure = {
+    el: null,
+    valid: false,
+    value: "",
+  };
+
+  let noOfEngineers = {
+    el: null,
+    valid: false,
+    value: "",
+  };
+
+  let company = {
+    el: null,
+    valid: false,
+    value: "",
+  };
+
   let isStudentEmailNoteShown: boolean = false;
   let sectionStart: HTMLElement;
+  let isSubmissionInProgress: boolean = false;
 
   $: if (formData.selectedSubject.value === studentUnlimitedSubject) {
     isStudentEmailNoteShown = true;
@@ -61,32 +96,66 @@
       value: "",
     },
   };
+
+  $: if (formData.selectedSubject.value == selfHostingSubject) {
+    isCloudPlatformsSelectShown = true;
+    formData.cloudInfrastructure = cloudInfrastructure;
+    formData.noOfEngineers = noOfEngineers;
+    formData.company = company;
+  } else {
+    isCloudPlatformsSelectShown = false;
+    delete formData.cloudInfrastructure;
+    delete formData.noOfEngineers;
+    delete formData.company;
+  }
+
+  $: isSelfHostedSelected =
+    isCloudPlatformsSelectShown && formData.cloudInfrastructure;
+
   let isFormDirty = false;
   let isEmailSent = false;
 
   $: isFormValid = Object.values(formData).every((field) => field.valid);
 
-  const handleClick = () => {
-    if (!formData.selectedSubject.value) {
-      formData.selectedSubject.value = otherSubject;
-      formData.selectedSubject.valid = true;
-    }
-  };
-
   const handleSubmit = async () => {
     isFormDirty = true;
     if (!isFormValid) {
+      await tick();
+      scrollToElement(sectionStart, ".error");
       return;
     }
+    isSubmissionInProgress = true;
 
-    trackIdentity({
-      name_untrusted: formData.name.value,
-      email_untrusted: formData.email.value,
-    });
+    trackIdentity(
+      {
+        name_untrusted: formData.name.value,
+        email_untrusted: formData.email.value,
+      },
+      true
+    );
 
-    trackEvent("message_submitted", {
-      subject: formData.selectedSubject.value,
-    });
+    trackEvent(
+      "message_submitted",
+      {
+        subject: formData.selectedSubject.value,
+        full_name: formData.name.value,
+        email: formData.email.value,
+        infrastructure:
+          formData.selectedSubject.value == selfHostingSubject
+            ? formData.cloudInfrastructure.value
+            : undefined,
+        company_engineers:
+          formData.selectedSubject.value == selfHostingSubject
+            ? formData.noOfEngineers.value
+            : undefined,
+        company:
+          formData.selectedSubject.value == selfHostingSubject
+            ? formData.company.value
+            : undefined,
+        message: formData.message.value,
+      },
+      true
+    );
 
     const email: Email = {
       replyTo: {
@@ -98,11 +167,28 @@
         "  (from " +
         formData.email.value +
         ")",
-      message: formData.message.value,
+      message: `
+          ${
+            isCloudPlatformsSelectShown
+              ? `Cloud Infrastructure: ${formData.cloudInfrastructure.value}`
+              : ""
+          }
+          ${
+            isCloudPlatformsSelectShown
+              ? `Company: ${formData.company.value}`
+              : ""
+          }
+          Message: ${formData.message.value}
+          ${
+            isCloudPlatformsSelectShown
+              ? `Total number of engineers: ${formData.noOfEngineers.value}`
+              : ""
+          }
+      `,
     };
 
     try {
-      const response = await fetch("/.netlify/functions/submit-form", {
+      const response = await fetch("/api/submit-form", {
         method: "POST",
         body: JSON.stringify(email),
       });
@@ -131,27 +217,29 @@
   .h3 {
     @apply mb-small;
   }
+  .link {
+    @apply underline;
+  }
 
   p {
-    color: var(--dark-grey);
+    color: var(--body);
   }
   form {
     max-width: 45rem;
     margin: auto;
   }
   fieldset ul {
-    display: flex;
-    flex-flow: wrap;
+    @apply flex flex-wrap;
   }
   fieldset li {
-    margin: 0 1rem 0 0;
+    @apply mr-macro;
   }
 </style>
 
 <OpenGraph
   data={{
     description:
-      "Need help with any question or issue? Please get in contact and we’ll get onto it right away.",
+      "Do you need help with any question or issue? Please get in contact with us and we’ll get onto it right away.",
     title: "Contact Support",
   }}
 />
@@ -161,131 +249,212 @@
   text="Need help with any question or issue? Please get in contact and we’ll get
   onto it right away."
   tight={true}
-  class="max-w-2xl"
+  textClassNames="max-w-2xl mx-auto text-large"
 />
 
-<Section
-  class="p-xx-small sm:py-small sm:px-x-small md:p-medium rounded-2xl bg-off-white shadow-xl sm:mx-8"
-  id="form"
-  style="margin-top: 0"
+<Card
+  size="small"
+  class="shadow-normal p-xx-small sm:py-small sm:px-x-small md:p-medium sm:mx-8 mb-xx-large"
 >
-  <div bind:this={sectionStart} data-analytics={`{"dnt":true}`}>
-    {#if isEmailSent}
-      <SubmissionSuccess
-        title="Thank you for your message"
-        text="We received your message. Our team will take a look and get back to you as
+  <Section id="form" style="margin: 0; padding: 0">
+    <div bind:this={sectionStart} data-analytics={`{"dnt":true}`}>
+      {#if isEmailSent}
+        <SubmissionSuccess
+          title="Thank you for your message"
+          text="We received your message. Our team will take a look and get back to you as
       soon as possible."
-      />
-    {:else}
-      <form on:submit|preventDefault={handleSubmit} novalidate>
-        <h2 class="h3 text-center">Send us a message</h2>
-        <ul>
-          <li class:error={isFormDirty && !formData.selectedSubject.valid}>
-            <fieldset>
-              <legend>Please choose a subject*</legend>
-              <ul>
-                {#each subjects as subject, index}
-                  <li>
-                    <input
-                      id="subject-{index}"
-                      type="radio"
-                      bind:group={formData.selectedSubject.value}
-                      bind:this={formData.selectedSubject.el}
-                      on:change={() => {
-                        formData.selectedSubject.valid =
-                          formData.selectedSubject.value &&
-                          formData.selectedSubject.el.validity.valid;
-                      }}
-                      value={subject}
-                      name="subject"
-                    />
-                    <label for="subject-{index}" class="font-medium"
-                      >{subject}</label
+        />
+      {:else}
+        <form on:submit|preventDefault={handleSubmit} novalidate>
+          <h2 class="h3 text-center">Send us a message</h2>
+          <div class="space-y-8">
+            <div class:error={isFormDirty && !formData.selectedSubject.valid}>
+              <fieldset class="flex">
+                <legend>Please choose a subject*</legend>
+                <ul>
+                  {#each subjects as subject, index}
+                    <li>
+                      <input
+                        id="subject-{index}"
+                        type="radio"
+                        bind:group={formData.selectedSubject.value}
+                        bind:this={formData.selectedSubject.el}
+                        on:change={() => {
+                          formData.selectedSubject.valid =
+                            formData.selectedSubject.value &&
+                            formData.selectedSubject.el.validity.valid;
+                        }}
+                        value={subject}
+                        name="subject"
+                      />
+                      <label for="subject-{index}" class="font-medium"
+                        >{subject}</label
+                      >
+                    </li>
+                  {/each}
+                </ul>
+              </fieldset>
+            </div>
+            <InputsHalf>
+              <div>
+                <Input
+                  hasError={isFormDirty && !formData.name.valid}
+                  label="Name*"
+                  id="name"
+                  name="name"
+                  bind:value={formData.name.value}
+                  bind:element={formData.name.el}
+                  on:change={() => {
+                    formData.name.valid =
+                      formData.name.value && formData.name.el.checkValidity();
+                  }}
+                  type="text"
+                  autocomplete="name"
+                />
+              </div>
+              <div class:error={isFormDirty && !formData.email.valid}>
+                <label class="cursor-pointer" for="email"
+                  >E-mail*
+                  {#if isStudentEmailNoteShown}
+                    <span class="fine-print"
+                      >(Please use your student or faculty email)</span
                     >
-                  </li>
-                {/each}
-              </ul>
-            </fieldset>
-          </li>
-          <li class:error={isFormDirty && !formData.name.valid}>
-            <label for="name">Name*</label>
-            <input
-              id="name"
-              bind:value={formData.name.value}
-              bind:this={formData.name.el}
-              on:change={() => {
-                formData.name.valid =
-                  formData.name.value && formData.name.el.checkValidity();
-              }}
-              type="text"
-              autocomplete="name"
-            />
-          </li>
-          <li class:error={isFormDirty && !formData.email.valid}>
-            <label for="email"
-              >E-mail*
-              {#if isStudentEmailNoteShown}
-                (Please use your student or faculty email)
+                  {/if}
+                </label>
+                <Input
+                  hasError={isFormDirty && !formData.email.valid}
+                  id="email"
+                  name="e-mail"
+                  bind:value={formData.email.value}
+                  bind:element={formData.email.el}
+                  on:change={() => {
+                    formData.email.valid =
+                      formData.email.value && formData.email.el.checkValidity();
+                  }}
+                  type="email"
+                  autocomplete="email"
+                />
+              </div>
+            </InputsHalf>
+            {#if isSelfHostedSelected}
+              <InputsHalf>
+                <div
+                  class:error={isFormDirty && !formData.selectedSubject.valid}
+                >
+                  <Select
+                    hasError={isFormDirty &&
+                      !formData.cloudInfrastructure.valid}
+                    name="cloudInfrastructure"
+                    bind:value={formData.cloudInfrastructure.value}
+                    on:change={(e) => {
+                      formData.cloudInfrastructure.valid =
+                        formData.cloudInfrastructure.value &&
+                        // @ts-ignore
+                        e.target.validity.valid;
+                    }}
+                    options={cloudPlatforms}
+                    placeholder="Which cloud infrastructure do you use?"
+                    class="max-w-md"
+                  />
+                </div>
+                <div
+                  class:error={isFormDirty && !formData.selectedSubject.valid}
+                >
+                  <Select
+                    placeholder="Total number of engineers"
+                    hasError={isFormDirty && !formData.noOfEngineers.valid}
+                    name="noOfEngineers"
+                    bind:value={formData.noOfEngineers.value}
+                    bind:element={formData.noOfEngineers.el}
+                    on:change={() => {
+                      formData.noOfEngineers.valid =
+                        formData.noOfEngineers.value &&
+                        formData.noOfEngineers.el.checkValidity();
+                    }}
+                    options={noOfEngineersArray}
+                    class="max-w-md"
+                  />
+                </div>
+              </InputsHalf>
+              <InputsHalf>
+                <div class:error={isFormDirty && !formData.company.valid}>
+                  <Input
+                    label="Company*"
+                    hasError={isFormDirty && !formData.company.valid}
+                    id="company"
+                    name="company"
+                    bind:value={formData.company.value}
+                    bind:element={formData.company.el}
+                    on:change={() => {
+                      formData.company.valid =
+                        formData.company.value &&
+                        formData.company.el.checkValidity();
+                    }}
+                    type="text"
+                    autocomplete="organization"
+                  />
+                </div>
+              </InputsHalf>
+            {/if}
+            <div>
+              <Textarea
+                id="message"
+                label="Your message*"
+                name="message"
+                hasError={isFormDirty && !formData.message.valid}
+                bind:value={formData.message.value}
+                bind:element={formData.message.el}
+                on:change={() => {
+                  formData.message.valid =
+                    formData.message.value &&
+                    formData.message.el.validity.valid;
+                }}
+                cols="30"
+                rows="10"
+              />
+            </div>
+            <div>
+              <Checkbox
+                hasError={isFormDirty && !formData.consent.valid}
+                label="I consent to having this website store my submitted information so that a support staff can respond to my inquiry."
+                bind:checked={formData.consent.checked}
+                bind:element={formData.consent.el}
+                on:change={() => {
+                  formData.consent.valid =
+                    formData.consent.checked &&
+                    formData.consent.el.validity.valid;
+                }}
+              />
+            </div>
+            <div>
+              <p class="text-sm my-4">
+                By submitting this form I acknowledge that I have read and
+                understood <a class="link" href="/privacy"
+                  >Gitpod’s Privacy Policy.</a
+                >
+              </p>
+              <Button
+                variant="cta"
+                size="medium"
+                type="submit"
+                class="btn"
+                disabled={(isFormDirty && !isFormValid) ||
+                  isSubmissionInProgress}
+                isLoading={isSubmissionInProgress}
+                >Send message
+              </Button>
+              {#if isFormDirty && !isFormValid}
+                <legend class="text-xs text-error block mt-1 mb-2">
+                  Please fill out all required fields above
+                </legend>
               {/if}
-            </label>
-            <input
-              id="email"
-              bind:value={formData.email.value}
-              bind:this={formData.email.el}
-              on:change={() => {
-                formData.email.valid =
-                  formData.email.value && formData.email.el.checkValidity();
-              }}
-              type="email"
-              autocomplete="email"
-            />
-          </li>
-          <li class:error={isFormDirty && !formData.message.valid}>
-            <label for="message">Your message*</label>
-            <textarea
-              id="message"
-              bind:value={formData.message.value}
-              bind:this={formData.message.el}
-              on:change={() => {
-                formData.message.valid =
-                  formData.message.value && formData.message.el.validity.valid;
-              }}
-              cols="30"
-              rows="10"
-            />
-          </li>
-          <li class:error={isFormDirty && !formData.consent.valid}>
-            <input
-              id="consent"
-              bind:checked={formData.consent.checked}
-              bind:this={formData.consent.el}
-              on:change={() => {
-                formData.consent.valid =
-                  formData.consent.checked &&
-                  formData.consent.el.validity.valid;
-              }}
-              type="checkbox"
-            />
-            <label for="consent"
-              >I consent to having this website store my submitted information
-              so that a support staff can respond to my inquiry.</label
-            >
-          </li>
-          <li>
-            <Button
-              variant="cta"
-              size="medium"
-              on:click={handleClick}
-              type="submit"
-              disabled={isFormDirty && !isFormValid}
-              >Send message
-            </Button>
-          </li>
-        </ul>
-        {#if isEmailSent}
-          <p>Thank you! We'll get back to you soon.</p>
-        {/if}
-      </form>
-    {/if}
-  </div>
-</Section>
+            </div>
+          </div>
+          {#if isEmailSent}
+            <p>Thank you! We'll get back to you soon.</p>
+          {/if}
+        </form>
+      {/if}
+    </div>
+  </Section>
+</Card>

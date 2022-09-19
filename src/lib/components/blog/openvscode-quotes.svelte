@@ -13,17 +13,13 @@
       width: 320px;
     }
   }
-
-  img {
-    max-width: 200px;
-  }
 </style>
 
 <section class="mt-large">
   <Carousel class="mb-small pr-44">
     {#each quotes as { text, author, jobTitle, companyLogo }}
       <div
-        class="text-black text-base w-96 p-x-small overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out mb-micro"
+        class="text-important text-base w-96 p-x-small overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out mb-micro"
       >
         <p class="mb-small">{text}</p>
         <div>
@@ -31,7 +27,11 @@
           <br />
           <span>{jobTitle}</span>
         </div>
-        <img src={companyLogo.src} alt={companyLogo.alt} class="h-6 mt-micro" />
+        <img
+          src={companyLogo.src}
+          alt={companyLogo.alt}
+          class="h-6 mt-micro !rounded-none max-w-[200px]"
+        />
       </div>
     {/each}
   </Carousel>

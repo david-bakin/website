@@ -9,7 +9,6 @@
 <script lang="ts">
   import type { ChangelogEntry as ChangelogEntryType } from "$lib/types/changelog-entry.type";
 
-  import { onMount } from "svelte";
   import OpenGraph from "$lib/components/open-graph.svelte";
   import "$lib/assets/markdown-commons.scss";
   import TwitterFollowButton from "$lib/components/t-button.svelte";
@@ -19,14 +18,9 @@
   import Wrapper from "$lib/components/changelog/wrapper.svelte";
   import Header from "$lib/components/header.svelte";
   import LinkButton from "$lib/components/ui-library/link-button";
+  import ButtonsWrapper from "$lib/components/buttons-wrapper.svelte";
 
   export let changelogEntries: ChangelogEntryType[];
-
-  onMount(() => {
-    Array.from(document.getElementsByClassName("toc")).forEach((toc) =>
-      toc.remove()
-    );
-  });
 </script>
 
 <style lang="postcss">
@@ -41,24 +35,25 @@
 
 <OpenGraph
   data={{
-    description: "New features and improvements to Gitpod.",
-    title: "Changelog",
+    description:
+      "A sum-up of Gitpod’s latest product improvements, feature releases and community contributions.",
+    title: "Gitpod Changelog - Latest releases and product updates",
     type: "website",
+    keywords:
+      "updates, product, changes, features, releases, bugs, fixes, version, updates, improvements",
   }}
 />
 
 <div class="flex">
-  <div class="hidden w-4/12 md:block" />
+  <div class="hidden w-4/12 flex-shrink-0 md:block" />
   <Header
+    centered={false}
     title="Changelog"
-    text="Gitpod product improvements and updates"
+    text="A sum-up of Gitpod’s latest product improvements, feature releases<br class='hidden xl:block'> and community contributions."
     class="w-full"
     textAlign="left"
   >
-    <div
-      slot="content"
-      class="flex justify-center items-center flex-wrap space-x-4 pt-x-small"
-    >
+    <ButtonsWrapper slot="content" class="pt-x-small">
       <TwitterFollowButton variant="primary" />
       <LinkButton
         target="_blank"
@@ -67,12 +62,12 @@
         variant="secondary"
         size="medium">Signup for the Newsletter</LinkButton
       >
-    </div>
+    </ButtonsWrapper>
   </Header>
 </div>
 
 <div
-  class="flex flex-col space-y-x-large md:space-y-xx-large divide-y divide-gray-300"
+  class="flex flex-col space-y-x-large md:space-y-xx-large divide-y divide-divider"
 >
   {#each changelogEntries as { date, title, content, image, alt }}
     <div class="changelog-entry">

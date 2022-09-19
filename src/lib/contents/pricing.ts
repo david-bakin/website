@@ -9,6 +9,8 @@ import type {
   FeatureTableToc,
 } from "../components/ui-library/feature-table/feature-table.types";
 import type { FAQ } from "../types/faq.type";
+// @ts-ignore
+import githubMarkSvelte from "$lib/components/svgs/github-mark.svelte";
 
 export const pricingPlans: Pricing[] = [
   {
@@ -19,7 +21,7 @@ export const pricingPlans: Pricing[] = [
       "Public & private repos",
       {
         text: "4 parallel workspaces",
-        tooltip: "Open up to 4 workspaces in parallel.",
+        tooltip: "Open up to 4 workspaces per user in parallel.",
       },
       {
         text: "30min inactivity timeout",
@@ -27,8 +29,8 @@ export const pricingPlans: Pricing[] = [
           "Workspaces are stopped automatically after 30min of inactivity.",
       },
     ],
-    btnText: "Try Now",
-    btnHref: "/#get-started",
+    btnText: "Try now",
+    btnHref: "https://gitpod.io/workspaces/",
     trackingName: "free",
   },
   {
@@ -49,7 +51,7 @@ export const pricingPlans: Pricing[] = [
       "Unlimited hours",
       {
         text: "8 parallel workspaces",
-        tooltip: "Open up to 8 workspaces in parallel.",
+        tooltip: "Open up to 8 workspaces per user in parallel.",
       },
       {
         text: "Team Plans",
@@ -70,7 +72,7 @@ export const pricingPlans: Pricing[] = [
       "All in Professional",
       {
         text: "16 parallel workspaces",
-        tooltip: "Open up to 16 workspaces in parallel.",
+        tooltip: "Open up to 16 workspaces per user in parallel.",
       },
       "1hr inactivity timeout",
       {
@@ -113,69 +115,73 @@ export const empowermentFeatures: Card[] = [
 
 export const freePlanTableData: FeatureTableColumn = {
   link: {
-    href: "/#get-started",
+    href: "https://gitpod.io/workspaces",
     label: "Try now",
   },
   header: {
     headline: "Free",
     subtitle: `${isEurope() ? "€" : "$"}0 per user/month`,
   },
-  items: [
+  enteries: [
     {
-      term: "Public & Private Repos",
-      text: "limited to 50h",
-    },
-    {
-      term: "Team Plans",
-      availability: false,
-    },
-    {
-      term: "Inactivity timeout",
-      text: "30min",
-    },
-    {
-      term: "timeout Boost",
-      availability: false,
-    },
-    {
-      term: "Parallel Workspaces",
-      text: "4",
-    },
-    {
-      term: "prebuilds",
-      availability: true,
-    },
-    {
-      term: "Shared workspaces",
-      availability: true,
-    },
-    {
-      term: "Snapshots",
-      availability: true,
-    },
-    {
-      term: "Admin Dashboard",
-      availability: false,
-    },
-    {
-      term: "Encrypted backups",
-      availability: true,
-    },
-    {
-      term: "multi-ide support",
-      availability: true,
-    },
-    {
-      term: "GitLab",
-      availability: true,
-    },
-    {
-      term: "GitHub",
-      availability: true,
-    },
-    {
-      term: "Bitbucket",
-      availability: true,
+      items: [
+        {
+          term: "Public & Private Repos",
+          text: "limited to 50h",
+        },
+        {
+          term: "Team Plans",
+          availability: false,
+        },
+        {
+          term: "Inactivity timeout",
+          text: "30min",
+        },
+        {
+          term: "timeout Boost",
+          availability: false,
+        },
+        {
+          term: "Parallel Workspaces",
+          text: "4",
+        },
+        {
+          term: "prebuilds",
+          availability: true,
+        },
+        {
+          term: "Shared workspaces",
+          availability: true,
+        },
+        {
+          term: "Snapshots",
+          availability: true,
+        },
+        {
+          term: "Admin Dashboard",
+          availability: false,
+        },
+        {
+          term: "Encrypted backups",
+          availability: true,
+        },
+        {
+          term: "multi-ide support",
+          availability: true,
+        },
+        {
+          term: "GitLab",
+          availability: true,
+        },
+        {
+          term: "GitHub",
+          availability: true,
+        },
+        {
+          term: "Bitbucket",
+          availability: true,
+        },
+      ],
     },
   ],
 };
@@ -189,62 +195,66 @@ export const personalPlanTableData: FeatureTableColumn = {
     headline: "Personal",
     subtitle: `${isEurope() ? "€8" : "$9"} per user/month`,
   },
-  items: [
+  enteries: [
     {
-      term: "Public & Private Repos",
-      text: "limited to 100h",
-    },
-    {
-      term: "Team Plans",
-      availability: false,
-    },
-    {
-      term: "Inactivity timeout",
-      text: "30min",
-    },
-    {
-      term: "timeout Boost",
-      availability: false,
-    },
-    {
-      term: "Parallel Workspaces",
-      text: "4",
-    },
-    {
-      term: "prebuilds",
-      availability: true,
-    },
-    {
-      term: "Shared workspaces",
-      availability: true,
-    },
-    {
-      term: "Snapshots",
-      availability: true,
-    },
-    {
-      term: "Admin Dashboard",
-      availability: false,
-    },
-    {
-      term: "Encrypted backups",
-      availability: true,
-    },
-    {
-      term: "multi-ide support",
-      availability: true,
-    },
-    {
-      term: "GitLab",
-      availability: true,
-    },
-    {
-      term: "GitHub",
-      availability: true,
-    },
-    {
-      term: "Bitbucket",
-      availability: true,
+      items: [
+        {
+          term: "Public & Private Repos",
+          text: "limited to 100h",
+        },
+        {
+          term: "Team Plans",
+          availability: false,
+        },
+        {
+          term: "Inactivity timeout",
+          text: "30min",
+        },
+        {
+          term: "timeout Boost",
+          availability: false,
+        },
+        {
+          term: "Parallel Workspaces",
+          text: "4",
+        },
+        {
+          term: "prebuilds",
+          availability: true,
+        },
+        {
+          term: "Shared workspaces",
+          availability: true,
+        },
+        {
+          term: "Snapshots",
+          availability: true,
+        },
+        {
+          term: "Admin Dashboard",
+          availability: false,
+        },
+        {
+          term: "Encrypted backups",
+          availability: true,
+        },
+        {
+          term: "multi-ide support",
+          availability: true,
+        },
+        {
+          term: "GitLab",
+          availability: true,
+        },
+        {
+          term: "GitHub",
+          availability: true,
+        },
+        {
+          term: "Bitbucket",
+          availability: true,
+        },
+      ],
     },
   ],
 };
@@ -258,64 +268,69 @@ export const professionalPlanTableData: FeatureTableColumn = {
   header: {
     headline: "Professional",
     subtitle: `${isEurope() ? "€23" : "$25"} per user/month`,
+    isMostPopular: true,
   },
-  items: [
+  enteries: [
     {
-      term: "Public & Private Repos",
-      text: "unlimited",
-    },
-    {
-      term: "Team Plans",
+      items: [
+        {
+          term: "Public & Private Repos",
+          text: "unlimited",
+        },
+        {
+          term: "Team Plans",
 
-      availability: true,
-    },
-    {
-      term: "Inactivity timeout",
-      text: "30min",
-    },
-    {
-      term: "timeout Boost",
-      availability: false,
-    },
-    {
-      term: "Parallel Workspaces",
-      text: "8",
-    },
-    {
-      term: "prebuilds",
-      availability: true,
-    },
-    {
-      term: "Shared workspaces",
-      availability: true,
-    },
-    {
-      term: "Snapshots",
-      availability: true,
-    },
-    {
-      term: "Admin Dashboard",
-      availability: false,
-    },
-    {
-      term: "Encrypted backups",
-      availability: true,
-    },
-    {
-      term: "multi-ide support",
-      availability: true,
-    },
-    {
-      term: "GitLab",
-      availability: true,
-    },
-    {
-      term: "GitHub",
-      availability: true,
-    },
-    {
-      term: "Bitbucket",
-      availability: true,
+          availability: true,
+        },
+        {
+          term: "Inactivity timeout",
+          text: "30min",
+        },
+        {
+          term: "timeout Boost",
+          availability: false,
+        },
+        {
+          term: "Parallel Workspaces",
+          text: "8",
+        },
+        {
+          term: "prebuilds",
+          availability: true,
+        },
+        {
+          term: "Shared workspaces",
+          availability: true,
+        },
+        {
+          term: "Snapshots",
+          availability: true,
+        },
+        {
+          term: "Admin Dashboard",
+          availability: false,
+        },
+        {
+          term: "Encrypted backups",
+          availability: true,
+        },
+        {
+          term: "multi-ide support",
+          availability: true,
+        },
+        {
+          term: "GitLab",
+          availability: true,
+        },
+        {
+          term: "GitHub",
+          availability: true,
+        },
+        {
+          term: "Bitbucket",
+          availability: true,
+        },
+      ],
     },
   ],
 };
@@ -329,62 +344,66 @@ export const unleashedPlanTableData: FeatureTableColumn = {
     headline: "Unleashed",
     subtitle: `${isEurope() ? "€35" : "$39"} per user/month`,
   },
-  items: [
+  enteries: [
     {
-      term: "Public & Private Repos",
-      text: "unlimited",
-    },
-    {
-      term: "Team Plans",
-      availability: true,
-    },
-    {
-      term: "Inactivity timeout",
-      text: "1h",
-    },
-    {
-      term: "timeout Boost",
-      text: "3h",
-    },
-    {
-      term: "Parallel Workspaces",
-      text: "16",
-    },
-    {
-      term: "prebuilds",
-      availability: true,
-    },
-    {
-      term: "Shared workspaces",
-      availability: true,
-    },
-    {
-      term: "Snapshots",
-      availability: true,
-    },
-    {
-      term: "Admin Dashboard",
-      availability: false,
-    },
-    {
-      term: "Encrypted backups",
-      availability: true,
-    },
-    {
-      term: "multi-ide support",
-      availability: true,
-    },
-    {
-      term: "GitLab",
-      availability: true,
-    },
-    {
-      term: "GitHub",
-      availability: true,
-    },
-    {
-      term: "Bitbucket",
-      availability: true,
+      items: [
+        {
+          term: "Public & Private Repos",
+          text: "unlimited",
+        },
+        {
+          term: "Team Plans",
+          availability: true,
+        },
+        {
+          term: "Inactivity timeout",
+          text: "1h",
+        },
+        {
+          term: "timeout Boost",
+          text: "3h",
+        },
+        {
+          term: "Parallel Workspaces",
+          text: "16",
+        },
+        {
+          term: "prebuilds",
+          availability: true,
+        },
+        {
+          term: "Shared workspaces",
+          availability: true,
+        },
+        {
+          term: "Snapshots",
+          availability: true,
+        },
+        {
+          term: "Admin Dashboard",
+          availability: false,
+        },
+        {
+          term: "Encrypted backups",
+          availability: true,
+        },
+        {
+          term: "multi-ide support",
+          availability: true,
+        },
+        {
+          term: "GitLab",
+          availability: true,
+        },
+        {
+          term: "GitHub",
+          availability: true,
+        },
+        {
+          term: "Bitbucket",
+          availability: true,
+        },
+      ],
     },
   ],
 };
@@ -466,7 +485,7 @@ export const pricingTableToc: FeatureTableToc[] = [
     data: {
       text: "multi-ide support",
       tooltip:
-        "Connect Gitpod with your favourite IDE. View <a href='/docs/editors'>docs/IDE</a> to see all suported IDE’s.",
+        "Connect Gitpod with your favourite IDE. View <a href='/docs/ides-and-editors'>docs/IDE</a> to see all suported IDE’s.",
     },
   },
   {
@@ -483,10 +502,7 @@ export const pricingTableToc: FeatureTableToc[] = [
     type: "image",
     data: {
       text: "GitHub",
-      image: {
-        path: "/svg/github.svg",
-        alt: "GitHub",
-      },
+      image: githubMarkSvelte,
     },
   },
   {
@@ -526,7 +542,7 @@ export const pricingFAQ: FAQ = {
         isEurope() ? "€8" : "$9"
       } per month (usually ${
         isEurope() ? "€35" : "$39"
-      }). See <button on:click data-open-modal='redeem-student-offer' class="font-bold text-link-grey hover:text-black transition duration-200" > Gitpod for Students </button> for more information. </p>`,
+      }). See <button on:click data-open-modal='redeem-student-offer' class="font-bold text-body hover:text-important transition duration-200">Gitpod for Students</button> for more information. </p>`,
     },
     {
       title: "How can I pay?",

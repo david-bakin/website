@@ -1,5 +1,5 @@
 ---
-section: references
+section: languages
 title: Dart in Gitpod
 ---
 
@@ -15,9 +15,9 @@ Here are a few Dart example projects that are already automated with Gitpod:
 
 <div class="overflow-x-auto">
 
-| Repository                                                                  | Description                                     | Try it                                                                                                                                  |
-| --------------------------------------------------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| [flutter_stock_example](https://github.com/gitpod-io/flutter_stock_example) | The Flutter stock example configured for Gitpod | [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gitpod-io/flutter_stock_example) |
+| Repository                                                                | Description                                                 | Try it                                                                                                                             |
+| ------------------------------------------------------------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| [Flutter Hello World Demo](https://github.com/gitpod-io/template-flutter) | The Flutter hello world demo template configured for Gitpod | [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gitpod-io/template-flutter) |
 
 </div>
 
@@ -37,12 +37,12 @@ This Extension adds cool syntax highlighting
 
 ![Syntax highlighting example](../../../static/images/docs/AfterSyntaxHighlighting.png)
 
-It adds [Intellisense](https://code.visualstudio.com/docs/editor/intellisense) support for autocompletion
+It adds [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) support for autocompletion
 
-![Dart intellisense example](../../../static/images/docs/DartIntellisenseExample.png)
+![Dart IntelliSense example](../../../static/images/docs/DartIntellisenseExample.png)
 
 ## Try it
 
-Here is a hello world example of a [Gitpodified](/blog/gitpodify) project running in the browser, try it!
+Here is a hello world example of a [Gitpodified](/guides/gitpodify) project running in the browser, try it!
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gitpod-io/Gitpod-Dart)

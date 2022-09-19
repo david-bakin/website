@@ -1,15 +1,7 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import LinkButton from "$lib/components/ui-library/link-button";
-
-  let githubStarsEl: HTMLAnchorElement;
-
-  onMount(async () => {
-    const githubButtons = await import("github-buttons");
-    githubButtons.render(githubStarsEl, (el) => {
-      githubStarsEl.parentNode.replaceChild(el, githubStarsEl);
-    });
-  });
+  import GithubMark from "../svgs/github-mark.svelte";
+  import ButtonsWrapper from "../buttons-wrapper.svelte";
 </script>
 
 <style lang="scss">
@@ -45,47 +37,6 @@
       }
     }
 
-    &__action {
-      margin-top: var(--small);
-      align-items: end;
-      @media (max-width: 972px) {
-        margin-top: var(--xx-small);
-      }
-
-      & > * {
-        display: grid;
-        grid-template-columns: 160px 100%;
-        gap: var(--xx-small);
-
-        @media (max-width: 1140px) {
-          display: flex;
-          gap: initial;
-
-          & > * {
-            &:not(:last-child) {
-              margin-right: var(--micro);
-            }
-          }
-        }
-      }
-    }
-
-    &__try-now {
-      margin-bottom: var(--micro);
-
-      @media (max-width: 972px) {
-        p {
-          font-size: var(--btn-small);
-        }
-      }
-
-      @media (max-width: 360px) {
-        & > :first-child {
-          flex: 0 0 110px;
-        }
-      }
-    }
-
     &__icons {
       display: flex;
       justify-content: space-between;
@@ -100,7 +51,7 @@
         width: 145px;
       }
 
-      img {
+      & > :global(*) {
         height: 29px;
         width: 29px;
 
@@ -109,10 +60,6 @@
           width: 27px;
         }
       }
-    }
-
-    &__stars {
-      height: 2rem;
     }
 
     &__illustration {
@@ -132,56 +79,47 @@
 <div class="hero mt-x-small" data-analytics={`{"position":"hero"}`}>
   <div class="hero__text">
     <h1 class="homeh1">
-      Always<br /> Ready to Code.
+      Always<br /> ready to code.
     </h1>
     <p id="choose-project-observer-target" class="hero__intro-text text-large">
       Spin up fresh, automated dev environments<br />
       for each task, in the cloud, in seconds.
     </p>
     <div class="hero__action">
-      <div class="hero__try-now text-small">
-        <div>
-          <LinkButton variant="primary" href="#get-started" size="large"
-            >Try Now</LinkButton
-          >
-        </div>
-        <p>
-          Open a workspace.
-          <br />
-          Start from any Git context.
-        </p>
-      </div>
+      <ButtonsWrapper class="mt-x-small lg:mt-small mb-x-small">
+        <LinkButton
+          variant="primary"
+          href="https://gitpod.io/workspaces/"
+          size="large">Try now</LinkButton
+        >
+        <LinkButton variant="cta" href="/contact/get-demo" size="large"
+          >Get a demo</LinkButton
+        >
+      </ButtonsWrapper>
       <div>
         <div class="hero__icons">
-          <img src="/svg/gitlab.svg" alt="GitLab logo" width="30" height="30" />
-          <img src="/svg/github.svg" alt="GitHub logo" width="30" height="30" />
-          <img
-            src="/svg/bitbucket.svg"
-            alt="Bitbucket logo"
-            width="30"
-            height="30"
-          />
+          <img src="/svg/gitlab.svg" alt="GitLab logo" />
+          <GithubMark alt="GitHub logo" />
+          <img src="/svg/bitbucket.svg" alt="Bitbucket logo" />
         </div>
-        <div class="hero__stars">
-          <a
-            bind:this={githubStarsEl}
-            class="github-button"
-            href="https://github.com/gitpod-io/gitpod"
-            data-icon="octicon-star"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Star the Gitpod Repo on GitHub">Star</a
-          >
-        </div>
+        <p class="text-p-small mt-macro">Start from any Git context.</p>
       </div>
     </div>
   </div>
   <div class="hero__illustration">
     <img
-      src="/images/illustration-large.jpg"
+      src="/images/illustration-large.png"
       alt="Gitpod in a Nutshell"
       width="700"
       height="724"
+      class="block dark:hidden"
+    />
+    <img
+      src="/images/illustrattion-large-dark.png"
+      alt="Gitpod in a Nutshell"
+      width="700"
+      height="724"
+      class="hidden dark:block"
     />
   </div>
 </div>

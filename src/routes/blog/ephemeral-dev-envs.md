@@ -103,7 +103,7 @@ The friction that comes with onboarding to open-source projects can cause eager 
 Onboarding is easy with ephemeral environments, as we described in [workflow #1.](#workflow-1-onboarding) You have a one-click button accessible from anywhere that allows those eager contributors to get started instantly. Win for everyone!
 
 ![Running Prometheus using our local companion app on Gitpod](../../../static/images/blog/ephemeral-dev-envs/screenshot.png)
-_Look at us running [Prometheus](https://github.com/prometheus/prometheus) on Gitpod using our [Local Companion App!](https://www.gitpod.io/blog/local-app)_
+_Look at us running [Prometheus](https://github.com/prometheus/prometheus) on Gitpod using our [Local Companion App!](/blog/local-app)_
 
 ## Are ephemeral, cloud developer environments the future?
 

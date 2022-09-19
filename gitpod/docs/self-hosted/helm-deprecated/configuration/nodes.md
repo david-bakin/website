@@ -11,13 +11,13 @@ title: Configure the Kubernetes nodes in your Gitpod Self-Hosted installation
 
 > ⚠️ **Deprecated Content**
 >
-> The content of this page assumes you are using Helm, which is now deprecated.
+> The content of this page assumes you are using Helm, which is now deprecated. Please use the [Installer](../../latest) instead.
 
 Configure the nodes (computers or virtual machines) that Kubernetes runs Gitpod's workspace pods on.
 
 ## Assign workload to Nodes
 
-Gitpod schedules two kinds of workloads: the Gitpod installation itself (which we refer to as _meta_) and the workspaces. Ideally both types of workloads run on seperate nodes to make makes scaling easier.
+Gitpod schedules two kinds of workloads: the Gitpod installation itself (which we refer to as _meta_) and the workspaces. Ideally both types of workloads run on separate nodes to make makes scaling easier.
 Depending on your cluster size that may not be feasible though. Either way, you need two node labels in your cluster:
 
 - `gitpod.io/workload_meta=true` which marks the "meta" nodes and

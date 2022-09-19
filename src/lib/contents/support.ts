@@ -59,11 +59,11 @@ export const cards: Card[] = [
     },
   },
   {
-    title: "Self-hosted",
+    title: "Self-Hosted",
     text: "Would you like to host Gitpod yourself? Here you can learn all about it.",
     link: {
       href: "/self-hosted",
-      text: "Gitpod Self-hosted",
+      text: "Gitpod Self-Hosted",
     },
   },
   {

@@ -2,10 +2,10 @@
 author: mikenikles
 date: Wed, 30 Jun 2021 3:00:00 UTC
 excerpt: Stop maintaining your local developer environment. Instead, automate the setup once and use a new environment for each task you work on - available in seconds and always ready-to-code.
-image: teaser.jpg
+image: teaser.png
 slug: i-said-goodbye-to-local-development-and-so-can-you
 subtitle:
-teaserImage: teaser.jpg
+teaserImage: teaser.png
 title: I said goodbye to local development and so can you
 ---
 
@@ -71,7 +71,7 @@ Once that’s all good, he looks for onboarding instructions and works his way t
 
 **Alice**
 
-Alice creates a `.gitpod.yml` configuration file at the root of her project, then adds [start tasks](https://www.gitpod.io/docs/config-start-tasks) such as the following:
+Alice creates a `.gitpod.yml` configuration file at the root of her project, then adds [start tasks](/docs/config-start-tasks) such as the following:
 
 ```yaml
 tasks:
@@ -79,9 +79,10 @@ tasks:
     command: npm run dev
 ```
 
-She also enables Gitpod [Prebuilds](https://www.gitpod.io/docs/prebuilds) - telling Gitpod to continuously create new developer environments as soon as her project’s source code changes! This significantly reduces the startup time when she or anyone who works on her project needs a developer environment.
+She also enables Gitpod [Prebuilds](/docs/prebuilds) - telling Gitpod to continuously create new developer environments as soon as her project’s source code changes! This significantly reduces the startup time when she or anyone who works on her project needs a developer environment.
 
-![Set up a new project](../../../static/images/blog/i-said-goodbye-to-local-development-and-so-can-you/set-up-a-new-project.png)
+![Set up a new project](../../../static/images/blog/i-said-goodbye-to-local-development-and-so-can-you/set-up-a-new-project-light-theme.png)
+![Set up a new project](../../../static/images/blog/i-said-goodbye-to-local-development-and-so-can-you/set-up-a-new-project-dark-theme.png)
 
 ### Develop a new feature
 
@@ -99,9 +100,10 @@ Then, Bob is ready to shift into feature development mode. Well... after he star
 
 She’s keen to get started right away. Once she looks at the issue on GitHub, GitLab or Bitbucket, she simply clicks the “Gitpod” button\*. This opens a new workspace with a feature branch already created, all dependencies installed and the database and dev servers started!
 
-\* She gets that by installing the [Gitpod browser extension](https://www.gitpod.io/docs/browser-extension). Alternatively, she could prefix the issue URL with `gitpod.io/#<issue-url>` to open a new developer environment.
+\* She gets that by installing the [Gitpod browser extension](/docs/browser-extension). Alternatively, she could prefix the issue URL with `gitpod.io/#<issue-url>` to open a new developer environment.
 
-![Set up a new project](../../../static/images/blog/i-said-goodbye-to-local-development-and-so-can-you/develop-a-new-feature.png)
+![Set up a new project](../../../static/images/blog/i-said-goodbye-to-local-development-and-so-can-you/develop-a-new-feature-light-theme.png)
+![Set up a new project](../../../static/images/blog/i-said-goodbye-to-local-development-and-so-can-you/develop-a-new-feature-dark-theme.png)
 
 ### Switch context
 
@@ -125,7 +127,8 @@ She can even leave review comments right within VS Code and have them synced wit
 
 When she’s done with the review, Alice closes the browser tab. This brings her back to her previous developer environment where she continues to work on her feature.
 
-![Set up a new project](../../../static/images/blog/i-said-goodbye-to-local-development-and-so-can-you/switch-context.png)
+![Set up a new project](../../../static/images/blog/i-said-goodbye-to-local-development-and-so-can-you/switch-context-light-theme.png)
+![Set up a new project](../../../static/images/blog/i-said-goodbye-to-local-development-and-so-can-you/switch-context-dark-theme.png)
 
 ### Set up a new computer
 
@@ -137,7 +140,8 @@ Oh boy... where to start?! Ah right, from scratch 😰!
 
 Alice, well Alice is excited to get a new computer and is up and running as soon as she installs her favourite browser 🚀. Way to go, Alice!
 
-![Set up a new project](../../../static/images/blog/i-said-goodbye-to-local-development-and-so-can-you/set-up-a-new-dev-env.png)
+![Set up a new project](../../../static/images/blog/i-said-goodbye-to-local-development-and-so-can-you/set-up-a-new-dev-env-light-theme.png)
+![Set up a new project](../../../static/images/blog/i-said-goodbye-to-local-development-and-so-can-you/set-up-a-new-dev-env-dark-theme.png)
 
 ### Contribute to open source projects
 

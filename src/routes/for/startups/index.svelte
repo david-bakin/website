@@ -32,7 +32,8 @@
   data={{
     title: "Gitpod for Startups",
     description:
-      "With Gitpod for Startups you'll improve your developer experience, morale and productivity and focus more on what really counts: being creative and writing code to build great products.",
+      "Apply for our startup program and get Gitpod for free for up to 2 years with unlimited users and usage. ",
+    keywords: "startup, free",
   }}
 />
 
@@ -42,10 +43,11 @@
   on building great things."
   data-analytics={`{"position":"hero"}`}
   style="max-width: 1000px"
+  textClassNames="text-large max-w-2xl mx-auto"
 >
   <div slot="content">
     <p
-      class="h5 text-gray-900 font-semibold max-w-2xl mx-auto mt-micro mb-x-small"
+      class="h5 text-important font-semibold max-w-2xl mx-auto mt-micro mb-x-small"
     >
       Use all our services for free, up to 2 years.
     </p>

@@ -2,99 +2,113 @@ import type { Brand } from "$lib/types/brand.type";
 import type { Project } from "$lib/types/project.type";
 import type { Testimonial } from "$lib/types/testimonial.type";
 import type { Ide } from "$lib/types/ide.type";
+import GitlabLogo from "$lib/components/svgs/brands/gitlab-logo.svelte";
+import FreecodecampLogo from "$lib/components/svgs/brands/freecodecamp.svelte";
+import Google from "$lib/components/svgs/brands/google.svelte";
+import Factorial from "$lib/components/svgs/brands/factorial.svelte";
+import Datastax from "$lib/components/svgs/brands/datastax.svelte";
+import Amazon from "$lib/components/svgs/brands/amazon.svelte";
+import Shares from "$lib/components/svgs/brands/shares.svelte";
+import Astrato from "$lib/components/svgs/brands/astrato.svelte";
+import CodeInstitute from "$lib/components/svgs/brands/code-institute.svelte";
+import Redwood from "$lib/components/svgs/brands/redwood.svelte";
+import Jetbrains from "$lib/components/svgs/brands/jetbrains.svelte";
+import FourGeeks from "$lib/components/svgs/brands/fourgeeks.svelte";
+import type { FeatureTitle } from "$lib/types/feature-title.type";
+
+export const gitlab: Brand = {
+  alt: "GitLab",
+  logo: GitlabLogo,
+};
+
+export const freeCodeCamp: Brand = {
+  alt: "freeCodeCamp",
+  logo: FreecodecampLogo,
+  transform: "scale(1.1)",
+};
+
+export const google: Brand = {
+  alt: "Google",
+  logo: Google,
+  transform: "scale(0.9)",
+};
+
+export const factorial: Brand = {
+  alt: "Factorial",
+  logo: Factorial,
+};
+
+export const dataStax: Brand = {
+  alt: "DataStax",
+  logo: Datastax,
+  transform: "scale(1.1)",
+};
+
+export const amazon: Brand = {
+  alt: "Amazon",
+  logo: Amazon,
+  transform: "scale(0.9) translateY(5px)",
+};
+
+export const shares: Brand = {
+  alt: "Shares",
+  logo: Shares,
+  transform: "scale(1.1)",
+};
+
+export const astrato: Brand = {
+  alt: "Astrato",
+  logo: Astrato,
+  transform: "scale(1.1)",
+};
+
+export const redwood: Brand = {
+  alt: "Redwood",
+  logo: Redwood,
+  transform: "scale(1.1)",
+};
+
+export const codeInstitute: Brand = {
+  alt: "Code Institute",
+  logo: CodeInstitute,
+};
+
+export const jetbrains: Brand = {
+  logo: Jetbrains,
+  alt: "JetBrains",
+};
+
+export const fourGeeks: Brand = {
+  logo: FourGeeks,
+  alt: "Four Geeks",
+};
 
 export const brands: Brand[] = [
-  {
-    alt: "GitLab",
-    logo: "svg/brands/gitlab-logo.svg",
-    className: "grey-logo",
-  },
-  {
-    alt: "freeCodeCamp",
-    logo: "svg/brands/freecodecamp.svg",
-    className: "fcc",
-  },
-  {
-    alt: "Google",
-    logo: "svg/brands/google.svg",
-    transform: "scale(0.9)",
-    className: "grey-logo",
-  },
-  {
-    alt: "Uber",
-    logo: "svg/brands/uber.svg",
-    className: "grey-logo",
-  },
-  {
-    alt: "DataStax",
-    logo: "svg/brands/datastax.svg",
-    transform: "scale(1.1)",
-  },
-  {
-    alt: "Amazon",
-    logo: "svg/brands/amazon.svg",
-    transform: "scale(0.9) translateY(5px)",
-    className: "grey-logo",
-  },
-  {
-    alt: "Shares",
-    logo: "svg/brands/shares.svg",
-    transform: "scale(1.1)",
-  },
-  {
-    alt: "Astrato",
-    logo: "svg/brands/astrato.svg",
-    transform: "scale(1.1)",
-  },
-  {
-    alt: "Redwood",
-    logo: "svg/brands/redwood.svg",
-    transform: "scale(1.1)",
-  },
-  {
-    alt: "Code Institute",
-    logo: "svg/brands/code-institute.svg",
-    className: "grey-logo",
-  },
-  // {
-  //   alt: "Intel",
-  //   logo: "svg/brands/intel.svg",
-  //   transform: "scale(0.65)",
-  //   className: "grey-logo",
-  // },
-  // {
-  //   alt: "D-Wave",
-  //   logo: "svg/brands/dwave.svg",
-  //   transform: "scale(1.3)",
-  //   className: "dwave-logo",
-  // },
-  // {
-  //   alt: "Facebook",
-  //   logo: "svg/brands/facebook.svg",
-  //   className: "grey-logo",
-  // },
-  // {
-  //   alt: "OpenAI",
-  //   logo: "svg/brands/openai.svg",
-  //   transform: "scale(1.1)",
-  //   className: "grey-logo",
-  // },
-  // {
-  //   alt: "Sauce Labs",
-  //   logo: "svg/brands/sauce-labs.svg",
-  //   className: "grey-logo",
-  // },
-  // {
-  //   alt: "Eclipse Theia",
-  //   logo: "svg/brands/theia.svg",
-  //   transform: "scale(1.1)",
-  //   className: "grey-logo",
-  // },
-  // {
-  //   alt: "4Geeks Academy",
-  //   logo: "svg/brands/4-geeks-academy.png",
-  //   className: "four-geeks grey-logo",
-  // },
+  gitlab,
+  freeCodeCamp,
+  google,
+  factorial,
+  dataStax,
+  amazon,
+  shares,
+  astrato,
+  redwood,
+  codeInstitute,
+];
+
+export const logosAnimated: Brand[] = [
+  freeCodeCamp,
+  gitlab,
+  jetbrains,
+  redwood,
+  google,
+  amazon,
+  codeInstitute,
+  fourGeeks,
+  dataStax,
+  shares,
+  astrato,
+  factorial,
 ];
 
 export const projects: Project[] = [
@@ -528,5 +542,24 @@ export const ides: Ide[] = [
       desktop: "",
     },
     icon: "webstorm.svg",
+  },
+];
+
+export const featureTitles: FeatureTitle[] = [
+  {
+    main: "5h",
+    sub: "weekly productivity gain per engineer",
+  },
+  {
+    main: "4x",
+    sub: "faster time from zero to first PR",
+  },
+  {
+    main: "61%",
+    sub: "cost savings compared to a VDI solution",
+  },
+  {
+    main: "+500k",
+    sub: "developers are using Gitpod",
   },
 ];

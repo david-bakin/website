@@ -17,19 +17,19 @@ title: Introducing Gitpod for Open Source
 
 - Today we are announcing our “[Gitpod for Open Source](/for/opensource)” program.
 - Gitpod has formed a new team to support open source (ps [we are hiring](https://www.gitpod.io/careers)) and personalized support is now available to open source maintainers / communities.
-- Complementary [Gitpod self-hosted licenses](https://www.gitpod.io/self-hosted) are now available for projects that maintain their independence via running their own infrastructure (ie Haskell, Drupal, Rust). Apply via [this form](/for/opensource).
-- Free and open source software projects aligned with [FOSSHost](https://fosshost.org/about) can request an account upgrade to a complementary professional open source account via [this form](/for/opensource).
-- Over 18,000 people in the GitHub ecosystem have been pre-qualified for complementary professional open source accounts with unlimited hours. If you are in the short-list your account will be automatically upgraded either upon account creation or when you next start a workspace with your existing account. No action is required.
+- complimentary [Gitpod Self-Hosted licenses](/self-hosted) are now available for projects that maintain their independence via running their own infrastructure (ie Haskell, Drupal, Rust). Apply via [this form](/for/opensource).
+- Free and open source software projects aligned with [FOSSHost](https://fosshost.org/about) can request an account upgrade to a complimentary professional open source account via [this form](/for/opensource).
+- Over 18,000 people in the GitHub ecosystem have been pre-qualified for complimentary professional open source accounts with unlimited hours. If you are in the short-list your account will be automatically upgraded either upon account creation or when you next start a workspace with your existing account. No action is required.
   - If you had published a Visual Studio Code extension, Emacs or Vim plugin on GitHub before this blog post went live then you are likely on the shortlist.
   - If your membership was public before this blog post went live on one of more of the following GitHub organizations then you are likely on the shortlist:
 
-> alpinelinux, angular, apache, apple, archlinux, babel, caddyserver, cake-build, cakephp, centos, clojure, cncf, cockroachdb, curl, darktable-org, dart-lang, django, docker, dotnet, eclipse, elastic, elixir-lang, endeavouros-team, erlang, expressjs, facebook, flutter, fody, freebsd, fsprojects, ghc, gnome, golang, haproxy, hashicorp, haskell, homebrew, illumos, jaegertracing, jetbrains, julialang, k3s-io, kubernetes, laravel, libressl-portable, llvm, lua, maintainers, mathworks, microsoft, moby, mongodb, mono, mozilla, mysql, neovim, netbsd, nginx, nixos, nodejs, npm, obsproject, ohmyzsh, open-telemetry, openjdk, openresty, openssl, particular, perl, phoenixframework, php, pnpm, postgres, python, r-lib, rails, redhat-developer, redis, rethinkdb, rstudio, rust-lang, scala, serilog, sixlabors, sparklemotion, spring-projects, statiqdev, sveltejs, symfony, tailwindlabs, tc39, tmux, twbs, videolan, vim, vuejs, wolfssl, womenwhocode and xunit
+> alpinelinux, angular, apache, apple, archlinux, babel, caddyserver, cake-build, cakephp, centos, clojure, cncf, cockroachdb, curl, darktable-org, dart-lang, django, docker, dotnet, eclipse, elastic, elixir-lang, endeavouros-team, erlang, expressjs, facebook, flutter, fody, freebsd, fsprojects, ghc, gnome, golang, haproxy, hashicorp, haskell, homebrew, illumos, jaegertracing, jetbrains, julialang, jruby, k3s-io, kubernetes, laravel, libressl-portable, llvm, lua, maintainers, mathworks, microsoft, moby, mongodb, mono, mozilla, mysql, neovim, netbsd, nginx, nixos, nodejs, npm, obsproject, ohmyzsh, open-telemetry, openjdk, openresty, openssl, particular, perl, phoenixframework, php, pnpm, postgres, python, r-lib, rails, redhat-developer, redis, rethinkdb, rstudio, ruby, rust-lang, scala, serilog, sixlabors, sparklemotion, spring-projects, statiqdev, sveltejs, symfony, tailwindlabs, tc39, tmux, twbs, videolan, vim, vuejs, wolfssl, womenwhocode and xunit
 
-- Projects, communities and maintainers that use GitLab (or Bitbucket) or that are not in the above list can use [this form](/for/opensource) to request an upgrade of your account to our complementary professional open-source plan.
+- Projects, communities and maintainers that use GitLab (or Bitbucket) or that are not in the above list can use [this form](/for/opensource) to request an upgrade of your account to our complimentary professional open-source plan.
 
 Howdy folks,
 
-I’m gonna assume this is the first time you have heard about Gitpod and build from there because context is important. Gitpod is an open-core open source project and company that provides reproducible software developer environments. Gitpod can be consumed as a service or [self-hosted on your own infrastructure](https://www.gitpod.io/self-hosted).
+I’m gonna assume this is the first time you have heard about Gitpod and build from there because context is important. Gitpod is an open-core open source project and company that provides reproducible software developer environments. Gitpod can be consumed as a service or [Self-Hosted on your own infrastructure](/self-hosted).
 
 > “Gitpod totally changed the development velocity for RedwoodJS — it removed any issues related to configurations of dev environments and made it incredibly easy to contribute. Reviewing pull requests is delightful because they are prebuilt and ready for review!”
 >
@@ -70,7 +70,7 @@ Gitpod is equally delightful for open source maintainers as well:
 # Benefits
 
 - People and projects who qualify for Gitpod’s Open Source program are provided with unlimited hours for usage on public repos. Contributors to an open-source project are provided with a generous free plan for up to 50h a month, including private repos.
-- Complementary [Gitpod self-hosted](https://www.gitpod.io/self-hosted) licenses are available for projects that maintain their independence via running their own infrastructure (ie Haskell, Drupal, Rust).
+- complimentary [Gitpod Self-Hosted](/self-hosted) licenses are available for projects that maintain their independence via running their own infrastructure (ie Haskell, Drupal, Rust).
 - Personalized support is now available to open source maintainers / communities.
 
 # Who is eligible?
@@ -84,7 +84,7 @@ To qualify for Gitpod’s Open Source program, you need to meet one of this crit
 
 ## How do I apply?
 
-Via [this form](/for/opensource) but you might not need to. Over 18,000 people in the GitHub ecosystem have been pre-qualified for complementary professional open source accounts with unlimited hours. If you are in the short-list your account will be automatically upgraded either upon account creation or when you next start a workspace. No action is required.
+Via [this form](/for/opensource) but you might not need to. Over 18,000 people in the GitHub ecosystem have been pre-qualified for complimentary professional open source accounts with unlimited hours. If you are in the short-list your account will be automatically upgraded either upon account creation or when you next start a workspace. No action is required.
 
 - If you had published a Visual Studio Code extension, Emacs or Vim plugin on GitHub before this blog post went live then you are likely on the shortlist.
 
@@ -92,7 +92,7 @@ Via [this form](/for/opensource) but you might not need to. Over 18,000 people i
 
 > alpinelinux, angular, apache, apple, archlinux, babel, caddyserver, cake-build, cakephp, centos, clojure, cncf, cockroachdb, curl, darktable-org, dart-lang, django, docker, dotnet, eclipse, elastic, elixir-lang, endeavouros-team, erlang, expressjs, facebook, flutter, fody, freebsd, fsprojects, ghc, gnome, golang, haproxy, hashicorp, haskell, homebrew, illumos, jaegertracing, jetbrains, julialang, k3s-io, kubernetes, laravel, libressl-portable, llvm, lua, maintainers, mathworks, moby, mongodb, mono, mozilla, mysql, neovim, netbsd, nginx, nixos, nodejs, npm, obsproject, ohmyzsh, open-telemetry, openjdk, openresty, openssl, particular, perl, phoenixframework, php, pnpm, postgres, python, r-lib, rails, redhat-developer, redis, rethinkdb, rstudio, rust-lang, scala, serilog, sixlabors, sparklemotion, spring-projects, statiqdev, sveltejs, symfony, tailwindlabs, tc39, tmux, twbs, videolan, vim, vuejs, wolfssl, womenwhocode and xunit
 
-For projects, communities and maintainers that use GitLab (or Bitbucket) or that are not in the above list please use this [application form](/for/opensource) to request an upgrade of your account to our complementary professional open-source plan.
+For projects, communities and maintainers that use GitLab (or Bitbucket) or that are not in the above list please use this [application form](/for/opensource) to request an upgrade of your account to our complimentary professional open-source plan.
 
 ## How do I know if my account has been pre-qualified?
 
@@ -108,13 +108,13 @@ https://github.com/gitpod-io/doom becomes https://gitpod.io#https://github.com/g
 
 ## Recommended Reading
 
-- https://www.gitpod.io/screencasts/getting-started-with-gitpod
-- https://www.gitpod.io/docs/prebuilds
-- https://www.gitpod.io/docs/config-dotfiles
-- https://www.gitpod.io/docs/config-gitpod-file
+- [https://www.gitpod.io/screencasts/getting-started-with-gitpod](/screencasts/getting-started-with-gitpod)
+- [https://www.gitpod.io/docs/prebuilds](/docs/prebuilds)
+- [https://www.gitpod.io/docs/config-dotfiles](/docs/config-dotfiles)
+- [https://www.gitpod.io/docs/config-gitpod-file](/docs/config-gitpod-file)
 
 ## Anything else?
 
 Email me at [geoff@gitpod.io](mailto:geoff@gitpod.io?subject=Gitpod%20for%20OSS). Happy hacking!
 
-ps. If your open-source software appears in our bill of materials then Gitpod would like to unconditionally shout you [some beers](https://github.com/moby/buildkit/issues/2525) or [more](https://www.gitpod.io/blog/devxconf-wrap) as our way of saying thank-you. Thanks for reading 🧡
+ps. If your open-source software appears in our bill of materials then Gitpod would like to unconditionally shout you [some beers](https://github.com/moby/buildkit/issues/2525) or [more](/blog/devxconf-wrap) as our way of saying thank-you. Thanks for reading 🧡

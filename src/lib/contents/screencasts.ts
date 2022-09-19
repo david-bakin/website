@@ -5,9 +5,23 @@ export let topics = [
   "Advanced",
   "Customisations",
   "Open VS Code",
+  "Demo",
 ];
 
 let id = 1;
+
+export const demoScreencast: Screencast = {
+  title: "Gitpod demo 🍊",
+  previewText: "Demo",
+  description:
+    "See how Gitpod launches a ready-to-code project built on five containers using a Node app, .NET app, a Python app as well as Redis and Postgres databases with a simple click.",
+  youtubeId: "KgIWj9rHXS4",
+  tile: "screencast-16.jpg",
+  duration: 523,
+  tags: ["Demo"],
+  href: "/screencasts/demo",
+};
+
 export const screencasts: Screencast[] = [
   {
     nextScreencast: id++,
@@ -61,7 +75,10 @@ export const screencasts: Screencast[] = [
     tile: "screencast-4.jpg",
     youtubeId: "VYHsd1zI_tE",
     relatedDocs: [
-      { path: "/docs/ides-and-editors/vscode-extensions", title: "VS Code Extensions" },
+      {
+        path: "/docs/ides-and-editors/vscode-extensions",
+        title: "VS Code Extensions",
+      },
       { path: "/docs/environment-variables", title: "Environment Variables" },
     ],
     tags: ["Customisations"],
@@ -85,7 +102,9 @@ export const screencasts: Screencast[] = [
     duration: 207,
     tile: "screencast-6.jpg",
     youtubeId: "n7Ca3jHFtZg",
-    relatedDocs: [{ path: "", title: "Introduction to Gitpod" }],
+    relatedDocs: [
+      { path: "/docs/life-of-workspace", title: "Life of a Workspace" },
+    ],
     tags: ["Advanced"],
   },
   {
@@ -135,7 +154,10 @@ export const screencasts: Screencast[] = [
     tile: "screencast-10.jpg",
     youtubeId: "TwXYbZKEuoA",
     relatedDocs: [
-      { path: "/docs/ides-and-editors/vscode-extensions", title: "VS Code Extensions" },
+      {
+        path: "/docs/ides-and-editors/vscode-extensions",
+        title: "VS Code Extensions",
+      },
     ],
     tags: ["Customisations"],
   },
@@ -161,7 +183,7 @@ export const screencasts: Screencast[] = [
     youtubeId: "8oXSzN_W8Ls",
     relatedDocs: [
       {
-        path: "/blog/gitpodify#installing-databases",
+        path: "/guides/gitpodify#installing-databases",
         title: "Installing databases",
       },
     ],
@@ -220,4 +242,5 @@ export const screencasts: Screencast[] = [
     ],
     tags: ["Open VS Code"],
   },
+  demoScreencast,
 ];

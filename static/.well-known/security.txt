@@ -5,7 +5,7 @@ Policy: https://www.gitpod.io/security/report
 Acknowledgments: https://www.gitpod.io/security/thanks
 
 Preferred-Languages: en,de
-Contact: https://www.gitpod.io/security/report
+Contact: https://www.gitpod.io/security
 Contact: mailto://security@gitpod.io
 
 Hiring: https://www.gitpod.io/careers

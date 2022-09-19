@@ -60,6 +60,22 @@ export const authors: { [idx: string]: Author } = {
     description:
       "Christian loves building things, systems and software. Ever keen to solve cross-cutting problems, he has experience in human-computer interaction, embedded software development, and the backend side of things (Kubernetes, Docker).",
   },
+  iqqbot: {
+    name: "Pudong Zheng",
+    socialProfiles: {
+      github: "iqqbot",
+      twitter: "",
+    },
+    description: "",
+  },
+  "mustard-mh": {
+    name: "Huiwen Huang",
+    socialProfiles: {
+      github: "mustard-mh",
+      twitter: "",
+    },
+    description: "",
+  },
   aledbf: {
     name: "Manuel Alejandro de Brito Fontes",
     socialProfiles: {
@@ -176,10 +192,10 @@ export const authors: { [idx: string]: Author } = {
     description:
       "A big open-source fan, Arthur is a SRE focused on cloud-native observability. When not training backflips and gymnastics, you can find him chit-chatting at CNCF's slack channels.",
   },
-  christinfrohne: {
+  chrifro: {
     name: "Christin Frohne",
     socialProfiles: {
-      github: "ChristinFrohne",
+      github: "chrifro",
       twitter: "christinfrohne",
       linkedin: "christin-frohne-91a4b0173",
     },
@@ -257,6 +273,103 @@ export const authors: { [idx: string]: Author } = {
       github: "sagor999",
       twitter: "pavel_tumik",
       linkedin: "sagor",
+    },
+    description: "",
+  },
+  Furisto: {
+    name: "Thomas Schubart",
+    socialProfiles: {
+      github: "Furisto",
+      twitter: "",
+      linkedin: "",
+    },
+    description: "",
+  },
+  lucasvaltl: {
+    name: "Lucas Valtl",
+    socialProfiles: {
+      github: "lucasvaltl",
+      twitter: "",
+      linkedin: "",
+    },
+    description: "",
+  },
+  brandonroberts: {
+    name: "Brandon Roberts",
+    socialProfiles: {
+      github: "brandonroberts",
+      twitter: "",
+      linkedin: "",
+    },
+    description: "",
+  },
+  MrSimonEmms: {
+    name: "Simon Emms",
+    socialProfiles: {
+      github: "MrSimonEmms",
+      twitter: "TheShroppieBeek",
+    },
+    description: "",
+  },
+  "nancy-chauhan": {
+    name: "Nancy Chauhan",
+    socialProfiles: {
+      github: "",
+      twitter: "_nancychauhan",
+      linkedin: "",
+    },
+    description: "",
+  },
+  helenjoscott: {
+    name: "Helen Scott",
+    socialProfiles: {
+      github: "",
+      twitter: "HelenJoScott",
+      linkedin: "",
+    },
+    description:
+      "Helen Scott is a Java Developer Advocate at JetBrains. She has worked at numerous software companies in the last 20 years.",
+  },
+  jacobparis: {
+    name: "Jacob Paris",
+    socialProfiles: {
+      github: "JacobParis",
+      twitter: "jacobmparis",
+      linkedin: "",
+    },
+    description: "",
+  },
+  michaelaring: {
+    name: "Michael Aring",
+    socialProfiles: {
+      github: "MichaelAring",
+      twitter: "michaelar1ng",
+      linkedin: "",
+    },
+    description: "",
+  },
+  securitymirco: {
+    name: "Mirco Kater",
+    socialProfiles: {
+      github: "securitymirco",
+      twitter: "securitymirco",
+      linkedin: "",
+    },
+    description: "",
+  },
+  axonasif: {
+    name: "Aminur Rahman",
+    socialProfiles: {
+      github: "axonasif",
+      twitter: "axonasif",
+    },
+    description: "",
+  },
+  "Siddhant-K-code": {
+    name: "Siddhant Khare",
+    socialProfiles: {
+      github: "Siddhant-K-code",
+      twitter: "Siddhant_K_code",
     },
     description: "",
   },

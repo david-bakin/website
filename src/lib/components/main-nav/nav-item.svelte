@@ -13,32 +13,33 @@
 
 <style lang="postcss">
   a {
-    @media (min-width: 1090px) {
+    @media (min-width: 1190px) {
       @apply text-base;
     }
   }
 
   .active {
-    color: var(--black);
+    @apply text-important;
   }
 
-  .highlight {
-    @apply relative;
-    &::after {
-      content: url("/indicator.svg");
-      @apply absolute -top-3 -right-2;
-    }
+  li {
+    list-style-type: none;
   }
 </style>
 
-<a
-  class:active={isActivePage && !isExternal}
-  class:highlight
-  {href}
-  on:click
-  on:focus
-  sveltekit:prefetch={isPrefecthable}
-  class="text-black text-p-large sm:text-dark-grey sm:hover:text-black sm:focus:text-black"
->
-  {label}
-</a>
+<li>
+  <a
+    class:active={isActivePage && !isExternal}
+    class:flex={highlight}
+    aria-label={highlight && `Highlighted page: ${label}`}
+    {href}
+    on:click
+    sveltekit:prefetch={isPrefecthable}
+    class="text-important sm:text-body text-p-large hover:text-important focus:text-important active:text-important"
+  >
+    {label}
+    {#if highlight}
+      <img src="/indicator.svg" alt="" class="h-1.5 w-1.5" />
+    {/if}
+  </a>
+</li>

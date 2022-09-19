@@ -5,7 +5,11 @@
 <style lang="postcss">
   .year {
     border-bottom: 3px;
-    @apply inline-block border-orange-900 border-solid;
+    @apply inline-block border-primary border-solid;
+
+    &:not(:first-of-type) {
+      @apply mt-x-large;
+    }
   }
 
   ol {
@@ -14,18 +18,28 @@
 </style>
 
 <Header
-  title="Thanks"
+  title="Thanks for your help"
   text="Big thanks the following people who responsibly disclosed their security
   findings."
   class="max-w-lg"
 >
   <img
-    src="/svg/heart.svg"
+    src="/svg/icons/heart.svg"
     alt="Heart"
-    class="absolute -top-16 left-1/2 -translate-x-1/2 h-10"
+    class="h-10 mx-auto mb-micro"
     slot="top"
   />
   <div class="mt-x-large" slot="content">
+    <h2 class="h4 year">2022</h2>
+    <ol class="mx-auto my-x-small">
+      <li>
+        <a rel="nofollow" href="https://twitter.com/AlanCao5">Alan Cao</a> from New
+        York University.
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/0x33c0unt/"> Yusuf Kocadaş</a>.
+      </li>
+    </ol>
     <h2 class="h4 year">2021</h2>
     <ol class="text-left mx-auto my-x-small">
       <li>

@@ -11,8 +11,8 @@ export const ghStudentPricingPlans: Pricing[] = [
       "4 Parallel Workspaces",
       "30min Timeout",
     ],
-    btnText: "Try Now",
-    btnHref: "/#get-started",
+    btnText: "Try now",
+    btnHref: "https://gitpod.io/workspaces/",
   },
   {
     title: "Student",
@@ -52,8 +52,8 @@ export const ghTeacherPricingPlans: Pricing[] = [
       "4 Parallel Workspaces",
       "30min Timeout",
     ],
-    btnText: "Try Now",
-    btnHref: "/#get-started",
+    btnText: "Try now",
+    btnHref: "https://gitpod.io/workspaces/",
   },
   {
     title: "Teacher",

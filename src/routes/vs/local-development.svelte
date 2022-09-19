@@ -15,9 +15,9 @@
 
 <style lang="postcss">
   div {
-    grid-template-columns: repeat(auto-fill, 316px);
+    grid-template-columns: repeat(auto-fill, 314px);
 
-    @media (max-width: 1460px) {
+    @media (max-width: 1430px) {
       @apply max-w-4xl mx-auto;
     }
 
@@ -29,9 +29,10 @@
 
 <OpenGraph
   data={{
-    title: "Gitpod vs local development",
+    title: "Gitpod vs local development - move to the cloud",
     description:
-      "Why should you move your dev environment to the cloud? Here is the answer.",
+      "Develop like Google, Facebook and Shopify. Spend less time worrying about brittle, local dev environments and leverage the power of the cloud to improve your team’s developer experience.",
+    keywords: "local development, cloud, remote development, secure",
   }}
 />
 
@@ -42,7 +43,7 @@
 >
   <div slot="content" class="grid gap-micro justify-center mt-small">
     {#each benefits as benefit}
-      <CardSmall card={benefit} />
+      <CardSmall card={benefit} headingLevel="h2" />
     {/each}
   </div>
 </Header>

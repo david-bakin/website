@@ -16,14 +16,16 @@
   import { onMount } from "svelte";
   import topicsState from "./states/topics-state";
   import { page } from "$app/stores";
+  import MagGlass from "../svgs/mag-glass.svelte";
   let clazz = "";
   export { clazz as class };
   export let containerClasses = "";
   export let iconClasses = "";
   export let placeholder = "Quick search";
+  export let isBgWhite: boolean = false;
 
   const docSearchJSVersion = "2.6.3";
-  const docSearchInputSelector = "search-doc-input";
+  export let docSearchInputSelector = "search-doc-input";
 
   let docSearchInput: HTMLInputElement;
   let docSearchScript: HTMLScriptElement;
@@ -47,6 +49,7 @@
 
   const handleBodyKeyDown = (event: KeyboardEvent) => {
     if ((event.ctrlKey || event.metaKey) && event.key === "k") {
+      event.preventDefault();
       docSearchInput.focus();
     }
   };
@@ -60,18 +63,23 @@
 </script>
 
 <style lang="postcss">
-  .input-container {
-    @media (max-width: 768px) {
-      @apply mb-4;
+  .narrow-search {
+    @apply lg:w-3/4;
+  }
 
-      &:not(.topics-active) {
-        display: none;
-      }
-    }
+  .input-container:not(.topics-active) {
+    @apply hidden lg:block;
   }
 
   :global(.algolia-autocomplete) {
     display: block !important; /* DocSearch adds inline styles, !important helps us take control */
+  }
+
+  :global(.algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"]) {
+    @apply rounded-xl !important;
+  }
+  :global(.algolia-autocomplete .ds-dropdown-menu) {
+    @apply rounded-xl;
   }
 
   :global(div
@@ -83,6 +91,23 @@
     left: 0 !important; /* DocSearch adds inline styles, !important helps us take control */
     min-width: unset;
     max-width: unset;
+    @apply lg:w-[500px];
+  }
+  :global(.algolia-docsearch-suggestion--category-header) {
+    @apply mt-4;
+  }
+
+  :global(.algolia-autocomplete .algolia-docsearch-suggestion--highlight) {
+    @apply text-secondary;
+  }
+
+  :global(.algolia-autocomplete .algolia-docsearch-suggestion--title) {
+    @apply text-black font-semibold;
+  }
+
+  :global(.algolia-docsearch-suggestion--highlight) {
+    box-shadow: none !important;
+    @apply !text-secondary;
   }
 </style>
 
@@ -99,23 +124,28 @@
 
 <svelte:body on:keydown={handleBodyKeyDown} />
 
-<div
-  class={`input-container relative bg-white rounded-xl w-full shadow-normal mb-12 ${
-    $topicsState || isSupportPage ? "topics-active" : ""
-  } ${containerClasses}`}
->
-  <label for={docSearchInputSelector} class="sr-only">Search</label>
-  <img
-    class="absolute top-1/2 left-3 -translate-y-1/2 pointer-events-none h-xx-small w-xx-small lef {iconClasses}"
-    src="/svg/mag-glass.svg"
-    alt="Search"
-    aria-hidden="true"
-  />
-  <input
-    bind:this={docSearchInput}
-    type="search"
-    {placeholder}
-    id={docSearchInputSelector}
-    class="box-border block w-full text-p-medium h-small pl-11 pr-3 py-2 border border-transparent leading-5 text-gray-600 placeholder-gray-500 focus:outline-none focus:bg-none focus:border-white focus:ring-white focus:text-gray-900 {clazz}"
-  />
+<div class="items-center flex my-4 lg:my-0  lg:mb-8">
+  <div class="w-full sm:px-4">
+    <div
+      class={`w-full input-container relative ${
+        $topicsState || isSupportPage ? "topics-active" : ""
+      } ${containerClasses}`}
+    >
+      <label for={docSearchInputSelector} class="sr-only">Search</label>
+      <MagGlass
+        class="absolute top-1/2 z-10 left-3 -translate-y-1/2 pointer-events-none h-xx-small w-xx-small lef {iconClasses}"
+        alt="Search"
+        aria-hidden="true"
+      />
+      <input
+        bind:this={docSearchInput}
+        type="search"
+        {placeholder}
+        id={docSearchInputSelector}
+        class="box-border text-base rounded-2xl {isBgWhite
+          ? 'bg-card'
+          : 'dark:bg-light-black bg-sand-dark'} block w-full text-p-medium h-small pl-11 pr-3 py-2 border border-transparent leading-5 text-important placeholder:text-body dark:active:shadow-slight focus:outline-none focus:bg-none focus:border-transparent focus:shadow-md focus:bg-card focus:ring-transparent focus:text-important {clazz}"
+      />
+    </div>
+  </div>
 </div>

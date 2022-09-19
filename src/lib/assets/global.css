@@ -24,7 +24,17 @@
     font-family: var(--font);
     text-rendering: optimizeSpeed;
     line-height: 1.5;
-    @apply m-0 min-h-screen text-dark-grey bg-sand-light text-p-medium;
+    @apply m-0 min-h-screen text-body bg-bg text-p-medium;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600; /* this is default. it's removed in TW. Should we just remove it from the TW reset? */
+    @apply text-important;
   }
 
   /* Make images easier to work with */
@@ -33,12 +43,18 @@
     @apply max-w-full block object-contain;
   }
 
+  a,
+  button {
+    @apply transition-all duration-200 delay-[50ms];
+  }
+
   a {
-    @apply underline text-link-grey underline-offset-[0.25em] transition-all duration-200 delay-[50ms];
+    @apply underline text-link-grey dark:text-body underline-offset-[0.25em];
   }
   a:hover,
-  a:focus {
-    @apply text-black underline decoration-transparent;
+  a:focus,
+  a:active {
+    @apply text-important underline decoration-transparent;
   }
 
   a[class] {
@@ -83,4 +99,122 @@
   .ol-alpha {
     @apply list-outside list-alpha;
   }
+
+  .stroked {
+    @apply relative;
+    z-index: 0;
+
+    &::before {
+      content: "";
+      @apply absolute top-0 left-0 right-0 bottom-0;
+      background: linear-gradient(to bottom, #ffffff, #ece7e5);
+      border-radius: inherit;
+      z-index: -3;
+    }
+
+    &::after {
+      content: "";
+      @apply absolute bg-card transition-all duration-200;
+      border-radius: inherit;
+      top: 1px;
+      bottom: 1px;
+      left: 1px;
+      right: 1px;
+      z-index: -2;
+    }
+  }
+
+  .stroked-light {
+    &::after {
+      @apply bg-white dark:bg-card;
+    }
+  }
+
+  .stroked-sand {
+    &::after {
+      @apply bg-sand-dark dark:bg-card;
+    }
+  }
+
+  .stroked-divider {
+    &::after {
+      @apply bg-divider dark:bg-card;
+    }
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    .icon.icon-link {
+      @apply inline-block ml-2;
+      &::after {
+        content: "";
+        @apply inline-block opacity-0 bg-cover;
+        width: 22px;
+        height: 18px;
+        background-image: url("/svg/headling-link.svg");
+        transition: all 0.2s 50ms;
+      }
+    }
+
+    & {
+      &:hover,
+      &:focus,
+      a:hover,
+      a:focus {
+        .icon-link::after {
+          @apply opacity-100;
+        }
+      }
+    }
+
+    a {
+      &:hover,
+      &:focus {
+        &::after {
+          @apply opacity-100 !important;
+        }
+      }
+    }
+  }
+
+  .code {
+    @apply rounded-xl text-dark-grey;
+    padding: 0.3rem 0.5rem;
+    background: var(--brand-light);
+    white-space: break-spaces;
+    overflow-wrap: break-word;
+  }
+
+  .text-large .code {
+    @apply py-0;
+  }
+
+  body.dark .stroked {
+    &::before {
+      background: linear-gradient(to bottom, #332d23, #0f0e0b);
+    }
+  }
+
+  body.dark {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      &:hover,
+      &:focus {
+        .icon.icon-link::after {
+          filter: invert(100%) grayscale(100%);
+        }
+      }
+    }
+  }
+}
+
+.docs-toc-item::before {
+  @apply absolute left-[3px];
+  content: url(/svg/docs/fold.svg);
 }

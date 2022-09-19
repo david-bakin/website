@@ -1,11 +1,16 @@
 <script lang="ts">
+  import GreyDash from "$lib/components/svgs/grey-dash.svelte";
+  import GreenTick from "$lib/components/svgs/green-tick.svelte";
   import type { FeatureItemDetail } from "../feature-table.types";
   export let definition: FeatureItemDetail;
 </script>
 
 <style lang="postcss">
   :global(.code) {
-    @apply p-micro bg-white rounded-2xl text-base text-light-grey my-macro;
+    @apply p-micro bg-white rounded-2xl text-base text-sub my-macro;
+  }
+  :global(body.dark) :global(.code) {
+    @apply bg-bg;
   }
   :global(.code) :global(span) {
     color: #65a30d;
@@ -28,11 +33,10 @@
       {@html definition.text}
     {/if}
     {#if definition.availability}
-      <img alt="Yes" class="mx-auto" height="24" width="24" src="/tick.svg" />
+      <GreenTick />
     {/if}
-
     {#if definition.availability === false}
-      <img alt="No" class="mx-auto" height="24" width="24" src="/cross.svg" />
+      <GreyDash />
     {/if}
   </div>
 {/if}

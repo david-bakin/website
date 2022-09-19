@@ -19,7 +19,17 @@ keywords: DevX, velocity, growth, onboarding, shares.io
 	import Section from "$lib/components/section.svelte";
 	import Story from "$lib/components/customers/story.svelte";
 	import Quote from "$lib/components/quote.svelte";
+  	import OpenGraph from "$lib/components/open-graph.svelte";
 </script>
+
+<OpenGraph
+data={{
+    description:
+      "Scaling from 3 to 45 engineers in 5 months on the back of Gitpod. Cutting onboarding times to 10 minutes. Saving half a day per engineer / week.",
+    title: "Shares.io case study: Scaling from 3 to 45 engineers",
+    keywords: "DevX, velocity, growth, onboarding, shares.io",
+  }}
+/>
 
 <CustomerHero
 title="Scaling from 3 to 45 engineers in 5 months on the back of Gitpod"

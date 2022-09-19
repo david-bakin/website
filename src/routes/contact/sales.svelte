@@ -4,29 +4,36 @@
 
 <script lang="ts">
   import type { Form } from "$lib/types/form.type";
-  import type { Email } from "../../functions/submit-form";
+  import type { Email, EmailToType } from "$lib/api/api";
   import OpenGraph from "$lib/components/open-graph.svelte";
   import SubmissionSuccess from "$lib/components/submission-success.svelte";
   import Section from "$lib/components/section.svelte";
   import { trackEvent, trackIdentity } from "$lib/components/segment.svelte";
+  import Textarea from "$lib/components/ui-library/textarea";
   import Header from "$lib/components/header.svelte";
+  import Input from "$lib/components/ui-library/input";
+  import Checkbox from "$lib/components/ui-library/checkbox";
+  import Select from "$lib/components/ui-library/select";
+  import Card from "$lib/components/ui-library/card";
   import Button from "$lib/components/ui-library/button";
+  import { cloudPlatforms, noOfEngineers } from "$lib/contents/contact";
+  import { scrollToElement } from "$lib/utils/helpers";
+  import { tick } from "svelte";
+  import Unleashing from "$lib/components/contact/unleashing.svelte";
+  import { afterNavigate } from "$app/navigation";
+  import InputsHalf from "$lib/components/contact/inputs-half.svelte";
+  import { goto } from "$app/navigation";
 
   const selfHostingSubject = "Self-hosting";
   const otherSubject = "Other";
+  const demoSubject = "Get a demo";
   const subjects = [
     selfHostingSubject,
+    demoSubject,
     "Educational Discount",
     "Reselling",
     otherSubject,
   ];
-  const cloudPlatforms = [
-    "Amazon Elastic Kubernetes Service (EKS)",
-    "Google Kubernetes Engine (GKE)",
-    "Kubernetes",
-    "Microsoft Azure Kubernetes Service (AKS)",
-  ];
-  const noOfEngineers = ["2-5", "6-20", "21-50", "51-250", "+250"];
 
   let sectionStart: HTMLElement;
   let isCloudPlatformsSelectShown = false;
@@ -35,6 +42,10 @@
     valid: false,
     value: "",
   };
+
+  let isSubmissionInProgress: boolean = false;
+
+  let toType: EmailToType = "sales";
 
   const formData: Form = {
     selectedSubject: {
@@ -67,6 +78,11 @@
       valid: false,
       value: "",
     },
+    number: {
+      el: null,
+      valid: true,
+      value: "",
+    },
     message: {
       el: null,
       valid: false,
@@ -82,39 +98,57 @@
     delete formData.cloudInfrastructure;
   }
 
+  afterNavigate(() => {
+    if (window.location.search.includes("get-a-demo")) {
+      formData.selectedSubject.value = demoSubject;
+      formData.selectedSubject.valid = true;
+      goto("/contact/get-demo");
+    }
+  });
+
   let isFormDirty = false;
   let isEmailSent = false;
 
   $: isFormValid = Object.values(formData).every((field) => field.valid);
 
-  const handleClick = () => {
-    if (formData.cloudInfrastructure) {
-      formData.cloudInfrastructure.valid = true;
-    }
-
-    if (!formData.selectedSubject.value) {
-      formData.selectedSubject.value = otherSubject;
-      formData.selectedSubject.valid = true;
-    }
-  };
-
   const handleSubmit = async () => {
     isFormDirty = true;
     if (!isFormValid) {
+      await tick();
+      scrollToElement(sectionStart, ".error");
       return;
     }
+    isSubmissionInProgress = true;
 
-    trackIdentity({
-      name_untrusted: formData.name.value,
-      email_untrusted: formData.workEmail.value,
-    });
+    trackIdentity(
+      {
+        name_untrusted: formData.name.value,
+        email_untrusted: formData.workEmail.value,
+        phone_untrusted: formData.number.value,
+      },
+      true
+    );
 
-    trackEvent("message_submitted", {
-      subject: formData.selectedSubject.value,
-    });
+    trackEvent(
+      "message_submitted",
+      {
+        subject: formData.selectedSubject.value,
+        infrastructure:
+          formData.selectedSubject.value == selfHostingSubject
+            ? formData.cloudInfrastructure.value
+            : undefined,
+        full_name: formData.name.value,
+        email: formData.workEmail.value,
+        company_website: formData.companyWebsite.value,
+        company_engineers: formData.noOfEngineers.value,
+        message: formData.message.value,
+        phone_number: formData.number.value,
+      },
+      true
+    );
 
     const email: Email = {
-      toType: "sales",
+      toType,
       replyTo: {
         email: formData.workEmail.value,
         name: formData.name.value,
@@ -136,14 +170,29 @@
             ? `Total number of engineers: ${formData.noOfEngineers.value}`
             : ""
         }
+        ${formData.number.value ? `Phone Number: ${formData.number.value}` : ""}
         Message: ${formData.message.value}
       `,
     };
 
     try {
-      const response = await fetch("/.netlify/functions/submit-form", {
+      const emailToSend =
+        toType === "community-license"
+          ? {
+              ...email,
+              data: {
+                company: formData.companyWebsite.value,
+                noOfEngineers: formData.noOfEngineers.value,
+                cloudInfrastructure: formData.cloudInfrastructure
+                  ? formData.cloudInfrastructure.value
+                  : "",
+                message: formData.message.value,
+              },
+            }
+          : email;
+      const response = await fetch("/api/submit-form", {
         method: "POST",
-        body: JSON.stringify(email),
+        body: JSON.stringify(emailToSend),
       });
       if (response.ok) {
         isEmailSent = true;
@@ -157,92 +206,121 @@
       console.error(error);
     }
   };
+
+  $: {
+    if (
+      formData.noOfEngineers.value === "1-10" &&
+      (formData.selectedSubject.value === selfHostingSubject ||
+        formData.selectedSubject.value === demoSubject)
+    ) {
+      toType = "community-license";
+    } else {
+      toType = "sales";
+    }
+  }
 </script>
 
 <style lang="postcss">
-  .h3 {
-    @apply mb-small;
+  .link {
+    @apply underline;
   }
 
   p {
-    color: var(--dark-grey);
+    color: var(--body);
   }
   form {
     max-width: 45rem;
     margin: auto;
   }
   fieldset ul {
-    display: flex;
-    flex-flow: wrap;
+    @apply flex flex-wrap;
   }
   fieldset li {
-    margin: 0 1rem 0 0;
+    @apply mr-macro;
+  }
+
+  .wrapper {
+    @apply flex flex-col lg:flex-row;
+
+    & > *:first-child {
+      flex: 0 0 55%;
+      min-width: 650px;
+    }
   }
 </style>
 
 <OpenGraph
   data={{
-    description: "We’d love to talk about how we can work together.",
+    description: "We’ll help you find the best plan for your business.",
     title: "Contact Sales",
   }}
 />
 
-<Header
-  title="Contact Sales"
-  text=" We’d love to talk about how we can work together."
-  tight={true}
-/>
+<div>
+  <Header
+    title="Contact Sales"
+    text="We’ll help you find the best plan for your business."
+    tight={true}
+    textAlign="left"
+    centered={false}
+  />
+</div>
+<div class="wrapper">
+  <Card
+    size="small"
+    class="shadow-normal p-xx-small sm:py-small sm:px-x-small md:p-medium lg:mb-xx-large"
+    styles="margin-top: 0"
+  >
+    <Section id="form" style="padding: 0; margin: 0">
+      <div bind:this={sectionStart} data-analytics={`{"dnt":true}`}>
+        {#if isEmailSent}
+          <SubmissionSuccess
+            title={toType === "community-license"
+              ? "Check your email"
+              : "Thank you for your message"}
+            text={toType === "community-license"
+              ? "We've just sent you your license key via email. Enjoy!"
+              : "We received your message. Our team will take a look and get back to you as soon as possible."}
+          />
+        {:else}
+          <form on:submit|preventDefault={handleSubmit} novalidate>
+            <div class="space-y-8">
+              <div class:error={isFormDirty && !formData.selectedSubject.valid}>
+                <fieldset class="flex">
+                  <legend>Please choose a subject</legend>
+                  <ul>
+                    {#each subjects as subject, index}
+                      <li>
+                        <input
+                          id="subject-{index}"
+                          type="radio"
+                          bind:group={formData.selectedSubject.value}
+                          bind:this={formData.selectedSubject.el}
+                          on:change={() => {
+                            formData.selectedSubject.valid =
+                              formData.selectedSubject.value &&
+                              formData.selectedSubject.el.validity.valid;
 
-<Section
-  class="p-xx-small sm:py-small sm:px-x-small md:p-medium rounded-2xl bg-off-white shadow-xl mb-32 sm:mx-8"
-  id="form"
-  style="margin-top: 0"
->
-  <div bind:this={sectionStart} data-analytics={`{"dnt":true}`}>
-    {#if isEmailSent}
-      <SubmissionSuccess
-        title="Thank you for your message"
-        text="We received your message. Our team will take a look and get back to you as
-      soon as possible."
-      />
-    {:else}
-      <form on:submit|preventDefault={handleSubmit} novalidate>
-        <h2 class="h3 text-center">Send us a message</h2>
-        <ul>
-          <li class:error={isFormDirty && !formData.selectedSubject.valid}>
-            <fieldset>
-              <legend>Please choose a subject*</legend>
-              <ul>
-                {#each subjects as subject, index}
-                  <li>
-                    <input
-                      id="subject-{index}"
-                      type="radio"
-                      bind:group={formData.selectedSubject.value}
-                      bind:this={formData.selectedSubject.el}
-                      on:change={() => {
-                        formData.selectedSubject.valid =
-                          formData.selectedSubject.value &&
-                          formData.selectedSubject.el.validity.valid;
-                      }}
-                      value={subject}
-                      name="subject"
-                    />
-                    <label for="subject-{index}" class="font-medium"
-                      >{subject}</label
-                    >
-                  </li>
-                {/each}
-              </ul>
-            </fieldset>
-          </li>
-          {#if isCloudPlatformsSelectShown && formData.cloudInfrastructure}
-            <li
-              class:error={isFormDirty && !formData.cloudInfrastructure.valid}
-            >
-              <label class="max-w-md">
-                <!-- svelte-ignore a11y-no-onchange -->
-                <select
+                            if (
+                              formData.selectedSubject.value === demoSubject
+                            ) {
+                              goto("/contact/get-demo");
+                            }
+                          }}
+                          value={subject}
+                          name="subject"
+                        />
+                        <label for="subject-{index}" class="font-medium"
+                          >{subject}</label
+                        >
+                      </li>
+                    {/each}
+                  </ul>
+                </fieldset>
+              </div>
+              {#if isCloudPlatformsSelectShown && formData.cloudInfrastructure}
+                <Select
+                  hasError={isFormDirty && !formData.cloudInfrastructure.valid}
                   name="cloudInfrastructure"
                   bind:value={formData.cloudInfrastructure.value}
                   on:change={(e) => {
@@ -251,132 +329,160 @@
                       // @ts-ignore
                       e.target.validity.valid;
                   }}
-                >
-                  <option class="option" value=""
-                    >Which cloud infrastructure do you use?</option
-                  >
-                  {#each cloudPlatforms as n}
-                    <option class="option" value={n}>
-                      {n}
-                    </option>
-                  {/each}
-                </select>
-              </label>
-            </li>
-          {/if}
-          <li class:error={isFormDirty && !formData.name.valid}>
-            <label for="name">Full Name*</label>
-            <input
-              id="name"
-              bind:value={formData.name.value}
-              bind:this={formData.name.el}
-              on:change={() => {
-                formData.name.valid =
-                  formData.name.value && formData.name.el.checkValidity();
-              }}
-              type="text"
-              autocomplete="name"
-            />
-          </li>
-          <li class:error={isFormDirty && !formData.workEmail.valid}>
-            <label for="email">Work e-mail* </label>
-            <input
-              id="email"
-              bind:value={formData.workEmail.value}
-              bind:this={formData.workEmail.el}
-              on:change={() => {
-                formData.workEmail.valid =
-                  formData.workEmail.value &&
-                  formData.workEmail.el.checkValidity();
-              }}
-              type="email"
-              autocomplete="email"
-            />
-          </li>
-          <li class:error={isFormDirty && !formData.companyWebsite.valid}>
-            <label for="company-website">Company website* </label>
-            <input
-              id="compnay-website"
-              bind:value={formData.companyWebsite.value}
-              bind:this={formData.companyWebsite.el}
-              on:change={() => {
-                formData.companyWebsite.valid =
-                  formData.companyWebsite.value &&
-                  formData.companyWebsite.el.checkValidity();
-              }}
-              type="text"
-              autocomplete="organization"
-            />
-          </li>
-          <li class:error={isFormDirty && !formData.noOfEngineers.valid}>
-            <label class="max-w-sm">
-              <!-- svelte-ignore a11y-no-onchange -->
-              <select
-                name="noOfEngineers"
-                bind:value={formData.noOfEngineers.value}
-                bind:this={formData.noOfEngineers.el}
+                  options={cloudPlatforms}
+                  placeholder="Which cloud infrastructure do you use?"
+                  class="max-w-md"
+                />
+              {/if}
+              <InputsHalf>
+                <div>
+                  <Input
+                    hasError={isFormDirty && !formData.name.valid}
+                    label="Full Name*"
+                    id="name"
+                    name="full-name"
+                    bind:value={formData.name.value}
+                    bind:element={formData.name.el}
+                    on:change={() => {
+                      formData.name.valid =
+                        formData.name.value && formData.name.el.checkValidity();
+                    }}
+                    type="text"
+                    autocomplete="name"
+                  />
+                </div>
+                <div>
+                  <Input
+                    hasError={isFormDirty && !formData.workEmail.valid}
+                    label="Work e-mail*"
+                    id="email"
+                    name="e-mail"
+                    bind:value={formData.workEmail.value}
+                    bind:element={formData.workEmail.el}
+                    on:change={() => {
+                      formData.workEmail.valid =
+                        formData.workEmail.value &&
+                        formData.workEmail.el.checkValidity();
+                    }}
+                    type="email"
+                    autocomplete="email"
+                  />
+                </div>
+              </InputsHalf>
+              <InputsHalf>
+                <div>
+                  <Input
+                    label="Company website*"
+                    hasError={isFormDirty && !formData.companyWebsite.valid}
+                    id="compnay-website"
+                    name="website"
+                    bind:value={formData.companyWebsite.value}
+                    bind:element={formData.companyWebsite.el}
+                    on:change={() => {
+                      formData.companyWebsite.valid =
+                        formData.companyWebsite.value &&
+                        formData.companyWebsite.el.checkValidity();
+                    }}
+                    type="text"
+                    autocomplete="organization"
+                  />
+                </div>
+                <div class="flex flex-col justify-end">
+                  <Select
+                    placeholder="Total number of engineers"
+                    hasError={isFormDirty && !formData.noOfEngineers.valid}
+                    name="noOfEngineers"
+                    bind:value={formData.noOfEngineers.value}
+                    bind:element={formData.noOfEngineers.el}
+                    on:change={() => {
+                      formData.noOfEngineers.valid =
+                        formData.noOfEngineers.value &&
+                        formData.noOfEngineers.el.checkValidity();
+                    }}
+                    options={noOfEngineers}
+                  />
+                </div>
+              </InputsHalf>
+              <InputsHalf>
+                <div>
+                  <Input
+                    label="Phone number"
+                    hasError={isFormDirty && !formData.companyWebsite.valid}
+                    id="phone-number"
+                    name="phone-number"
+                    bind:value={formData.number.value}
+                    bind:element={formData.number.el}
+                    on:change={() => {
+                      formData.number.valid =
+                        formData.number.value &&
+                        formData.number.el.checkValidity();
+                    }}
+                    type="tel"
+                    autocomplete="tel"
+                  />
+                </div>
+              </InputsHalf>
+              <div>
+                <Textarea
+                  label="Your message*"
+                  id="message"
+                  name="message"
+                  hasError={isFormDirty && !formData.message.valid}
+                  bind:value={formData.message.value}
+                  bind:element={formData.message.el}
+                  on:change={() => {
+                    formData.message.valid =
+                      formData.message.value &&
+                      formData.message.el.validity.valid;
+                  }}
+                  cols="30"
+                  rows="6"
+                />
+              </div>
+              <Checkbox
+                hasError={isFormDirty && !formData.consent.valid}
+                label="I consent to having this website store my submitted information so that the sales team can respond to my inquiry."
+                bind:checked={formData.consent.checked}
+                bind:element={formData.consent.el}
                 on:change={() => {
-                  formData.noOfEngineers.valid =
-                    formData.noOfEngineers.value &&
-                    formData.noOfEngineers.el.checkValidity();
+                  formData.consent.valid =
+                    formData.consent.checked &&
+                    formData.consent.el.validity.valid;
                 }}
-              >
-                <option class="option" value=""
-                  >Total number of engineers</option
+              />
+              <p class="text-sm my-4">
+                By submitting this form I acknowledge that I have read and
+                understood <a class="link" href="/privacy"
+                  >Gitpod’s Privacy Policy.</a
                 >
-                {#each noOfEngineers as n}
-                  <option class="option" value={n}>
-                    {n}
-                  </option>
-                {/each}
-              </select>
-            </label>
-          </li>
-          <li class:error={isFormDirty && !formData.message.valid}>
-            <label for="message">Your message*</label>
-            <textarea
-              id="message"
-              bind:value={formData.message.value}
-              bind:this={formData.message.el}
-              on:change={() => {
-                formData.message.valid =
-                  formData.message.value && formData.message.el.validity.valid;
-              }}
-              cols="30"
-              rows="10"
-            />
-          </li>
-          <li class:error={isFormDirty && !formData.consent.valid}>
-            <input
-              id="consent"
-              bind:checked={formData.consent.checked}
-              bind:this={formData.consent.el}
-              on:change={() => {
-                formData.consent.valid =
-                  formData.consent.checked &&
-                  formData.consent.el.validity.valid;
-              }}
-              type="checkbox"
-            />
-            <label for="consent"
-              >I consent to having this website store my submitted information
-              so that the sales team can respond to my inquiry.</label
-            >
-          </li>
-          <li>
-            <Button
-              variant="cta"
-              size="medium"
-              on:click={handleClick}
-              type="submit"
-              disabled={isFormDirty && !isFormValid}>Send message</Button
-            >
-          </li>
-        </ul>
-        {#if isEmailSent}
-          <p>Thank you! We'll get back to you soon.</p>
+              </p>
+              <Button
+                variant="cta"
+                size="medium"
+                type="submit"
+                disabled={(isFormDirty && !isFormValid) ||
+                  isSubmissionInProgress}
+                isLoading={isSubmissionInProgress}
+              >
+                {#if toType === "community-license"}
+                  Receive license
+                {:else}
+                  Contact sales
+                {/if}
+              </Button>
+              {#if isFormDirty && !isFormValid}
+                <legend class="text-xs text-error block mt-1 mb-2">
+                  Please fill out all required fields above
+                </legend>
+              {/if}
+            </div>
+            {#if isEmailSent}
+              <p>Thank you! We'll get back to you soon.</p>
+            {/if}
+          </form>
         {/if}
-      </form>
-    {/if}
-  </div>
-</Section>
+      </div>
+    </Section>
+  </Card>
+  <Unleashing />
+</div>

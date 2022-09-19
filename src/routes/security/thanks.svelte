@@ -12,7 +12,7 @@
   data={{
     description:
       "Big thanks the following people who responsibly disclosed their security findings.",
-    title: "Thanks",
+    title: "Thanks for your help",
   }}
 />
 

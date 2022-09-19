@@ -18,6 +18,7 @@ const quickstartItems = readable(
   [
     mapQuickstart("Agda", "quickstart/agda", false),
     mapQuickstart("C", "quickstart/c", false),
+    mapQuickstart("C# .NET", "quickstart/dotnet", false),
     mapQuickstart("C++", "quickstart/cpp", false),
     mapQuickstart("Clojure", "quickstart/clojure", false),
     mapQuickstart("Coq", "quickstart/coq", false),
@@ -70,6 +71,7 @@ const quickstartItems = readable(
     ),
     mapQuickstart("SvelteKit", "quickstart/sveltekit", false),
     mapQuickstart("TLA+", "quickstart/tlaplus", false),
+    mapQuickstart("Wasp", "quickstart/wasp", false),
     mapQuickstart("Wordpress", "quickstart/wordpress", false),
     mapQuickstart("X11 VNC", "quickstart/x11-vnc", false),
     mapQuickstart("Yasm", "quickstart/yasm", false),

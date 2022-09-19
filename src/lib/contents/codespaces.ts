@@ -1,3 +1,8 @@
+// @ts-ignore
+import awsSvelte from "$lib/components/svgs/aws.svelte";
+// @ts-ignore
+import githubMarkSvelte from "$lib/components/svgs/github-mark.svelte";
+import type { verticalFeature } from "$lib/types/feature.type";
 import type {
   FeatureTable,
   FeatureTableColumn,
@@ -33,10 +38,7 @@ export const codespacesToc: FeatureTableToc[] = [
     type: "image",
     data: {
       text: "GitHub Integration",
-      image: {
-        alt: "GitHub",
-        path: "/svg/github.svg",
-      },
+      image: githubMarkSvelte,
     },
   },
   {
@@ -73,10 +75,7 @@ export const codespacesToc: FeatureTableToc[] = [
     type: "image",
     data: {
       text: "Self-Host on EKS",
-      image: {
-        alt: "aws",
-        path: "/svg/brands/aws.svg",
-      },
+      image: awsSvelte,
     },
   },
   {
@@ -152,78 +151,82 @@ export const gitpodColumns: FeatureTableColumn = {
       path: "/images/gitpod-logo.svg",
     },
   },
-  items: [
+  enteries: [
     {
-      term: "Pricing (Hosted)",
-      text: "Free for Open-Source",
-    },
-    {
-      term: "Free Tier",
-      text: "50h per month",
-    },
-    {
-      term: "License",
-      text: "Open Source",
-    },
-    {
-      term: "Availability",
-      text: "Everyone",
-    },
-    {
-      term: "GitHub Integration",
-      availability: true,
-    },
-    {
-      term: "GitLab Integration",
-      availability: true,
-    },
-    {
-      term: "Bitbucket Integration",
-      availability: true,
-    },
-    {
-      term: "Self-Host on GKE",
-      availability: true,
-    },
-    {
-      term: "Self-Host on EKS",
-      availability: true,
-    },
-    {
-      term: "Self-Host on AKS",
-      availability: true,
-    },
-    {
-      term: "Self-Host on Kubernetes",
-      availability: true,
-    },
-    {
-      term: "Prebuilds",
-      availability: true,
-    },
-    {
-      term: "Snapshots",
-      availability: true,
-    },
-    {
-      term: "VS Code Extensions",
-      availability: true,
-    },
-    {
-      term: "iPad Support",
-      availability: true,
-    },
-    {
-      term: "Virtual Desktop (VNC)",
-      availability: true,
-    },
-    {
-      term: "Desktop VS Code",
-      availability: true,
-    },
-    {
-      term: "Multi-IDE Support",
-      availability: true,
+      items: [
+        {
+          term: "Pricing (Hosted)",
+          text: "Free for Open-Source",
+        },
+        {
+          term: "Free Tier",
+          text: "50h per month",
+        },
+        {
+          term: "License",
+          text: "Open Source",
+        },
+        {
+          term: "Availability",
+          text: "Everyone",
+        },
+        {
+          term: "GitHub Integration",
+          availability: true,
+        },
+        {
+          term: "GitLab Integration",
+          availability: true,
+        },
+        {
+          term: "Bitbucket Integration",
+          availability: true,
+        },
+        {
+          term: "Self-Host on GKE",
+          availability: true,
+        },
+        {
+          term: "Self-Host on EKS",
+          availability: true,
+        },
+        {
+          term: "Self-Host on AKS",
+          availability: true,
+        },
+        {
+          term: "Self-Host on Kubernetes",
+          availability: true,
+        },
+        {
+          term: "Prebuilds",
+          availability: true,
+        },
+        {
+          term: "Snapshots",
+          availability: true,
+        },
+        {
+          term: "VS Code Extensions",
+          availability: true,
+        },
+        {
+          term: "iPad Support",
+          availability: true,
+        },
+        {
+          term: "Virtual Desktop (VNC)",
+          availability: true,
+        },
+        {
+          term: "Desktop VS Code",
+          availability: true,
+        },
+        {
+          term: "Multi-IDE Support",
+          availability: true,
+        },
+      ],
     },
   ],
 };
@@ -232,85 +235,96 @@ export const codespacesColumn: FeatureTableColumn = {
   isHighlighted: false,
   header: {
     headline: "Codespaces",
-    image: {
-      alt: "github",
-      path: "/svg/github.svg",
-    },
+    image: githubMarkSvelte,
   },
-  items: [
+  enteries: [
     {
-      term: "Pricing (Hosted)",
-      text: "$$$",
-    },
-    {
-      term: "Free Tier",
-      availability: false,
-    },
-    {
-      term: "License",
-      text: "Proprietary",
-    },
-    {
-      term: "Availability",
-      text: "Teams, Enterprise",
-    },
-    {
-      term: "GitHub Integration",
-      availability: true,
-    },
-    {
-      term: "GitLab Integration",
-      availability: false,
-    },
-    {
-      term: "Bitbucket Integration",
-      availability: false,
-    },
-    {
-      term: "Self-Host on GKE",
-      availability: false,
-    },
-    {
-      term: "Self-Host on EKS",
-      availability: false,
-    },
-    {
-      term: "Self-Host on AKS",
-      availability: false,
-    },
-    {
-      term: "Self-Host on Kubernetes",
-      availability: false,
-    },
-    {
-      term: "Prebuilds",
-      availability: false,
-    },
-    {
-      term: "Snapshots",
-      availability: false,
-    },
-    {
-      term: "VS Code Extensions",
-      availability: true,
-    },
-    {
-      term: "iPad Support",
-      availability: true,
-    },
-    {
-      term: "Virtual Desktop (VNC)",
-      availability: true,
-    },
-    {
-      term: "Desktop VS Code",
-      availability: true,
-    },
-    {
-      term: "Multi-IDE Support",
-      availability: false,
+      items: [
+        {
+          term: "Pricing (Hosted)",
+          text: "$$$",
+        },
+        {
+          term: "Free Tier",
+          availability: false,
+        },
+        {
+          term: "License",
+          text: "Proprietary",
+        },
+        {
+          term: "Availability",
+          text: "Teams, Enterprise",
+        },
+        {
+          term: "GitHub Integration",
+          availability: true,
+        },
+        {
+          term: "GitLab Integration",
+          availability: false,
+        },
+        {
+          term: "Bitbucket Integration",
+          availability: false,
+        },
+        {
+          term: "Self-Host on GKE",
+          availability: false,
+        },
+        {
+          term: "Self-Host on EKS",
+          availability: false,
+        },
+        {
+          term: "Self-Host on AKS",
+          availability: false,
+        },
+        {
+          term: "Self-Host on Kubernetes",
+          availability: false,
+        },
+        {
+          term: "Prebuilds",
+          availability: true,
+        },
+        {
+          term: "Snapshots",
+          availability: false,
+        },
+        {
+          term: "VS Code Extensions",
+          availability: true,
+        },
+        {
+          term: "iPad Support",
+          availability: true,
+        },
+        {
+          term: "Virtual Desktop (VNC)",
+          availability: true,
+        },
+        {
+          term: "Desktop VS Code",
+          availability: true,
+        },
+        {
+          term: "Multi-IDE Support",
+          availability: false,
+        },
+      ],
     },
   ],
+};
+
+export const automationFirstFeature: verticalFeature = {
+  title: "Automation-first",
+  paragraph:
+    "Simply add your build command into a .gitpod.yml file and let Gitpod do the heavy-lifting. Once you’ve experienced the freedom of ephemeral workspaces, you’ll never want to go back to long-lived manually-maintained environments.",
+  moreButton: {
+    href: "https://gitpod.io/workspaces/",
+    text: "Try Now",
+  },
 };
 
 export const codespacesComparison: FeatureTable = {

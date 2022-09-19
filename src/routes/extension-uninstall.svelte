@@ -6,7 +6,11 @@
   import type { Form } from "$lib/types/form.type";
   import OpenGraph from "$lib/components/open-graph.svelte";
   import Header from "$lib/components/header.svelte";
+  import Textarea from "$lib/components/ui-library/textarea";
   import Button from "$lib/components/ui-library/button";
+  import Card from "$lib/components/ui-library/card";
+  import { tick } from "svelte";
+  import { scrollToElement } from "../lib/utils/helpers";
 
   const extensionUrls = {
     chrome:
@@ -44,17 +48,22 @@
   };
   let isFormDirty = false;
   let isFeedbackSent = false;
+  let form: HTMLElement;
+  let isSubmissionInProgress: boolean = false;
 
   $: isFormValid = Object.values(formData).every((field) => field.valid);
 
   const handleSubmit = async () => {
     isFormDirty = true;
+    isSubmissionInProgress = true;
     if (!isFormValid) {
+      await tick();
+      scrollToElement(form, ".error");
       return;
     }
 
     try {
-      const response = await fetch("/.netlify/functions/feedback", {
+      const response = await fetch("/api/feedback", {
         method: "post",
         body: JSON.stringify({
           type: "browser-extension",
@@ -83,11 +92,20 @@
   form li {
     @apply mb-0;
   }
+  .link {
+    @apply underline;
+  }
+
+  fieldset {
+    display: flex;
+    flex-flow: row wrap;
+  }
 </style>
 
 <OpenGraph
   data={{
-    description: "The browser extension has been uninstalled.",
+    description:
+      "The Gitpod browser extension has been successfully uninstalled.",
     title: "Extension Uninstall",
     norobots: true,
   }}
@@ -103,8 +121,9 @@
   </div>
 </Header>
 
-<section
-  class="p-xx-small sm:py-small sm:px-x-small md:p-medium rounded-2xl bg-off-white shadow-xl mb-32 sm:mx-8 lg:flex lg:items-center lg:justify-around"
+<Card
+  size="small"
+  class="shadow-normal p-xx-small sm:py-small sm:px-x-small md:p-medium mb-32 sm:mx-8 lg:flex lg:items-center lg:justify-around"
 >
   <div class="letter lg:w-2/5 lgpr-xx-small mb-small">
     <p class="text-large">
@@ -124,6 +143,7 @@
     on:submit|preventDefault={handleSubmit}
     name="Extension Deletion"
     novalidate
+    bind:this={form}
     class="lg:w-2/5"
   >
     <input type="hidden" name="form-name" value="extension-deletion" />
@@ -149,20 +169,21 @@
                       formData.reason.el.validity.valid;
                   }}
                 />
-                <label for={id}>{label}</label>
+                <label for={id}><span />{label}</label>
               </li>
             {/each}
           </ul>
         </fieldset>
       </li>
-      <li class:error={isFormDirty && !formData.otherFeedback.valid}>
-        <textarea
+      <li>
+        <Textarea
           aria-label="Do you have any other feedback?"
           placeholder="Do you have any other feedback?"
           id="otherFeedback"
-          name="otherFeedback"
+          hasError={isFormDirty && !formData.otherFeedback.valid}
+          name="feedback"
           bind:value={formData.otherFeedback.value}
-          bind:this={formData.otherFeedback.el}
+          bind:element={formData.otherFeedback.el}
           cols="20"
           rows="4"
           on:change={() => {
@@ -174,17 +195,28 @@
         />
       </li>
       <li>
+        <p class="text-sm my-4">
+          By submitting this form I acknowledge that I have read and understood <a
+            class="link"
+            href="/privacy">Gitpod’s Privacy Policy.</a
+          >
+        </p>
         <Button
           variant="cta"
           size="large"
-          class="mt-x-small"
           disabled={(isFormDirty && !isFormValid) || isFeedbackSent}
+          isLoading={isSubmissionInProgress}
           type="submit">Send</Button
         >
+        {#if isFormDirty && !isFormValid}
+          <legend class="text-xs text-error block mt-1 mb-2">
+            Please fill out all required fields above
+          </legend>
+        {/if}
       </li>
     </ul>
     {#if isFeedbackSent}
       <p>Thanks for your Feedback</p>
     {/if}
   </form>
-</section>
+</Card>

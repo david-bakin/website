@@ -17,17 +17,21 @@
   import Testimonials from "$lib/components/index/testimonials.svelte";
   import GetStarted from "$lib/components/index/get-started/index.svelte";
   import OpenGraph from "$lib/components/open-graph.svelte";
-  import UsedBy from "$lib/components/index/used-by.svelte";
   import SpinUp from "$lib/components/index/spin-up.svelte";
   import Section from "$lib/components/section.svelte";
   import Resources from "$lib/components/resources.svelte";
+  import AnimatedLogos from "$lib/components/animated-logos.svelte";
+  import UsedBy from "$lib/components/index/used-by.svelte";
+  import Titles from "$lib/components/index/titles.svelte";
 </script>
 
 <OpenGraph
   data={{
     description:
-      "Gitpod streamlines developer workflows by providing prebuilt, collaborative developer environments in your browser - powered by VS Code.",
-    title: "Gitpod - Always ready to code",
+      "Gitpod is an open-source developer platform for remote development. Accelerate your teams developer experience, remote collaboration and security - to ship new products faster and more securely.",
+    title: "Gitpod: Always ready to code.",
+    keywords:
+      "cloud dev environment, remote development, open-source, integration, coding, developer experience, automation",
   }}
 />
 
@@ -42,15 +46,14 @@
 </svelte:head>
 
 <Hero />
+<AnimatedLogos />
+<Titles />
 <ChooseProject />
 <div id="choose-project-observer-target-bottom">
   <Features {features} />
 </div>
 <SectionScreenshot />
-<UsedBy
-  title="Used by 500k+ developers"
-  class="bg-off-white rounded-2xl shadow-normal pt-small pb-9"
-/>
+<UsedBy title="Used by 500k+ developers" class="py-small" />
 <Features features={otherFeatures} />
 <Section>
   <Resources {cards} headingLevel="h2" />

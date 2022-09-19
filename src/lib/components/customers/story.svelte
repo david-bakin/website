@@ -1,4 +1,6 @@
 <script type="ts">
+  import BannerBg from "../banner-bg.svelte";
+
   import Section from "../section.svelte";
   export let bannerImg: string;
   export let text: string;
@@ -10,15 +12,15 @@
   }
 
   :global(blockquote) {
-    @apply bg-transparent border-l-4 border-orange-900 pl-xx-small py-0 sm:m-small rounded-none !important;
+    @apply bg-transparent border-l-4 border-primary pl-xx-small py-0 sm:m-small rounded-none !important;
   }
 
   :global(blockquote) :global(p) {
-    @apply text-h6 text-black font-semibold !important;
+    @apply text-h6 text-important font-semibold !important;
   }
 
   :global(code) {
-    @apply bg-orange-700 rounded-xl px-macro py-1;
+    @apply bg-tertiary rounded-xl px-macro py-1;
   }
 </style>
 
@@ -29,10 +31,7 @@
   </div>
 
   <div class="prose max-w-3xl mx-auto mt-x-large">
-    <div
-      class="h-36 bg-cover bg-center rounded-t-2xl mb-small"
-      style="background-image: url({bannerImg});"
-    />
+    <BannerBg {bannerImg} />
     <slot />
   </div>
 </Section>

@@ -9,9 +9,9 @@ title: Gitpod Local Companion
 
 # Gitpod Local Companion
 
-> **Please note:** The Gitpod Local Companion is currently in beta. If you experience any issues, or have feedback, please [get in touch](https://www.gitpod.io/support).
+> {title} is currently in [Beta](/docs/references/gitpod-releases) · [Send feedback](https://github.com/gitpod-io/gitpod/issues/5712).
 
-You can refer to the [Gitpod Local Companion - localhost is going remote](/blog/local-app) blog post for details on how to explore the beta release of the _Gitpod local companion_.
+Please refer to the [Gitpod Local Companion - localhost is going remote](/blog/local-app) announcement blog post for more details on how to explore the beta release of the _Gitpod local companion_.
 
 ## Connect To VS Code Desktop
 

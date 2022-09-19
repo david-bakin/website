@@ -14,7 +14,7 @@ title: New Gitpod Button has landed on GitLab Merge Request Pages
 
 Reviewing merge requests is part of a developer's everday life. The quality of code reviews is a crucial aspect of the development process. In reality, it often leads to just skiming the code changes and approving the merge request with a simple “LGTM”. One reason is that doing code reviews requires a context switch for the reviewer. For a careful review one needs to checkout the branch of the merge request, navigate through the code changes, build and test the changed software, … and hope that there will be no configuration drift or other inferences with the existing local developement setup.
 
-This is a situation where ephemeral development environments show their full strength. With Gitpod, you get a fresh development environment just for your review. It has everything set-up for reviewing the changes and will be closed once the job is done. For a head-to-head comparison between local and cloud based workflows for MRs I recommend reading [Mike's blog post](https://www.gitpod.io/blog/i-said-goodbye-to-local-development-and-so-can-you#switch-context).
+This is a situation where ephemeral development environments show their full strength. With Gitpod, you get a fresh development environment just for your review. It has everything set-up for reviewing the changes and will be closed once the job is done. For a head-to-head comparison between local and cloud based workflows for MRs I recommend reading [Mike's blog post](/blog/i-said-goodbye-to-local-development-and-so-can-you#switch-context).
 
 ## Launch a preconfigured Gitpod workspace from a GitLab merge request
 
@@ -37,5 +37,5 @@ Every release, GitLab selects a community contributor as a [most valuable person
 ## Further reading
 
 - [GitLab 14.2 release blog post](https://about.gitlab.com/releases/2021/08/22/gitlab-14-2-released/)
-- [Blog post “Native GitLab Integration”](https://www.gitpod.io/blog/gitlab-integration)
+- [Blog post “Native GitLab Integration”](/blog/gitlab-integration)
 - [GitLab docs about the Gitpod integration](https://docs.gitlab.com/ee/integration/gitpod.html)

@@ -12,6 +12,7 @@
   import OpenGraph from "$lib/components/open-graph.svelte";
   import PostPreview from "$lib/components/blog/post-preview.svelte";
   import Section from "$lib/components/section.svelte";
+  import Header from "$lib/components/header.svelte";
 
   export let posts: BlogPost[];
 </script>
@@ -30,13 +31,19 @@
   <OpenGraph
     data={{
       description:
-        "Visit the Gitpod blog to learn about releases, tutorials, news and more.",
-      title: "Blog",
+        "The latest news, articles, and opinions around developer experience and remote development in the cloud.",
+      title: "Gitpod Blog - News, ideas and background stories",
+      keywords: "blog, tutorial, news, articles",
     }}
   />
-  <Section>
-    <h1 class="text-center">Blog</h1>
+  <Header
+    title="Blog"
+    text="The latest news, articles, and opinions around developer <br class='hidden sm:block'/>experience and remote development in the cloud."
+    fullWidth={true}
+    textClassNames="mb-small text-large"
+  >
     <div
+      slot="content"
       class="grid m-auto max-w-7xl w-full gap-6 grid-cols-none justify-center md:grid-cols-2 lg:grid-cols-3"
     >
       {#each posts.slice(0, 6) as post}
@@ -45,7 +52,7 @@
         </div>
       {/each}
     </div>
-  </Section>
+  </Header>
 
   <Section>
     <h2 class="mb-small text-center">Previous posts</h2>

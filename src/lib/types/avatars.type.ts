@@ -1,7 +1,3 @@
-export type DisplayNames = {
-  [username: string]: string;
-};
-
-export type SocialMediaLinks = {
+export declare type SocialMediaLinks = {
   [username: string]: string;
 };

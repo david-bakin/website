@@ -57,7 +57,7 @@
           <img
             src="/images/index/{idetoRender.screenshots[ideType]}"
             alt={idetoRender.label}
-            class="shadow-brand rounded-lg"
+            class="shadow-highlight rounded-lg"
           />
         </div>
         <IdeSwitcher
@@ -76,8 +76,10 @@
         and customise it to your individual needs - from themes to extensions,
         you have full control.
       </p>
-      <LinkButton variant="primary" size="large" href="/#get-started"
-        >Try Now</LinkButton
+      <LinkButton
+        variant="primary"
+        size="large"
+        href="https://gitpod.io/workspaces/">Try now</LinkButton
       >
     </div>
   </div>

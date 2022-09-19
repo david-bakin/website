@@ -10,8 +10,9 @@
 
 <script lang="ts">
   import { dev } from "$app/env";
+  import Header from "$lib/components/header.svelte";
+  import ImageLightDark from "$lib/components/image-light-dark.svelte";
   import OpenGraph from "$lib/components/open-graph.svelte";
-  import Section from "$lib/components/section.svelte";
   import LinkButton from "$lib/components/ui-library/link-button";
 
   export let status: number;
@@ -25,38 +26,29 @@
   }}
 />
 
-<div class="text-center">
-  <Section>
-    <img
-      src="/images/illustration-large.jpg"
-      alt="The Gitpod cube set up as a remote workspace"
-      class="mx-auto mb-8 w-96 grayscale-[60%]"
+<Header title={`${status}`}>
+  <div slot="content">
+    <ImageLightDark
+      image={{
+        src: "/images/404.png",
+        darkSrc: "/images/404-dark.png",
+        alt: "404",
+      }}
+      class="mx-auto w-full max-w-xl mb-xx-small"
     />
-    <h1>{status}</h1>
-    <p class="mb-8">Oh, no! Something went wrong on our side.</p>
-
+    <p class="mb-micro">You just hit a route that doesn't exist</p>
+    <LinkButton variant="primary" size="large" href="/"
+      >Back to safety</LinkButton
+    >
     {#if dev}
-      <p>{error.message}</p>
+      <p class="mt-x-small">{error.message}</p>
     {/if}
-
-    <p class="mb-8">
-      <a href="/contact/support">Contact Us</a>
-      —
-      <a href="https://status.gitpod.io/">Gitpod Status</a>
-      —
-      <a href="https://twitter.com/gitpod">@gitpod</a>
-    </p>
-    <p class="mb-8">
-      <LinkButton variant="cta" size="medium" href="https://www.gitpod.io"
-        >Go Home</LinkButton
-      >
-    </p>
-  </Section>
-</div>
+  </div>
+</Header>
 
 {#if dev && error.stack}
   <article
-    class="p-xx-small sm:py-small sm:px-x-small md:p-medium rounded-2xl bg-off-white"
+    class="p-xx-small sm:py-small sm:px-x-small md:p-medium rounded-2xl bg-card"
   >
     <pre>{error.stack}</pre>
   </article>

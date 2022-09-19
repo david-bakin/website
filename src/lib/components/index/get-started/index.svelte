@@ -4,6 +4,7 @@
   import HostGitpodYourself from "./host-gitpod-yourself.svelte";
   import LaunchExampleWorkspace from "./launch-example-workspace.svelte";
   import LinkGitRepository from "./link-git-repository.svelte";
+  import Card from "$lib/components/ui-library/card";
 
   let checked: boolean = false;
 
@@ -20,24 +21,9 @@
   .cards-container {
     @apply flex;
 
-    @media (max-width: 944px) {
+    @media (max-width: 1075px) {
       @apply flex-col mx-auto;
       max-width: 600px;
-    }
-  }
-
-  .card {
-    @apply p-xx-small sm:py-small sm:px-x-small md:p-medium rounded-2xl bg-white text-center;
-    flex: 0 0 49%;
-
-    @media (max-width: 1140px) {
-      padding: var(--small) var(--x-small);
-    }
-
-    &:not(:last-child) {
-      @media (max-width: 944px) {
-        @apply mb-x-small;
-      }
     }
   }
 </style>
@@ -46,28 +32,37 @@
   <h2 class="mb-small text-center text-h2">Get started now</h2>
   <Toggle
     labelLeft="SaaS"
-    labelRight="Self-hosted"
+    labelRight="Self-Hosted"
     on:change={handleChange}
     {checked}
     class="mb-x-small"
     id="saas-self-hosted"
   />
   <div
-    class="cards-container"
+    class="cards-container gap-4"
     class:justify-center={checked}
     class:justify-between={!checked}
   >
     {#if checked}
-      <div class="card shadow-normal">
+      <Card
+        class="shadow-normal p-xx-small sm:py-small basis-[50%] sm:px-x-small md:p-medium text-center"
+        size="small"
+      >
         <HostGitpodYourself />
-      </div>
+      </Card>
     {:else}
-      <div class="card shadow-normal">
+      <Card
+        class="shadow-normal p-xx-small sm:py-small basis-[50%] sm:px-x-small md:p-medium text-center"
+        size="small"
+      >
         <LinkGitRepository />
-      </div>
-      <div class="card">
+      </Card>
+      <Card
+        class="shadow-normal p-xx-small sm:py-small  basis-[50%] sm:px-x-small md:p-medium text-center"
+        size="small"
+      >
         <LaunchExampleWorkspace />
-      </div>
+      </Card>
     {/if}
   </div>
 </Section>

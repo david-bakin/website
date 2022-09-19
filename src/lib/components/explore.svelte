@@ -1,7 +1,9 @@
 <script lang="ts">
   import Section from "./section.svelte";
+  import Card from "$lib/components/ui-library/card";
   import LinkButton from "$lib/components/ui-library/link-button";
   import type { ExploreSection } from "$lib/types/explore-section.type";
+  import ButtonsWrapper from "./buttons-wrapper.svelte";
 
   export let contents: ExploreSection = {};
 
@@ -10,22 +12,21 @@
     description = "Spin up fresh, automated dev environments for each task, in the cloud, in seconds.",
     note = "",
     link = {
-      text: "Try Now",
-      href: "/#get-started",
+      text: "Try now",
+      href: "https://gitpod.io/workspaces",
     },
-    secondaryLink,
+    secondaryLink = {
+      text: "Get a demo",
+      href: "/contact/get-demo",
+    },
     useKumquatIllustration = false,
   } = contents;
 </script>
 
 <style lang="postcss">
-  .explore {
-    border-radius: 4rem;
-  }
-
-  @media (max-width: 830px) {
-    .explore {
-      @apply flex-col rounded-2xl mx-auto;
+  :global(section) :global(.explore) {
+    @media (max-width: 830px) {
+      @apply flex-col mx-auto;
       max-width: 345px;
     }
   }
@@ -99,24 +100,39 @@
     .explore__illustration .small {
       @apply block;
     }
+
+    :global(body.dark) .small-light {
+      @apply hidden !important;
+    }
+
+    :global(body.light) .small-dark {
+      @apply hidden !important;
+    }
+  }
+
+  .kumquat-illustration {
+    background: url("/images/kumquat.png");
+    @apply bg-cover;
   }
 </style>
 
 <Section>
-  <div
-    class="explore flex xl:items-center bg-off-white shadow-normal max-w-none text-left"
+  <Card
+    size="medium"
+    class="shadow-normal flex xl:items-center max-w-none text-left explore"
   >
     <div class="explore__text md:py-medium xl:py-0">
       <h2 class="h1">{@html title}</h2>
       <p class="explore__paragraph text-p-large">
         {@html description}
       </p>
+      <slot name="list" />
       {#if note}
-        <p class="h5 font-semibold text-gray-900 mb-x-small md:-mt-micro">
+        <p class="h5 font-semibold text-important mb-x-small md:-mt-micro">
           {note}
         </p>
       {/if}
-      <div class="flex wrap pb-small sm:pb-micro md:pb-0">
+      <ButtonsWrapper class="pb-small sm:pb-micro md:pb-0">
         <LinkButton
           size="large"
           variant="primary"
@@ -133,28 +149,42 @@
             >{secondaryLink.text}</LinkButton
           >
         {/if}
-      </div>
+      </ButtonsWrapper>
     </div>
     <div
-      class="explore__illustration w-full bg-cover bg-left"
-      style="background-image: url(/images/{useKumquatIllustration
-        ? 'kumquat.png'
-        : 'illustration-grid.png'});"
+      class="explore__illustration w-full bg-cover bg-left bg-[url('/images/illustration-grid.png')] dark:bg-[url('/images/illustration-grid-dark.png')]"
+      class:kumquat-illustration={useKumquatIllustration}
     >
       <img
         src="/images/{useKumquatIllustration
           ? 'kumquat.png'
           : 'illustration-grid.png'}"
         alt="Gitpod in a Nutshell"
+        class="dark:hidden"
+      />
+      <img
+        src="/images/{useKumquatIllustration
+          ? 'kumquat.png'
+          : 'illustration-grid-dark.png'}"
+        alt="Gitpod in a Nutshell"
+        class="hidden dark:block"
       />
       <img
         src="/images/{useKumquatIllustration
           ? 'kumquat.png'
           : 'illustration-small.png'}"
         class:pt-micro={useKumquatIllustration}
-        class="small"
+        class="small small-light"
+        alt="Gitpod in a Nutshell"
+      />
+      <img
+        src="/images/{useKumquatIllustration
+          ? 'kumquat.png'
+          : 'illustration-small-dark.png'}"
+        class:pt-micro={useKumquatIllustration}
+        class="small small-dark hidden dark:block"
         alt="Gitpod in a Nutshell"
       />
     </div>
-  </div>
+  </Card>
 </Section>

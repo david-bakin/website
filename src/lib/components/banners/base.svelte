@@ -1,14 +1,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { slide } from "svelte/transition";
+  import displayBanner from "$lib/stores/display-banner";
 
   let clazz = "";
-  let dateNow = new Date(Date.now());
   export { clazz as class };
   export let storageKey: string;
-  export let startDate: Date = new Date("2021-01-01");
-  export let endDate: Date = new Date("2021-01-02");
-  export let location: "top" | "bottom" = "top";
+  export let display: boolean = false;
+  export let location: "top" | "bottom" | "custom";
 
   let showBanner = false;
 
@@ -17,18 +16,30 @@
     window.localStorage.setItem(storageKey, "true");
     if (clazz === "announcement-banner") {
       document.body.classList.remove("banner-is-shown");
+      document.documentElement.classList.remove("display-banner");
     }
   };
 
   onMount(() => {
     showBanner = !window.localStorage.getItem(storageKey);
-    if (clazz === "announcement-banner") {
-      let isWithinTheDates = startDate < dateNow && dateNow < endDate;
-      if (isWithinTheDates && showBanner) {
+    displayBanner.set(showBanner && display);
+    if (clazz.includes("announcement-banner")) {
+      if (display && showBanner) {
+        document.documentElement.classList.add("display-banner");
         document.body.classList.add("banner-is-shown");
-      } else if (!isWithinTheDates || !showBanner) {
-        closeBanner();
+      } else if (!display || !showBanner) {
+        showBanner = false;
+        if (clazz === "announcement-banner") {
+          document.body.classList.remove("banner-is-shown");
+          document.documentElement.classList.remove("display-banner");
+        }
       }
+    }
+
+    if (storageKey === "cookie-consent-bar" && showBanner) {
+      document.body.classList.add("consent-is-shown");
+    } else {
+      document.body.classList.remove("consent-is-shown");
     }
   });
 </script>
@@ -38,19 +49,25 @@
     @apply mt-small;
   }
 
+  :global(.display-banner) {
+    scroll-padding-top: 8rem;
+  }
+
   .top {
     @apply top-0;
   }
 
   .bottom {
-    @apply bottom-0 fixed z-10;
+    @apply bottom-0 fixed z-30;
   }
 </style>
 
 {#if showBanner}
   <div
     transition:slide
-    class="{location} px-4 py-2 flex justify-between items-center w-full bg-sand-dark shadow-sm text-xs sm:text-sm md:text-base"
+    class:top={location === "top"}
+    class:bottom={location === "bottom"}
+    class={clazz}
   >
     <slot {closeBanner} />
   </div>

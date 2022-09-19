@@ -3,10 +3,11 @@ export type FeatureTocItemType = "text" | "tooltip" | "image";
 export type FeatureTocItem = {
   text: string;
   tooltip?: string;
-  image?: FeatureImage;
+  image?: FeatureImage | any;
 };
 
 export type FeatureItemDetail = {
+  isHeadline?: boolean;
   term: string;
   list?: string[];
   text?: string;
@@ -16,12 +17,19 @@ export type FeatureItemDetail = {
 export type FeatureTableHeader = {
   headline: string;
   subtitle?: string;
+  isMostPopular?: boolean;
   image?: FeatureImage;
 };
 
 export type FeatureImage = {
   path: string;
   alt: string;
+  height?: string;
+};
+
+export type FeatureTableColumnEntry = {
+  users?: string;
+  items?: FeatureItemDetail[];
 };
 
 export type FeatureTableColumn = {
@@ -31,12 +39,14 @@ export type FeatureTableColumn = {
   };
   isHighlighted?: boolean;
   header: FeatureTableHeader;
-  items: FeatureItemDetail[];
+  enteries: FeatureTableColumnEntry[];
 };
 
 export type FeatureTableToc = {
-  type: FeatureTocItemType;
-  data: FeatureTocItem;
+  isHeadline?: boolean;
+  headlineText?: string;
+  type?: FeatureTocItemType;
+  data?: FeatureTocItem;
 };
 
 export type FeatureTable = {

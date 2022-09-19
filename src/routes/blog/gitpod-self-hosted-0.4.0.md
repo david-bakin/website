@@ -19,11 +19,11 @@ We are excited to announce the new release of Gitpod Self-Hosted in version 0.4.
 
 Gitpod Self-Hosted runs on Kubernetes and is easily installed via "helm install". On gitpod.io you can find detailed documentation and some automation to install Gitpod on [vanilla Kubernetes](/docs/self-hosted/latest) or [on Google Cloud Platform](/docs/self-hosted/latest). For the next release, we plan to add support for AWS, Azure, and OpenShift.
 
-Users log into Gitpod via OAuth from your self managed Gitlab or GitHub enterprise. This ensures that all access privileges from your Git hosting solution are taken into account and that there is no additional administrative effort for managing user accounts.
+Users log into Gitpod via OAuth from your self managed GitLab or GitHub enterprise. This ensures that all access privileges from your Git hosting solution are taken into account and that there is no additional administrative effort for managing user accounts.
 
 Gitpod Self-Hosted is truly self-hosted: it does not require an internet connection to operate as every single bit runs on your network, and Gitpod Self-Hosted won't call home.
 
-Operating Gitpod in production on gitpod.io has enabled us to battle-harden this product at scale. Both offerings share the same codebase, hence offer the same qualities regarding scalability, cloud-density, reliability, and security. All improvements that we make on Gitpod’s SaaS offering directly benefit the self-hosted version.
+Operating Gitpod in production on gitpod.io has enabled us to battle-harden this product at scale. Both offerings share the same codebase, hence offer the same qualities regarding scalability, cloud-density, reliability, and security. All improvements that we make on Gitpod’s SaaS offering directly benefit the Self-Hosted version.
 
 This release ships a plethora of bugfixes and improvements, particularly in the area of GitLab integration.
 There is one major feature that I want to show in more detail since you can't try this on gitpod.io:

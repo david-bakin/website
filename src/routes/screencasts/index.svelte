@@ -41,8 +41,10 @@
 
 <OpenGraph
   data={{
-    description: "Learn more about Gitpod with these short screencasts.",
-    title: "Screencasts",
+    description:
+      "Short screencasts to get started and learn how to become always ready to code. Set up, configure and customize Gitpod and enter remote development in the cloud.",
+    title: "Gitpod Screencasts - Videos, guides and tutorials",
+    keywords: "learn, video, tutorial, documentation, onboarding",
   }}
 />
 
@@ -52,7 +54,12 @@
   tight={true}
 />
 
-<Search bind:value={searchTerm} class="md:mt-medium" />
+<Search
+  bind:value={searchTerm}
+  label="Search Screencasts"
+  placeholder="Search Screencasts"
+  class="md:mt-medium"
+/>
 
 <SuggestedTopics currentTopic={tag} on:setTopic={(e) => (tag = e.detail)} />
 

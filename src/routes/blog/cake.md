@@ -27,7 +27,7 @@ I don't know if you have ever tried ordering a cake over the internet but let me
 ![Credit: Geoffrey Huntley](../../../static/images/blog/cake/gitpod-x-codespaces.jpg)
 _Photo Credit: [Geoffrey Huntley](https://twitter.com/geoffreyhuntley)_
 
-After checking with an insider at GitHub, we got confirmation that people in the San Francisco office had started to return to the office, that food is being served in their cafeteria and that they would serve our cake. With that knowledge under our belt, at the crack of sparrows, skype was downloaded, and I was off to the races cold calling bakers in San Francisco. Gitpod needed a baker that we should trust [with our brand](https://www.gitpod.io/media-kit) and one that would act autonomously because timezones would make further communication impossible.
+After checking with an insider at GitHub, we got confirmation that people in the San Francisco office had started to return to the office, that food is being served in their cafeteria and that they would serve our cake. With that knowledge under our belt, at the crack of sparrows, skype was downloaded, and I was off to the races cold calling bakers in San Francisco. Gitpod needed a baker that we should trust [with our brand](/media-kit) and one that would act autonomously because timezones would make further communication impossible.
 
 "Bakers in San Francisco" was punched into Google Maps, and top-to-bottom, I called every single one. The responses were somewhat mixed:
 
@@ -54,7 +54,7 @@ The baker of our cake was none other than Camisha Green of Camisha's Cakes. A pr
 
 Unfortunately, due to timezones, I was unable to contact [camishascakes.com](https://camishascakes.com) by phone, so an email was dispatched:
 
-> 👋 I'm Geoff, from [Gitpod](https://www.Gitpod.io), and this email is coming to you from Australia. A competitor of ours in San Francisco launched their product a couple hours ago, and Gitpod would love to send a Gitpod cake to their office in celebration. In the software industry, there is a [long standing tradition](https://timesofindia.indiatimes.com/gadgets-news/why-google-mozilla-sent-cakes-to-microsoft/articleshow/73664799.cms) between competitors sending each other cakes.
+> 👋 I'm Geoff, from [Gitpod](/), and this email is coming to you from Australia. A competitor of ours in San Francisco launched their product a couple hours ago, and Gitpod would love to send a Gitpod cake to their office in celebration. In the software industry, there is a [long standing tradition](https://timesofindia.indiatimes.com/gadgets-news/why-google-mozilla-sent-cakes-to-microsoft/articleshow/73664799.cms) between competitors sending each other cakes.
 >
 > We would like to know your availability and hear your thoughts about commissioning a cake that uses the Gitpod branding to serve 60-80 people by next Friday.
 >
@@ -74,7 +74,7 @@ and I promptly replied with:
 >
 > Our style guide is at https://www.gitpod.io/assets/style-guide.pdf
 >
-> Have a look at our website at https://www.gitpod.io/ and you'll notice:
+> Have a look at our website at [https://www.gitpod.io/](/) and you'll notice:
 >
 > - the background colour is white
 > - we accentuate primary using orange
@@ -93,7 +93,7 @@ Truth be told, I was 🤬 'ing myself. To trust someone in a completely differen
 
 ![Credit: Gitpod](../../../static/images/blog/cake/the-vote.jpg)
 
-Whilst Gitpod is a fully distributed company, that [hires people from anywhere in the world](https://www.gitpod.io/careers) our origins are from Kiel, Germany thus a lot of our employees are German. After an unfair vote, German Chocolate was declared the winner, but it wasn't without some office debate as to _what German Chocolate tastes like_:
+Whilst Gitpod is a fully distributed company, that [hires people from anywhere in the world](https://www.gitpod.io/careers/careers) our origins are from Kiel, Germany thus a lot of our employees are German. After an unfair vote, German Chocolate was declared the winner, but it wasn't without some office debate as to _what German Chocolate tastes like_:
 
 - 🧔 "German Chocolate"? I only know of Swiss Chocolate.
 - 👩🏼 There are "German Chocolate" and "True Chocolate". It seems that they are implying something…

@@ -3,7 +3,7 @@
   import MenuLink from "./menu-link.svelte";
 
   import type { MenuEntry } from "$lib/types/menu-entry.type";
-  import Pill from "$lib/components/pill.svelte";
+  import MenuSubsection from "./menu-subsection.svelte";
 
   export let menuItem: MenuEntry;
 
@@ -16,31 +16,18 @@
     : /\/docs\/?$/.test(menuItem.path);
 </script>
 
-<style lang="postcss">
-  .isActiveSection {
-    @apply py-6 bg-white rounded-2xl shadow-normal;
-  }
-</style>
-
 <li data-analytics={`{"position":"sidebar"}`}>
-  <div
-    class:isActiveSection
-    class="px-6 inline-block text-p-large leading-x-small"
-  >
-    <MenuLink href={menuItem.path} class="text-large">{menuItem.title}</MenuLink
+  <div class="pl-6 inline-block text-sm leading-6">
+    <MenuLink
+      class={isActiveSection ? "text-black dark:text-white font-semibold" : ""}
+      href={menuItem.path}>{menuItem.title}</MenuLink
     >
     {#if menuItem.subMenu && isActiveSection}
-      <ul class="ml-4 mt-4 text-p-medium leading-x-small">
+      <ul
+        class="ml-2 border-l mt-2 space-y-6 lg:space-y-2 border-divider leading-6"
+      >
         {#each menuItem.subMenu as sub}
-          <li
-            class="flex flex-row items-center"
-            data-analytics={`{"context":"submenu"}`}
-          >
-            <MenuLink href={sub.path}>{sub.title}</MenuLink>
-            {#if sub.status}
-              <Pill text={sub.status} class="ml-1.5" />
-            {/if}
-          </li>
+          <MenuSubsection menuItem={sub} />
         {/each}
       </ul>
     {/if}

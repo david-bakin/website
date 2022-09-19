@@ -6,16 +6,15 @@
   const { type } = $$restProps;
 </script>
 
-{#if type === "digest"}
-  <DigestHeader />
-{/if}
-
 <PostContentLayout
   imagesDirectoryName="blog"
   baseUrl="https://www.gitpod.io/blog/"
   {...$$restProps}
 >
   <slot />
+  {#if type === "digest"}
+    <DigestHeader />
+  {/if}
 </PostContentLayout>
 
 {#if type === "digest"}

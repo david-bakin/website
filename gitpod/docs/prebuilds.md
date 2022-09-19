@@ -13,7 +13,7 @@ Prebuilds reduce wait time, by installing dependencies or running builds **befor
 
 `youtube: ZtlJ0PakUHQ`
 
-#### gitpod.yml
+## gitpod.yml
 
 In the example below, the `init` task installs npm packages into the node_modules directory of the workspace. The `command` task runs 'npm start' on every workspace startup.
 
@@ -25,7 +25,7 @@ tasks:
       npm start
 ```
 
-#### Prebuilds are shared
+## Prebuilds are shared
 
 Gitpod can trigger a prebuild whenever there is a commit to a repository. That prebuild will then be used for all new workspaces opened on that branch. This is ideal for working together on branches for testing or code reviews.
 
@@ -35,7 +35,7 @@ Prebuild users will see a message in their workspace terminal like this:
 🤙 This task ran as a workspace prebuild
 ```
 
-#### Workspace directory only
+## Workspace directory only
 
 Prebuilds save **only** the workspace directory. Other directories like the home directory are not saved by prebuilds.
 
@@ -43,7 +43,7 @@ To use global installs like 'npm install -g', we suggest using a custom Dockerfi
 
 ## Projects and prebuilds
 
-[Projects](https://www.gitpod.io/docs/teams-and-projects#projects) are a convenient way to manage prebuilds and workspaces for your repository.
+[Projects](/docs/teams-and-projects#projects) are a convenient way to manage prebuilds and workspaces for your repository.
 
 To create a new project:
 
@@ -84,7 +84,7 @@ gitpod.io/#prebuild/https://gitlab.com/gitpod-io/gitpod
 
 This will [start a prebuild](#manual-execution-of-prebuild), and also install a webhook that will trigger new Gitpod prebuilds for every new push to any of your branches to your repository.
 
-If you want to trigger new Gitpod prebuilds for specific branches only, you can configure this in your Gitlab [project settings](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html#branch-filtering).
+If you want to trigger new Gitpod prebuilds for specific branches only, you can configure this in your GitLab [project settings](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html#branch-filtering).
 
 #### Bitbucket
 
@@ -154,7 +154,7 @@ github:
     addBadge: false
 ```
 
-### Additional GitHub integration
+#### Additional GitHub integration
 
 Once the GitHub app is installed, Gitpod can add helpful annotations to your pull requests.
 
@@ -209,13 +209,10 @@ If you don't want the comments to be added, disable them using `addComment: fals
 
 ## User specific environment variables in prebuilds
 
-It is not necessarily best practice to have user specific environment variables in a prebuild `before` or `init` block, but sometimes there are build time requirements that mean certain tokens need setting or files need creating. Environment variables defined within your Gitpod Variables preferences are not imported by default, but they can be accessed with the following command within a `before` or `init` block:
+It is not necessarily best practice to have user specific environment variables in a prebuild `init` block, but sometimes there are build time requirements that mean certain tokens need setting or files need creating. Environment variables defined within your Gitpod Variables preferences are not imported by default, but they can be accessed with the following command within a `before` or `init` block:
 
 ```yaml
 tasks:
-  - before: |
-      eval $(command gp env -e)
-      echo "Hello ${MY_VAR}"
   - init: |
       eval $(command gp env -e)
       echo "Hello ${MY_VAR}"

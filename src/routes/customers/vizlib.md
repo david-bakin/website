@@ -19,7 +19,17 @@ keywords: vizlib, astrato, data visualisation, hackathon
 	import Section from "$lib/components/section.svelte";
 	import Story from "$lib/components/customers/story.svelte";
 	import Quote from "$lib/components/quote.svelte";
+  	import OpenGraph from "$lib/components/open-graph.svelte";
 </script>
+
+<OpenGraph
+data={{
+    description:
+      "By moving their whole development to the cloud, Vizlib reduced onboarding time for new hires from 2d to 1h. 20% fewer hotfixes after release through Gitpod.",
+    title: "Vizlib case study: 20% fewer hotfixes with Gitpod",
+    keywords: "vizlib, astrato, data visualisation, hackathon",
+  }}
+/>
 
 <CustomerHero
 title="An internal hackathon as catalyst to 20% fewer hotfixes with Gitpod"

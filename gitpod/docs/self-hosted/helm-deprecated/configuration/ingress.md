@@ -11,7 +11,7 @@ title: Configure the ingress to your Gitpod installation
 
 > ⚠️ **Deprecated Content**
 >
-> The content of this page assumes you are using Helm, which is now deprecated.
+> The content of this page assumes you are using Helm, which is now deprecated. Please use the [Installer](../../latest) instead.
 
 Configuring ingress into your Gitpod installation requires two things:
 
@@ -76,26 +76,26 @@ To configure the HTTPS certificates for your domain
 ### Using Let's Encrypt to generate HTTPS certificates
 
 The most accessible means of obtaining HTTPS certificates is using [Let's Encrypt](https://letsencrypt.org/). It provides free certificates to anybody who can prove ownership of a domain.
-Let's Encrypt offers a program called [certbot](https://certbot.eff.org/) to make acquiring certificates as striaght forward as possible.
+Let's Encrypt offers a program called [certbot](https://certbot.eff.org/) to make acquiring certificates as straightforward as possible.
 
 Assuming you have [certbot](https://certbot.eff.org/) installed, the following script will generate and configure the required certificates (notice the placeholders):
 
-```
+```bash
 export DOMAIN=your-domain.com
 export EMAIL=your@email.here
 export WORKDIR=$PWD/letsencrypt
 
-certbot certonly \\
-    --config-dir $WORKDIR/config \\
-    --work-dir $WORKDIR/work \\
-    --logs-dir $WORKDIR/logs \\
-    --manual \\
-    --preferred-challenges=dns \\
-    --email $EMAIL \\
-    --server https://acme-v02.api.letsencrypt.org/directory \\
-    --agree-tos \\
-    -d *.ws.$DOMAIN \\
-    -d *.$DOMAIN \\
+certbot certonly \
+    --config-dir $WORKDIR/config \
+    --work-dir $WORKDIR/work \
+    --logs-dir $WORKDIR/logs \
+    --manual \
+    --preferred-challenges=dns \
+    --email $EMAIL \
+    --server https://acme-v02.api.letsencrypt.org/directory \
+    --agree-tos \
+    -d *.ws.$DOMAIN \
+    -d *.$DOMAIN \
     -d $DOMAIN
 
 # move them into place

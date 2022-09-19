@@ -22,7 +22,7 @@ Gitpod is aware of the following contexts:
 - [Issue Context](#issue-context)
 - [Pull/Merge Request Context](#pullmerge-request-context)
 
-Please note, these contexts are supported for GitHub, GitLab, and Bitbucket. This also includes self-hosted installations of these git providers, where available.
+Please note, these contexts are supported for GitHub, GitLab, and Bitbucket. This also includes Self-Hosted installations of these git providers, where available.
 
 ## Repository Context
 
@@ -56,7 +56,7 @@ gitpod.io/#https://github.com/gitpod-io/website/commit/f5d4eb4cd3859a760ac613598
 
 The fastest way to work on an issue is to start a Gitpod workspace with an issue context. Gitpod automatically creates a local branch based on the following pattern:
 
-```
+```text
 <your-username>/<issue-title>-<issue-number>
 ```
 

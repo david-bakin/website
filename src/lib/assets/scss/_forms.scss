@@ -1,13 +1,9 @@
-input,
-textarea,
-select {
+[type="radio"],
+[type="checkbox"] {
   all: unset;
   font: inherit;
-  color: var(--dark-grey);
+  color: var(--body);
   box-sizing: border-box;
-}
-textarea {
-  @apply whitespace-pre-wrap;
 }
 [type="radio"],
 [type="checkbox"] {
@@ -16,59 +12,67 @@ textarea {
 [type] + label {
   cursor: pointer;
 }
-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  background-image: url("/arrow-grey.svg"),
-    linear-gradient(to bottom, #ffffff 0%, #f9f9f9 100%);
-  background-repeat: no-repeat, repeat;
-  background-position: right 1em top 50%, 0 0;
-  background-size: 1.25em auto, 100%;
-  width: 100%;
-}
+
 label,
-legend,
-[type="email"],
-[type="text"] {
+legend {
   display: block;
-  color: var(--dark-grey);
+  color: var(--body);
   margin-bottom: 0.5rem;
 }
-[type="email"],
-[type="text"],
-textarea {
-  width: 100%;
-}
-form li {
-  margin-bottom: 2rem;
-}
-fieldset,
+
 [type="checkbox"] + label {
   display: flex;
-}
-fieldset {
-  flex-flow: row wrap;
 }
 legend {
   flex: 100%;
 }
-[type="email"],
-[type="text"],
+
 [type="number"],
-[type="radio"] + label,
-textarea,
-select {
+[type="radio"] + label {
   border: 1px solid var(--divider);
   padding: 0.5rem 1rem;
   border-radius: 0.5em;
 }
 
-[type="checkbox"] + label::before {
-  content: "";
-  @apply block h-6 rounded text-center mr-micro transition border border-solid border-divider;
-  flex: 0 0 24px;
-  line-height: 1.1;
+[type="checkbox"] + label {
+  @apply relative;
+
+  &::after,
+  span {
+    @apply block h-6 w-6 transition duration-300;
+  }
+
+  &::after {
+    content: "";
+    @apply flex bg-center absolute left-0 opacity-0;
+    background-image: url("/tick-dark.svg");
+    transform: scale(0);
+  }
+
+  &::before {
+    content: none;
+  }
+
+  span {
+    flex: 0 0 24px;
+    @apply relative rounded border border-solid border-divider mr-micro overflow-hidden transition-all duration-300;
+
+    &::before {
+      content: "";
+      @apply block h-full w-full absolute transition-all duration-200;
+    }
+  }
+}
+
+[type="checkbox"]:checked + label {
+  &::after {
+    @apply opacity-100;
+    transform: scale(1);
+  }
+
+  span {
+    @apply bg-primary;
+  }
 }
 
 [type="checkbox"] + label::before,
@@ -82,12 +86,12 @@ select {
   color: var(--error);
 }
 .error.error [type] + label {
-  color: var(--dark-grey);
+  color: var(--body);
 }
 [type="checkbox"]:checked + label::before,
 [type="radio"]:checked + label {
   color: var(--black);
-  @apply border border-solid border-orange-900 bg-orange-900;
+  @apply border border-solid border-primary bg-primary;
 }
 [type="checkbox"]:checked + label::before {
   background-image: url("/tick-dark.svg");
@@ -97,17 +101,13 @@ select {
 [type="checkbox"] + label:focus::before,
 [type="radio"]:hover + label,
 [type="radio"]:focus + label {
-  border-color: var(--dark-grey);
+  border-color: var(--body);
 }
 [type="radio"]:checked + label {
-  @apply border-orange-900;
+  @apply border-primary;
 }
 [class|="btn"]:disabled {
   background-color: var(--sand-dark);
   color: var(--dark-gray);
   cursor: default;
-}
-
-::placeholder {
-  @apply text-dark-grey !important;
 }

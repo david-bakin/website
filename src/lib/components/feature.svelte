@@ -1,10 +1,12 @@
 <script lang="ts">
   import { isAnExternalLink } from "$lib/utils/helpers";
   import LinkButton from "$lib/components/ui-library/link-button";
-
   import type { Feature } from "$lib/types/feature.type";
   import Console from "./console.svelte";
   import Section from "./section.svelte";
+  import ButtonsWrapper from "./buttons-wrapper.svelte";
+  import Lottie from "./lottie.svelte";
+  import TickList from "./tick-list.svelte";
 
   export let feature: Feature;
   const {
@@ -16,6 +18,7 @@
     terminal,
     image,
     previewComponent,
+    lottie,
     showTheMediaFirstOnMobile,
     footnote,
     headingLevel,
@@ -32,22 +35,17 @@
   }
 
   .feature :global(code) {
-    @apply py-1 px-2 rounded-xl bg-orange-700;
+    @apply py-1 px-2 rounded-xl bg-tertiary text-dark-grey;
     white-space: break-spaces;
-  }
-
-  ul {
-    text-align: left;
-  }
-
-  li::before {
-    content: url("/tick.svg");
-    @apply block h-6 w-6 mr-micro;
-    flex: 0 0 1.5rem;
   }
 
   .buttons-wrapper {
     @apply flex justify-center items-center flex-wrap space-x-4;
+  }
+
+  .component-container > :global(*) {
+    height: 100%;
+    width: 100%;
   }
 </style>
 
@@ -74,17 +72,10 @@
           {@html paragraph}
         </p>
         {#if featureList}
-          <ul class="space-y-3 mt-micro">
-            {#each featureList as f}
-              <li class="flex">{f}</li>
-            {/each}
-          </ul>
+          <TickList list={featureList} />
         {/if}
       </div>
-      <div
-        class:buttons-wrapper={moreButton && secondaryButton}
-        class:hidden={!moreButton && !secondaryButton}
-      >
+      <ButtonsWrapper class={!moreButton && !secondaryButton ? "hidden" : ""}>
         {#if moreButton}
           <LinkButton
             href={moreButton.href}
@@ -103,7 +94,7 @@
               : undefined}>{secondaryButton.text}</LinkButton
           >
         {/if}
-      </div>
+      </ButtonsWrapper>
     </div>
     <div
       class="preview w-full col-start-1 row-start-1 md:col-start-auto md:row-start-auto"
@@ -121,15 +112,30 @@
         <img
           src={image.src}
           alt={image.alt}
-          class="{image.classNames} mx-auto"
+          class="{image.classNames} mx-auto {image.darkSrc
+            ? 'dark:hidden'
+            : ''}"
           style={image.styles}
         />
+        {#if image.darkSrc}
+          <img
+            src={image.darkSrc}
+            alt={image.alt}
+            class="{image.classNames} mx-auto hidden dark:block"
+            style={image.styles}
+          />
+        {/if}
+      {/if}
+      <div class="component-container">
+        {#if previewComponent}
+          <svelte:component this={previewComponent} />
+        {/if}
+      </div>
+      {#if lottie}
+        <Lottie {lottie} />
       {/if}
       {#if footnote}
         <p class="fine-print mt-x-small max-w-md mx-auto">{@html footnote}</p>
-      {/if}
-      {#if previewComponent}
-        <svelte:component this={previewComponent} />
       {/if}
     </div>
   </div>

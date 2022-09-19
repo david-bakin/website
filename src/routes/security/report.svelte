@@ -15,7 +15,7 @@
   }
 
   ::marker {
-    @apply text-orange-800;
+    @apply text-secondary;
   }
 
   ul li {
@@ -23,7 +23,7 @@
   }
 
   ul li::before {
-    @apply absolute text-orange-800;
+    @apply absolute text-secondary;
     content: "—";
     left: calc(var(--xx-small) * -1);
   }
@@ -120,7 +120,7 @@
   <ul class="pl-xx-small md:pl-x-small space-y-4 mb-4">
     <li>
       Perform the majority of your security research against <a
-        href="https://www.gitpod.io/docs/self-hosted/latest"
+        href="/docs/self-hosted/latest"
         >Gitpod hosted on your own infrastructure</a
       >.
     </li>
@@ -165,9 +165,9 @@
     Please report security issues via <a href="mailto://security@gitpod.io"
       >security@gitpod.io</a
     >
-    or <a href="/security/report">https://www.gitpod.io/security/report</a>,
-    providing all relevant information. The more details you provide, the easier
-    it will be for us to triage and fix the issue.
+    or <a href="/security/report">https://www.gitpod.io/security/</a>, providing
+    all relevant information. The more details you provide, the easier it will
+    be for us to triage and fix the issue.
   </p>
   <h2 class="h3 mx-0 my-8">Safe Harbor</h2>
   <p class="mb-4">

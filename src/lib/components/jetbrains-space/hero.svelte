@@ -37,12 +37,7 @@
       class="mt-x-small"
       variant="primary"
       size="large"
-      href="/#get-started"
-      on:click={() =>
-        window.analytics.track("product_cta_clicked", {
-          context: "hero",
-          destination: "#get-started",
-        })}>Try Now</LinkButton
+      href="https://gitpod.io/workspaces/">Try now</LinkButton
     >
   </div>
   <img

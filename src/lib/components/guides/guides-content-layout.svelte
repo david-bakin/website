@@ -6,9 +6,8 @@
 <PostContentLayout
   imagesDirectoryName="guides"
   baseUrl="https://www.gitpod.io/guides/"
-  norobots={true}
   {...$$restProps}
 >
   <slot />
 </PostContentLayout>
-<FeedbackWidget type="guides" class="mb-huge" />
+<FeedbackWidget type="guides" class="mt-large mb-huge" />

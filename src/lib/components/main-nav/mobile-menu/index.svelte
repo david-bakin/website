@@ -5,12 +5,11 @@
 
   import LoginButton from "../login-button.svelte";
   import NavItem from "../nav-item.svelte";
-  import SignUpButton from "../sign-up-button.svelte";
   import DashboardButton from "../dashboard-button.svelte";
   import menuState from "./state";
-  import ContactLinkMobile from "./contact-link-mobile.svelte";
+  import DemoButton from "../demo-button.svelte";
+  import MobileDropdown from "./mobile-dropdown.svelte";
 
-  export let navItems = [];
   export let isLoggedIn: boolean;
 
   onMount(() => {
@@ -21,7 +20,7 @@
       }
     };
 
-    let query = window.matchMedia("(min-width: 1090px)");
+    let query = window.matchMedia("(min-width: 1190px)");
     query.addEventListener("change", handleTabletChange);
   });
 
@@ -37,15 +36,29 @@
 </script>
 
 <style lang="postcss">
-  /* Always make sure to keep the media query intact with one specified above in the matchMedia call. */
-  @media (min-width: 1090px) {
-    .nav-items {
-      @apply hidden;
+  .nav-items > :global(*:not(:last-child)) {
+    @apply py-macro border-b border-divider;
+  }
+
+  .nav-items > :global(a) {
+    &:hover,
+    &:focus {
+      @apply bg-sand-light;
     }
   }
 
-  div :global(a:not([class*="button"])) {
-    @apply text-dark-grey;
+  :global(body.dark) .nav-items > :global(a) {
+    &:hover,
+    &:focus {
+      @apply bg-light-black;
+    }
+  }
+
+  /* Always make sure to keep the media query intact with one specified above in the matchMedia call. */
+  @media (min-width: 1190px) {
+    .nav-items {
+      @apply hidden;
+    }
   }
 
   @media (max-height: 525px) {
@@ -57,20 +70,44 @@
 
 {#if $menuState}
   <div
-    class="nav-items absolute flex flex-col py-x-small w-screen items-center bg-off-white space-y-xx-small z-10 shadow-md max-h-screen overflow-y-auto"
+    class="nav-items absolute flex flex-col py-x-small px-micro md:px-x-small w-screen bg-card z-10 shadow-md max-h-screen overflow-y-auto"
   >
-    {#each navItems as navItem}
-      <NavItem {navItem} />
-    {/each}
-    <ContactLinkMobile />
-    {#if isLoggedIn}
-      <DashboardButton />
-    {:else}
-      <LoginButton />
-      <SignUpButton
-        class="text-lg h-8 w-28 button flex-shrink-0"
-        on:click={toggle}
-      />
-    {/if}
+    <NavItem
+      navItem={{
+        href: "/docs",
+        label: "Docs",
+      }}
+    />
+    <MobileDropdown />
+    <NavItem
+      navItem={{
+        href: "/for/enterprise",
+        label: "Enterprise",
+      }}
+    />
+    <NavItem
+      navItem={{
+        href: "/customers",
+        label: "Customers",
+        highlight: true,
+      }}
+    />
+    <NavItem
+      navItem={{
+        href: "/pricing",
+        label: "Pricing",
+      }}
+    />
+    <div class="flex flex-col items-center pt-x-small space-y-micro">
+      {#if isLoggedIn}
+        <DashboardButton />
+      {:else}
+        <DemoButton
+          class="text-lg h-8 w-28 button flex-shrink-0"
+          on:click={toggle}
+        />
+        <LoginButton />
+      {/if}
+    </div>
   </div>
 {/if}

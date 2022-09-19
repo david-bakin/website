@@ -41,8 +41,6 @@ git push origin my-fix-branch
 
 In GitHub, send a pull request to `gitpod-io:main`.
 
-- Sign the [Contributor License Agrement](https://www.gitpod.io/cla) if prompted by the robots.
-
 If we suggest changes, then:
 
 - Make the required updates.
@@ -58,8 +56,6 @@ Before you submit your pull request, please:
 
 - If you are considering submitting a pull-request that is more than a simple fix, open a discussion on GitHub first with your proposal.
 - Search [GitHub](https://github.com/gitpod-io/gitpod/pulls) for an open or closed Pull Request that relates to your submission.
-
-- Sign the [Contributor License Agrement](https://www.gitpod.io/cla) if prompted by the robots.
 
 If we suggest changes, then:
 

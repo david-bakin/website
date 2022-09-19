@@ -28,7 +28,7 @@ For simplicity we use a GitHub template, but Gitpod works similarly with GitLab 
 
 - Install the [Gitpod App](https://github.com/apps/gitpod-io/installations/new).
 
-  Gitpod's GitHub app is similar to a CI server and will continuously prepare prebuilds for all your branches and pull requests - so you don't have to wait for installation of dependancies from the internet when you want to start coding.
+  Gitpod's GitHub app is similar to a CI server and will continuously prepare prebuilds for all your branches and pull requests - so you don't have to wait for installation of dependencies from the internet when you want to start coding.
 
 ### Step 3: First prebuild
 
@@ -74,5 +74,5 @@ Try it out and open 3 workspaces on the same context (e.g. on main or on an issu
 
 You've successfully ran your first workspace and experienced first hand what we mean with ephemeral dev environments. This is just the first step on your journey towards being always ready to code. Helpful resources from here are:
 
-- [Getting started with your own project](https://www.gitpod.io/docs/configure)
+- [Getting started with your own project](/docs/configure)
 - [Git Integrations](/docs/integrations)

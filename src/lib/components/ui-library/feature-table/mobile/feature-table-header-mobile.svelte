@@ -1,4 +1,8 @@
 <script lang="ts">
+  import MostPopular from "$lib/components/pricing/most-popular.svelte";
+
+  import Arrow from "$lib/components/svgs/arrow.svelte";
+
   import type { FeatureTableHeader } from "../feature-table.types";
 
   export let headerData: FeatureTableHeader;
@@ -19,7 +23,10 @@
         class="h-10"
       />
     {/if}
-    <div class="text-center ">
+    <div class="text-center">
+      {#if headerData.isMostPopular}
+        <MostPopular class="mb-macro" />
+      {/if}
       <h3>{headerData.headline}</h3>
       {#if headerData.subtitle}
         <p>{headerData.subtitle}</p>
@@ -28,18 +35,21 @@
   </div>
   <slot />
   <button class="pt-x-small w-64" on:click={() => toggleIsShown()}>
-    <div class="underline">
-      {#if isShown}
-        Hide Features
-      {:else}
-        View all Features
-      {/if}
+    <div>
+      <span
+        class="underline hover:decoration-transparent transition-all delay-[50ms] underline-offset-[0.25em] duration-200"
+      >
+        {#if isShown}
+          Hide features
+        {:else}
+          View all features
+        {/if}
+      </span>
     </div>
-    <img
-      src="/arrow.svg"
-      alt="Arrow Toggle"
-      class="h-6 w-6 mt-macro mx-auto duration-200"
-      class:rotate-180={isShown}
+    <Arrow
+      class="h-6 w-6 mt-macro mx-auto duration-200 {isShown
+        ? 'rotate-180'
+        : ''}"
     />
   </button>
 </div>

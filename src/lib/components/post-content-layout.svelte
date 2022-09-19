@@ -1,13 +1,17 @@
 <script lang="ts">
-  import Avatars from "./avatars.svelte";
+  import Avatars from "$lib/components/ui-library/avatars";
   import OpenGraph from "./open-graph.svelte";
   import { authors, authorSocialMediaLinks } from "$lib/contents/authors";
   import "$lib/assets/markdown-commons.scss";
   import Share from "$lib/components/share.svelte";
+  import Pill from "./pill.svelte";
+  import type { ShareLink } from "$lib/types/share-link.type";
+  import Hackernews from "./svgs/share/hackernews.svelte";
+  import RequestChanges from "./ui-library/request-changes.svelte";
 
   export let baseUrl: string;
   export let imagesDirectoryName: string;
-  export let norobots: boolean = false;
+  export let type: string = "";
 
   const { date, author, slug, title, image, teaserImage, excerpt } =
     $$restProps;
@@ -43,29 +47,33 @@
     return result;
   };
 
-  const shareLinks = [
+  const shareLinks: ShareLink[] = [
     {
       href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(
         `${title} by ${renderTwitterHandles()} ${baseUrl}${slug}`
       )}`,
-      alt: "Twitter",
-      icon: "/svg/brands/twitter.svg",
+      icon: {
+        src: "/svg/brands/twitter.svg",
+        alt: "Twitter",
+      },
       trackingName: "twitter",
     },
     {
       href: `http://www.reddit.com/submit?url=${encodeURIComponent(
         `${baseUrl}${slug}&title=${title}`
       )}`,
-      alt: "Reddit",
-      icon: "/svg/brands/reddit.svg",
+      icon: {
+        src: "/svg/brands/reddit.svg",
+        alt: "Reddit",
+      },
       trackingName: "reddit",
     },
     {
+      name: "HackerNews",
       href: `http://news.ycombinator.com/submitlink?u=${encodeURIComponent(
         `${baseUrl}${slug}`
       )}&t=${encodeURIComponent(title)}`,
-      alt: "HackerNews",
-      icon: "/svg/brands/hackernews.svg",
+      svg: Hackernews,
       trackingName: "hackernews",
     },
   ];
@@ -88,7 +96,6 @@
     type: "article",
     image: `images/${imagesDirectoryName}/${slug}/${image}`,
     imageTwitter: `images/${imagesDirectoryName}/${slug}/${image}`,
-    norobots: norobots,
   }}
 />
 <div class="flex justify-center mt-small mb-8">
@@ -98,28 +105,41 @@
       alt={`${title}`}
       class="max-h-[540px] rounded-tl-2xl rounded-tr-[1.3rem]"
     />
-    <p class="mt-[1.875rem] mb-6 text-dark-grey">{dateDisplay}</p>
-    <h1 class="mb-6 text-h3">{title}</h1>
-    <p>
-      <span
-        ><Avatars
-          usernames={author}
-          displayNames={authorDisplayNames}
-          socialMediaLinks={authorSocialMediaLinks}
-          socialMediaLinkClasses="inline-flex mr-2 px-2 bg-white rounded-xl text-dark-grey focus:bg-off-white focus:text-black hover:bg-off-white hover:text-black"
-          socialMediaImgClasses="mr-2 h-6 w-6 place-self-center"
-        /></span
-      >
-    </p>
     <div
       class="content-blog prose prose-img:rounded-tl-2xl prose-img:rounded-tr-[1.3rem] max-w-none mt-10"
     >
+      <p class="mt-[1.875rem] mb-6 text-body">{dateDisplay}</p>
+      {#if type === "digest"}
+        <Pill text="DevX Digest" class="mb-micro" />
+      {/if}
+      <h1>{title}</h1>
+      <p>
+        <span
+          ><Avatars
+            usernames={author}
+            displayNames={authorDisplayNames}
+            socialMediaLinks={authorSocialMediaLinks}
+            socialMediaLinkClasses="inline-flex mr-2 px-2 bg-white dark:bg-card rounded-xl text-body focus:bg-card focus:text-important hover:bg-card hover:text-important"
+            socialMediaImgClasses="mr-2 h-6 w-6 place-self-center"
+          /></span
+        >
+      </p>
       <slot />
     </div>
-    <Share
-      text="Share this post"
-      {shareLinks}
-      class="border-t border-solid border-divider pt-xx-small md:pt-micro mt-small"
-    />
+    <div
+      class="flex flex-col-reverse items-center md:flex-row justify-between md:items-baseline border-t border-solid border-divider pt-4 mt-small"
+    >
+      <Share text="Share this post" {shareLinks} />
+      {#if imagesDirectoryName === "blog"}
+        <RequestChanges
+          href={`https://github.com/gitpod-io/website/edit/main/src/routes/blog/${slug}.md`}
+        />
+      {/if}
+      {#if imagesDirectoryName === "guides"}
+        <RequestChanges
+          href={`https://github.com/gitpod-io/website/edit/main/src/routes/guides/${slug}/index.md`}
+        />
+      {/if}
+    </div>
   </div>
 </div>

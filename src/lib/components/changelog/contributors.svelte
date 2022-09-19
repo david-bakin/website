@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Avatars from "../avatars.svelte";
+  import Avatars from "$lib/components/ui-library/avatars";
 
   /**
    * One or more comma-separated GitHub username.

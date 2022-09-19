@@ -10,7 +10,17 @@ title: Quickstart
 <script lang="ts">
   import PopularQuickstart from "$lib/components/docs/quickstart/popular-quickstart.svelte";
   import QuickstartSearch from "$lib/components/docs/quickstart/quickstart-search.svelte";
+  import OpenGraph from "$lib/components/open-graph.svelte";
 </script>
+
+<OpenGraph
+data={{
+    description:
+      "Learn how to start using Gitpod on an example project/template that is hosted on GitHub in less than 5 minutes. Get up and running with Gitpod quickly.",
+    title: "Quickstart -Gitpod",
+    keywords: "template, get started, example",
+  }}
+/>
 
 # Quickstart
 

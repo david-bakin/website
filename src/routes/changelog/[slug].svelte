@@ -18,16 +18,11 @@
 </script>
 
 <script lang="ts">
-  import { onMount } from "svelte";
   import Wrapper from "$lib/components/changelog/wrapper.svelte";
   import OpenGraph from "$lib/components/open-graph.svelte";
   import "$lib/assets/markdown-commons.scss";
   export let changelogEntry: ChangelogEntryType;
   const { date, title, excerpt, content, image, alt } = changelogEntry;
-
-  onMount(() => {
-    document.getElementsByClassName("toc")[0].remove();
-  });
 </script>
 
 <style lang="postcss">
@@ -39,6 +34,10 @@
   .entry h2 {
     @apply text-h3 !important;
   }
+
+  .entry :global(img) {
+    @apply rounded-tl-lg rounded-tr-lg sm:rounded-tl-2xl sm:rounded-tr-2xl;
+  }
 </style>
 
 <OpenGraph
@@ -48,14 +47,19 @@
     type: "article",
     image: `images/changelog/${image}`,
     imageTwitter: `images/changelog/${image}`,
+    norobots: true,
   }}
 />
 
 <Wrapper class="pt-small pb-x-large md:pb-xx-large">
-  <div class=" entry flex flex-col md:flex-row">
+  <div class="entry flex flex-col md:flex-row">
     <div class="content-changelog">
       <BackLink />
-      <img src="/images/changelog/{image}" class="rounded-3xl" {alt} />
+      <img
+        src="/images/changelog/{image}"
+        class="rounded-xl sm:rounded-3xl"
+        {alt}
+      />
       <p class="mt-xx-small -mb-9">{formatDate(date)}</p>
       <h2>
         {title}

@@ -5,48 +5,20 @@
   import NavItem from "./nav-item.svelte";
   import menuState from "./mobile-menu/state";
   import LoginButton from "./login-button.svelte";
-  import SignUpButton from "./sign-up-button.svelte";
+  import DemoButton from "./demo-button.svelte";
   import DashboardButton from "./dashboard-button.svelte";
   import Logo from "../svgs/logo.svelte";
-  import { showHideOverflowY } from "$lib/utils/helpers";
   import SignUpButtonTablet from "./sign-up-button-tablet.svelte";
   import AnnouncementBanner from "$lib/components/banners/announcement.svelte";
-  import ContactLink from "./contact-link.svelte";
+  import SkipToContent from "../skip-to-content.svelte";
+  import GithubStars from "./github-stars.svelte";
+
+  import Dropdown from "./dropdown.svelte";
+  // import { session } from "$app/stores";
 
   let scroll: number;
 
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
-
-  const navItems = [
-    {
-      href: "/screencasts/getting-started-with-gitpod",
-      label: "Screencasts",
-    },
-    {
-      href: "/blog",
-      label: "Blog",
-    },
-    {
-      href: "/docs",
-      label: "Docs",
-    },
-    {
-      href: "/changelog",
-      label: "Changelog",
-    },
-    {
-      href: "/customers",
-      label: "Customers",
-      highlight: true,
-    },
-    {
-      href: "/pricing",
-      label: "Pricing",
-    },
-  ];
-
+  // const isLoggedIn = $session.loggedIn;
   const isLoggedIn =
     typeof document === "undefined"
       ? false
@@ -64,7 +36,7 @@
   }
 
   .bg-open-state {
-    @apply bg-off-white !important;
+    @apply bg-card !important;
   }
 
   .wrapper {
@@ -73,16 +45,11 @@
   }
 
   .scrolled-out {
-    @apply border-divider;
-    background: hsl(0 5% 96% / 85%);
+    @apply border-divider bg-nav;
     backdrop-filter: saturate(0.5) blur(5px);
   }
 
-  .scrolled-out .nav-items {
-    @apply opacity-0 pointer-events-none;
-  }
-
-  @media (min-width: 1090px) {
+  @media (min-width: 1190px) {
     .wrapper {
       @apply h-20;
     }
@@ -93,12 +60,10 @@
     }
   }
 
-  button {
-    @apply outline-none;
-  }
-
-  button::-moz-focus-inner {
-    @apply border-0;
+  .stars {
+    @media (min-width: 1190px) {
+      @apply hidden;
+    }
   }
 </style>
 
@@ -106,48 +71,73 @@
 <!-- Intersection observer target to trigger the strike through animation. -->
 <div id="choose-project-observer-target-top" />
 <nav
-  class="fixed z-50 mx-auto w-full border-b border-solid border-transparent"
+  class="fixed z-40 mx-auto w-full border-b border-solid border-transparent border-t-0"
   class:scrolled-out={scroll > 0}
   class:bg-open-state={$menuState}
+  aria-label="Main"
 >
+  <SkipToContent />
   <AnnouncementBanner />
   <div
     class="wrapper flex items-center justify-between mx-auto h-16 md:h-20 px-micro md:px-x-small"
   >
-    <button
+    <a
       on:contextmenu|preventDefault={() => goto("/media-kit")}
       aria-label="Home"
-      on:click={() => {
-        $menuState = !menuState;
-        showHideOverflowY(false);
-        goto("/");
-        scrollToTop();
-      }}
+      href="/"
     >
       <Logo class="h-8 w-28 lgx:h-10 lgx:w-32" />
-    </button>
-    <div
+    </a>
+    <ul
       class="nav-items mx-auto hidden px-2 space-x-6 items-center md:space-x-12"
     >
-      {#each navItems as navItem}
-        <NavItem on:focus={scrollToTop} {navItem} />
-      {/each}
-    </div>
+      <NavItem
+        navItem={{
+          href: "/docs",
+          label: "Docs",
+        }}
+      />
+      <li>
+        <Dropdown />
+      </li>
+      <NavItem
+        navItem={{
+          href: "/for/enterprise",
+          label: "Enterprise",
+        }}
+      />
+      <NavItem
+        navItem={{
+          href: "/customers",
+          label: "Customers",
+          highlight: true,
+        }}
+      />
+      <NavItem
+        navItem={{
+          href: "/pricing",
+          label: "Pricing",
+        }}
+      />
+    </ul>
     <div class="login-wrapper items-center hidden space-x-x-small">
-      <ContactLink />
+      <GithubStars />
       {#if isLoggedIn}
         <DashboardButton />
       {:else}
         <LoginButton />
-        <SignUpButton />
+        <DemoButton />
       {/if}
     </div>
-    <div class="flex items-center">
-      {#if !$menuState}
+    <div class="flex items-center space-x-micro">
+      <div class="stars">
+        <GithubStars />
+      </div>
+      {#if !$menuState && !isLoggedIn}
         <SignUpButtonTablet />
       {/if}
       <MobileMenuToggle />
     </div>
   </div>
-  <MobileMenu {navItems} {isLoggedIn} />
+  <MobileMenu {isLoggedIn} />
 </nav>

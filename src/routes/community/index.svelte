@@ -17,15 +17,16 @@
 
 <OpenGraph
   data={{
-    title: "Community",
+    title: "Gitpod Community - Come and hang out with us",
     description:
-      "Welcome! Our community is at the centre of everything at Gitpod. We're excited to have you join us 🧡",
+      "Join the Gitpod community. Browse categories, post your questions, or just chat with other members. On Discord, Twitter, GitHub, YouTube or Reddit.",
+    keywords: "community hangout. discord, social",
   }}
 />
 
 <Header
-  title="Community"
-  text="Welcome! Our community is at the centre of everything at Gitpod. We're
+  title="Welcome to our community"
+  text="Our community is at the centre of everything at Gitpod. We're
   excited to have you join us 🧡"
   fullWidth={true}
   textClassNames="max-w-3xl text-large mx-auto md:px-x-small"

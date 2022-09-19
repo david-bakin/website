@@ -2,13 +2,25 @@
   let clazz = "";
   export { clazz as class };
   export let text: string;
+  export let variant: "pink" | "orange" = "orange";
+  export let tight: boolean = false;
   const capitalised = text.charAt(0).toUpperCase() + text.slice(1);
 </script>
 
-<span
-  class="px-3 py-0.5 text-xs font-semibold text-black bg-pink-900 rounded-lg shadow-light {clazz}"
-  class:bg-pink-900={text === "soon"}
-  class:bg-orange-700={text === "beta"}
+<style lang="postcss">
+  .pink {
+    @apply bg-salmon;
+  }
+
+  .orange {
+    @apply bg-tertiary;
+  }
+</style>
+
+<div
+  class="inline-block {tight
+    ? 'px-2'
+    : 'px-3'} py-0.5 text-xs font-semibold text-important dark:text-black rounded-lg shadow-light whitespace-nowrap {clazz} {variant}"
 >
   {capitalised}
-</span>
+</div>

@@ -2,38 +2,48 @@
   // Credit: www.vercel.com/docs 🙏
   import { page } from "$app/stores";
   import { trackEvent } from "../segment.svelte";
+  import Textarea from "$lib/components/ui-library/textarea";
   import Button from "$lib/components/ui-library/button";
+  import Card from "$lib/components/ui-library/card";
+  import Input from "../ui-library/input/input.svelte";
 
   let selectedEmotion: number;
-  let note = "";
+  let note: string = "";
+  let email: string = "";
   let resultMessage: string;
-  let isSubmittedOnce = false;
   let clazz = "";
+  let isSubmissionInProgress: boolean = false;
   export { clazz as class };
   export let type: "docs" | "guides" | "digests";
 
   const submitFeedback = async () => {
-    isSubmittedOnce = true;
+    isSubmissionInProgress = true;
 
-    trackEvent("feedback_submitted", {
-      score: selectedEmotion,
-      feedback: note,
-      url: window.location.href,
-      path: window.location.pathname,
-    });
+    trackEvent(
+      "feedback_submitted",
+      {
+        score: selectedEmotion,
+        feedback: note,
+        url: window.location.href,
+        path: window.location.pathname,
+      },
+      true
+    );
 
-    const response = await fetch("/.netlify/functions/feedback", {
+    const response = await fetch("/api/feedback", {
       method: "post",
       body: JSON.stringify({
         type,
         emotion: selectedEmotion,
         note,
+        email,
         url: $page.url.toString(),
       }),
     });
 
     if (response.status === 201) {
       resultMessage = "Thanks for your feedback, we appreciate it.";
+      isSubmissionInProgress = false;
     } else {
       resultMessage = "Oh no, something went wrong :(.";
     }
@@ -49,11 +59,16 @@
   .selected {
     @apply grayscale-0 scale-150;
   }
+
+  .link {
+    @apply underline;
+  }
 </style>
 
 <div class={clazz}>
-  <div
-    class="bg-white shadow-normal rounded-2xl max-w-md py-small px-xx-small m-auto"
+  <Card
+    size="small"
+    class="max-w-md py-small px-xx-small m-auto"
     data-analytics={`{"dnt":true}`}
   >
     <h2 class="text-xl leading-6 mb-6 text-center justify-center w-full">
@@ -80,36 +95,47 @@
           {/each}
         </div>
         {#if selectedEmotion}
-          <div class="mt-x-small">
-            <label for="note">Feedback</label>
-            <div>
-              <textarea
-                bind:value={note}
-                id="note"
-                width="100%"
-                placeholder="Your feedback..."
-                aria-label="Feedback input"
-                autocapitalize="off"
-                autocomplete="off"
-                autocorrect="off"
-                type="text"
-                class="mb-0"
-              />
-            </div>
-            <div>
-              <span>
-                <Button
-                  variant="primary"
-                  size="medium"
-                  disabled={isSubmittedOnce}
-                  class="mt-micro"
-                  type="submit"><span>Send</span></Button
-                >
-              </span>
-            </div>
+          <div class="mt-x-small space-y-macro">
+            <Textarea
+              bind:value={note}
+              id="note"
+              name="feedback"
+              width="100%"
+              placeholder="Your feedback..."
+              aria-label="Feedback input"
+              autocapitalize="off"
+              autocomplete="off"
+              autocorrect="off"
+              type="text"
+              class="mb-0 text-xs"
+            />
+            <Input
+              bind:value={email}
+              id="email"
+              name="email"
+              width="100%"
+              placeholder="Email (optional)"
+              class="text-xs"
+            />
+          </div>
+          <div class="mt-micro">
+            <p class="text-xs mb-x-small">
+              I consent to having this website store my submitted information so
+              that the support team can respond to my message. For more
+              information, see our
+              <a class="link" href="/privacy"> Privacy Policy. </a>
+            </p>
+            <Button
+              variant="primary"
+              size="medium"
+              disabled={isSubmissionInProgress}
+              type="submit"
+              isLoading={isSubmissionInProgress}
+              ><span>Send</span>
+            </Button>
           </div>
         {/if}
       </form>
     {/if}
-  </div>
+  </Card>
 </div>

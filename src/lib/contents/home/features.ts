@@ -1,4 +1,4 @@
-import type { Feature } from "$lib/types/feature.type";
+import type { Feature, verticalFeature } from "$lib/types/feature.type";
 import { terminalSource, linuxSource } from "../terminal";
 // @ts-ignore
 import Workspaces from "$lib/components/workspaces.svelte";
@@ -8,9 +8,9 @@ export const multiTrackDevelopmentFeature: Feature = {
   title: "Multi track development with ease",
   paragraph:
     "You can have multiple workspaces with different contexts open at once - one for your feature, one for a bug or one for your code review directly in Gitpod.",
-  image: {
-    src: "/svg/features/muti-track-development.svg",
-    alt: "Multi track development with ease",
+  lottie: {
+    src: "/lottie/edit_workspace.json",
+    id: "edit_workspace",
   },
 };
 
@@ -18,11 +18,15 @@ export const collaborationFeature: Feature = {
   title: "Where teams code together",
   paragraph:
     "Share running workspaces for pair programming, use port forwarding or share a snapshot as a copy of your workspace with teammates.",
-  image: {
-    src: "/images/features/collaboration.png",
-    alt: "Collaboration",
-    classNames: "shadow-medium",
-    styles: "border-radius: 7px",
+  // image: {
+  //   src: "/images/features/collaboration.png",
+  //   alt: "Collaboration",
+  //   classNames: "shadow-medium",
+  //   styles: "border-radius: 7px",
+  // },
+  lottie: {
+    src: "/lottie/share_workspace.json",
+    id: "share-workspace",
   },
 };
 
@@ -64,7 +68,7 @@ export const otherFeatures: Feature[] = [
     paragraph:
       "Gitpod provisions powerful Linux containers under the hood. A Linux shell with root/sudo, a file system, Docker and all other tools and binaries that run on Linux. One OS for both dev and prod.",
     moreButton: {
-      href: "#get-started",
+      href: "https://gitpod.io/workspaces/",
       text: "Try now",
     },
     terminal: {
@@ -85,30 +89,41 @@ export const otherFeatures: Feature[] = [
   {
     ...codeAnywhereFeature,
     moreButton: {
-      href: "#get-started",
+      href: "https://gitpod.io/workspaces/",
       text: "Try now",
     },
   },
 ];
 
+export const carbonNeutralFeature: verticalFeature = {
+  title: "Code in a carbon-neutral workspace",
+  paragraph:
+    "Not only is Gitpod more resource-efficient but it also runs on 100% carbon-neutral cloud servers (GCP). All the power, with a lower cost to our planet.",
+  moreButton: {
+    href: "https://cloud.google.com/sustainability",
+    text: "More on GCP carbon neutral",
+    type: "secondary",
+  },
+};
+
 export const secondaryFeatures: Card[] = [
   {
     icon: {
-      src: "/svg/features/open-source.svg",
+      src: "/svg/icons/opensource.svg",
     },
     title: "Open Source",
     text: "We're free from big tech influence and integrate, not dictate. This makes our product development fast and close to our users & community.",
   },
   {
     icon: {
-      src: "/svg/features/saas.svg",
+      src: "/svg/icons/cloud.svg",
     },
-    title: "SaaS or Self-hosted",
+    title: "SaaS or Self-Hosted",
     text: "Use our SaaS solution running on the carbon neutral Google Cloud Platform or host Gitpod on your own cloud infrastructure using GKE, k3s, EKS or AKS.",
   },
   {
     icon: {
-      src: "/svg/features/secure.svg",
+      src: "/svg/icons/secure.svg",
     },
     title: "Secure by design",
     text: "Gitpod centralizes all source code and safely stores it in the cloud, never locally. Security is at the core of everything we do at Gitpod. <br><a href='/security'>More about security</a>",

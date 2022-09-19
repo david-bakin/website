@@ -1,7 +1,7 @@
 <script lang="ts">
   import Section from "../section.svelte";
   import Faqs from "../faqs/faqs.svelte";
-  import Modal from "../modal.svelte";
+  import Modal from "$lib/components/ui-library/modal";
   import RedeemOffer from "./redeem-offer.svelte";
 
   import { pricingFAQ } from "$lib/contents/pricing";
