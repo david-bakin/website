@@ -227,7 +227,6 @@ Authorize the AKS cluster to control DNS records in the zone:
 ```bash
 ZONE_ID=$(az network dns zone show --name "${DOMAIN_NAME}" --resource-group "${RESOURCE_GROUP}" --query "id" -o tsv)
 KUBELET_OBJECT_ID=$(az aks show --name "${CLUSTER_NAME}" --resource-group "${RESOURCE_GROUP}" --query "identityProfile.kubeletidentity.objectId" -o tsv)
-KUBELET_CLIENT_ID=$(az aks show --name "${CLUSTER_NAME}" --resource-group "${RESOURCE_GROUP}" --query "identityProfile.kubeletidentity.clientId" -o tsv)
 
 az role assignment create \
     --assignee "${KUBELET_OBJECT_ID}" \
@@ -239,7 +238,13 @@ az role assignment create \
 > to authorizes the entire AKS cluster to manage DNS records in the given zone, including cert-manager and external-dns. Other pods (and potentially gitpod workspaces)
 > may be able to alter DNS records as well.
 
-Install the external-dns Helm chart:
+Look up the AKS kubelet client identity; external-dns will use this identity when authenticating to the Azure API.
+
+```bash
+KUBELET_CLIENT_ID=$(az aks show --name "${CLUSTER_NAME}" --resource-group "${RESOURCE_GROUP}" --query "identityProfile.kubeletidentity.clientId" -o tsv)
+```
+
+Then install the external-dns Helm chart:
 
 ```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
