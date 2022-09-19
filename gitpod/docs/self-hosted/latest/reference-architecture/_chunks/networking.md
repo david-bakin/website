@@ -235,8 +235,7 @@ az role assignment create \
 ```
 
 > This role assignment uses [AKS Kubelet Identity](https://cert-manager.io/docs/configuration/acme/dns01/azuredns/#managed-identity-using-aks-kubelet-identity)
-> to authorizes the entire AKS cluster to manage DNS records in the given zone, including cert-manager and external-dns. Other pods (and potentially gitpod workspaces)
-> may be able to alter DNS records as well.
+> to authorizes the entire AKS cluster to manage DNS records in the given zone, including cert-manager and external-dns.
 
 Look up the AKS kubelet client identity; external-dns will use this identity when authenticating to the Azure API.
 
