@@ -213,9 +213,9 @@ With Route53 created, you can now proceed to install cert-manager. Cert-manager 
 
 <div slot="azure">
 
-This section will create an Azure managed zone, grant the AKS cluster permission to manage records in that zone and install external-dns.
+This section will create an Azure managed zone, grant the AKS cluster permission to manage records in that zone, and install external-dns.
 
-Create a new Azure managed zone. For example, if you plan on hosting Gitpod at `gitpod.svcs.example.com` then create a managed zone called `svcs.example.com`.
+Begin by creating a new Azure managed zone. For example, if you plan on hosting Gitpod at `gitpod.svcs.example.com` then create a managed zone called `svcs.example.com`.
 
 ```bash
 DOMAIN_NAME="svcs.example.com"
