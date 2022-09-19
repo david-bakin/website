@@ -460,7 +460,6 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: "email@gitpod.example.com"
     privateKeySecretRef:
       name: issuer-account-key
     solvers:
