@@ -803,7 +803,7 @@ az aks nodepool add \
     --max-count "50" \
     --max-pods "110" \
     --node-osdisk-size "512" \
-    --node-vm-size "Standard_D8_v4" \
+    --node-vm-size "Standard_D8_v4"
 ```
 
 Create a node pool for headless workspaces. As headless workspaces typically run non user-facing workloads this node pool is configured to scale to zero.
