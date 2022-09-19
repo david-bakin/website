@@ -126,7 +126,7 @@ TODO: should we use a dedicated service principal when creating Gitpod?
 
 **Location and Resource Group**
 
-Azure uses _resource groups_ to logically group related resources. This guide uses a dedicated resource group for the Gitpod AKS cluster and all component resources.
+Azure uses _resource groups_ to logically group related resources. This guide uses a dedicated resource group for the Gitpod AKS cluster and all component resources. Creating a new resource group for Gitpod resources is recommended but a pre-existing resource group may be used if necessary.
 
 Set environment variables indicating the resource group and location where Gitpod resources will be created:
 
@@ -140,8 +140,6 @@ Then create a new resource group:
 ```bash
 az group create --location $LOCATION --name "$RESOURCE_GROUP"
 ```
-
-> Creating a new resource group for Gitpod resources is recommended but a pre-existing resource group may be used if necessary.
 
 </div>
 
