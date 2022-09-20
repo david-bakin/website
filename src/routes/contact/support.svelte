@@ -152,7 +152,7 @@
           formData.selectedSubject.value == selfHostingSubject
             ? formData.company.value
             : undefined,
-        messsage: formData.message.value,
+        message: formData.message.value,
       },
       true
     );
@@ -316,7 +316,9 @@
                 <label class="cursor-pointer" for="email"
                   >E-mail*
                   {#if isStudentEmailNoteShown}
-                    (Please use your student or faculty email)
+                    <span class="fine-print"
+                      >(Please use your student or faculty email)</span
+                    >
                   {/if}
                 </label>
                 <Input

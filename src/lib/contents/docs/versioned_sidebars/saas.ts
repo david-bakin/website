@@ -21,7 +21,7 @@ export const MENU: MenuEntry[] = [
     M(`Dotfiles`, `${version}config-dotfiles`, []),
     M(`SSH`, `${version}configure/ssh`),
     M(`Multi-Repo`, `${version}multi-repo-workspaces`, [], `beta`),
-    M(`Workspace Classes`, `${version}workspace-classes`, [], `beta`),
+    M(`Workspace Classes`, `${version}workspace-classes`, [], `Early Access`),
   ]),
   M(`Develop`, `${version}develop`, [
     M(`One workspace per task`, `${version}workspaces`),
@@ -30,8 +30,13 @@ export const MENU: MenuEntry[] = [
     M(`Collaboration & Sharing`, `${version}sharing-and-collaboration`),
     M(`Teams & Projects`, `${version}teams-and-projects`, [], `beta`),
     M(`Team Billing`, `${version}team-billing`, [], `beta`),
-    M("Usage-based Billing", `${version}usage-based-billing`, [], "beta"),
-    M(`Create a Team Plan`, `${version}teams`, []),
+    M(
+      `Usage-based Billing`,
+      `${version}usage-based-billing`,
+      [],
+      `Early Access`
+    ),
+    M(`Team Plans`, `${version}teams`, []),
   ]),
   M(`IDEs & Editors`, `${version}ides-and-editors`, [
     M(`VS Code Browser`, `${version}ides-and-editors/vscode-browser`),

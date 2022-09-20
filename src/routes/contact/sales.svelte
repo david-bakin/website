@@ -22,6 +22,7 @@
   import Unleashing from "$lib/components/contact/unleashing.svelte";
   import { afterNavigate } from "$app/navigation";
   import InputsHalf from "$lib/components/contact/inputs-half.svelte";
+  import { goto } from "$app/navigation";
 
   const selfHostingSubject = "Self-hosting";
   const otherSubject = "Other";
@@ -101,6 +102,7 @@
     if (window.location.search.includes("get-a-demo")) {
       formData.selectedSubject.value = demoSubject;
       formData.selectedSubject.valid = true;
+      goto("/contact/get-demo");
     }
   });
 
@@ -122,6 +124,7 @@
       {
         name_untrusted: formData.name.value,
         email_untrusted: formData.workEmail.value,
+        phone_untrusted: formData.number.value,
       },
       true
     );
@@ -139,6 +142,7 @@
         company_website: formData.companyWebsite.value,
         company_engineers: formData.noOfEngineers.value,
         message: formData.message.value,
+        phone_number: formData.number.value,
       },
       true
     );
@@ -296,6 +300,12 @@
                             formData.selectedSubject.valid =
                               formData.selectedSubject.value &&
                               formData.selectedSubject.el.validity.valid;
+
+                            if (
+                              formData.selectedSubject.value === demoSubject
+                            ) {
+                              goto("/contact/get-demo");
+                            }
                           }}
                           value={subject}
                           name="subject"
