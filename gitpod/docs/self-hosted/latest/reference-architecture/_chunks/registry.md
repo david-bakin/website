@@ -62,7 +62,8 @@ AZURE_REGISTRY_URL=$(az acr show \
     --query loginServer \
     --resource-group "${RESOURCE_GROUP}")
 
-AZURE_REGISTRY_USERNAME=$(az acr credential show \ --name "${REGISTRY_NAME}" \
+AZURE_REGISTRY_USERNAME=$(az acr credential show \
+    --name "${REGISTRY_NAME}" \
     --output tsv \
     --query username \
     --resource-group "${RESOURCE_GROUP}")
