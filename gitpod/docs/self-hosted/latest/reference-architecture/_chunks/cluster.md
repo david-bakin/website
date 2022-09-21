@@ -787,7 +787,7 @@ az aks create \
     --vm-set-type "VirtualMachineScaleSets"
 ```
 
-Create a node pool for regular workspaces:
+Create a node pool for regular workspaces.
 
 ```bash
 az aks nodepool add \
@@ -804,7 +804,7 @@ az aks nodepool add \
     --node-vm-size "Standard_D8_v4"
 ```
 
-Create a node pool for headless workspaces. As headless workspaces typically run non user-facing workloads this node pool is configured to scale to zero.
+Create a node pool for headless workspaces.
 
 ```bash
 az aks nodepool add \
