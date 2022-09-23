@@ -1,6 +1,8 @@
 <script lang="ts">
   // Couldn't create this component entirely dynamic, because Slots can't be named dynamically
   // Had to use !important to make sure the styles from tailwinds prose-class are overridden
+
+  import { onMount } from "svelte";
   import type { comparisonItem } from "$lib/types/docs.type";
 
   export let items: comparisonItem[] = [
@@ -31,13 +33,29 @@
   ];
   let activeValue = 1;
 
-  const clickHandler = (tabValue: number) => () => (activeValue = tabValue);
-
+  const changeTab = (tabValue: number) => () => {
+    activeValue = tabValue;
+    try {
+      localStorage.setItem("ide-toggle", items[tabValue - 1].slotName);
+    } catch {}
+  };
   let ariaIds: any = { tab: {}, tabpanel: {} };
 
   if (!globalThis.counter) {
     globalThis.counter = { tab: 1, tabpanel: 1 };
   }
+
+  onMount(() => {
+    try {
+      const lastAccessed = localStorage.getItem("ide-toggle");
+      // Only switch the tab if the last accessed tab is available in this toggle
+      if ($$slots[lastAccessed]) {
+        changeTab(
+          items.find((item) => item.slotName === lastAccessed)?.value || 1
+        )();
+      }
+    } catch {}
+  });
 
   const getUnusedId = (() => {
     //@ts-ignore
@@ -62,9 +80,11 @@
         {
           e.preventDefault();
           const willOverflow = currentIndex === switchableIndexes.length - 1;
-          activeValue = willOverflow
-            ? switchableIndexes[0]
-            : switchableIndexes[currentIndex + 1];
+          changeTab(
+            willOverflow
+              ? switchableIndexes[0]
+              : switchableIndexes[currentIndex + 1]
+          )();
           siblings[willOverflow ? 0 : currentIndex + 1].focus();
         }
         break;
@@ -72,9 +92,11 @@
         {
           e.preventDefault();
           const willOverflow = currentIndex === 0;
-          activeValue = willOverflow
-            ? switchableIndexes[switchableIndexes.length - 1]
-            : switchableIndexes[currentIndex - 1];
+          changeTab(
+            willOverflow
+              ? switchableIndexes[switchableIndexes.length - 1]
+              : switchableIndexes[currentIndex - 1]
+          )();
           siblings[
             willOverflow ? switchableIndexes.length - 1 : currentIndex - 1
           ].focus();
@@ -82,11 +104,11 @@
         break;
       case "Home":
         e.preventDefault();
-        activeValue = switchableIndexes[0];
+        changeTab(switchableIndexes[0])();
         break;
       case "End":
         e.preventDefault();
-        activeValue = switchableIndexes[switchableIndexes.length - 1];
+        changeTab(switchableIndexes[switchableIndexes.length - 1])();
         break;
     }
   };
@@ -108,8 +130,8 @@
               aria-selected={item.value === activeValue}
               aria-controls={ariaIds.tabpanel[item.slotName]}
               tabindex={item.value === activeValue ? 0 : -1}
-              on:click={clickHandler(item.value)}
-              on:focus={clickHandler(item.value)}
+              on:click={changeTab(item.value)}
+              on:focus={changeTab(item.value)}
               id={getUnusedId(item.slotName, "tab")}
             >
               <span
@@ -124,7 +146,7 @@
                 item.value
                   ? 'bg-white dark:bg-card'
                   : 'bg-sand-dark dark:bg-light-black'} transition-all duration-200"
-                on:click={clickHandler(item.value)}>{item.mobileTitle}</span
+                on:click={changeTab(item.value)}>{item.mobileTitle}</span
               >
             </li>
           {/if}
