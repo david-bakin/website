@@ -42,7 +42,7 @@ But you can even **contribute _to Gitpod (our codebase) while working in Gitpod_
 
 `youtube: TIT4FvZe6fY`
 
-Sounds like magic? 🧙‍♀️ Well, that' because it kinda is!
+Sounds like magic? 🧙‍♀️ Well, that's because it kinda is!
 
 Let us show you how Gitpod works and how you can get started contributing to Hacktoberfest in Gitpod!
 
