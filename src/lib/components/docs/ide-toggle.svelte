@@ -33,28 +33,44 @@
   ];
   let activeValue = 1;
 
-  const changeTab = (tabValue: number) => () => {
-    activeValue = tabValue;
+  const rememberLastAccessed = (value: number) => {
     try {
-      localStorage.setItem("ide-toggle", items[tabValue - 1].slotName);
+      localStorage.setItem("ide-toggle", items[activeValue - 1].slotName);
+      const event = new Event("ide-toggle");
+      window.dispatchEvent(event);
+      console.log("ide-toggle", items[value].slotName);
     } catch {}
   };
+
+  const changeTab = (tabValue: number) => () => {
+    activeValue = tabValue;
+    rememberLastAccessed(tabValue - 1);
+  };
+
   let ariaIds: any = { tab: {}, tabpanel: {} };
 
   if (!globalThis.counter) {
     globalThis.counter = { tab: 1, tabpanel: 1 };
   }
 
-  onMount(() => {
+  const updateFromLocalStorage = () => {
     try {
       const lastAccessed = localStorage.getItem("ide-toggle");
-      // Only switch the tab if the last accessed tab is available in this toggle
-      if ($$slots[lastAccessed]) {
-        changeTab(
-          items.find((item) => item.slotName === lastAccessed)?.value || 1
-        )();
+      if (lastAccessed && $$slots[lastAccessed]) {
+        const item = items.find((item) => item.slotName === lastAccessed);
+        if (item) {
+          activeValue = item.value;
+        }
       }
     } catch {}
+  };
+
+  onMount(() => {
+    updateFromLocalStorage();
+    window.addEventListener("ide-toggle", (e: CustomEvent) => {
+      console.log("got event", e);
+      updateFromLocalStorage();
+    });
   });
 
   const getUnusedId = (() => {
