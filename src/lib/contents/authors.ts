@@ -381,6 +381,30 @@ export const authors: { [idx: string]: Author } = {
     },
     description: "",
   },
+  felladrin: {
+    name: "Victor Nogueira",
+    socialProfiles: {
+      github: "felladrin",
+      twitter: "",
+    },
+    description: "",
+  },
+  andreafalzetti: {
+    name: "Andrea Falzetti",
+    socialProfiles: {
+      github: "andreafalzetti",
+      twitter: "",
+    },
+    description: "",
+  },
+  filiptronicek: {
+    name: "Filip Troníček",
+    socialProfiles: {
+      github: "filiptronicek",
+      twitter: "",
+    },
+    description: "",
+  },
 };
 
 export const authorSocialMediaLinks: SocialMediaLinks = Object.entries(
