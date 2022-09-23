@@ -36,7 +36,10 @@
   const rememberLastAccessed = (value: number) => {
     try {
       localStorage.setItem("ide-toggle", items[activeValue - 1].slotName);
-      const event = new Event("ide-toggle");
+      const event = new StorageEvent("storage", {
+        key: "ide-toggle",
+        newValue: items[activeValue - 1].slotName,
+      });
       window.dispatchEvent(event);
       console.log("ide-toggle", items[value].slotName);
     } catch {}
@@ -67,9 +70,13 @@
 
   onMount(() => {
     updateFromLocalStorage();
-    window.addEventListener("ide-toggle", (e: CustomEvent) => {
-      console.log("got event", e);
+    window.addEventListener("ide-toggle", () => {
       updateFromLocalStorage();
+    });
+    window.addEventListener("storage", (e: StorageEvent) => {
+      if (e.key === "ide-toggle") {
+        updateFromLocalStorage();
+      }
     });
   });
 
