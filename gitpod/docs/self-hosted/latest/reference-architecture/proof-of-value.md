@@ -47,7 +47,7 @@ The following table gives an overview of the node types for the different cloud 
 
 |                  | GCP               | AWS           |
 | ---------------- | ----------------- | ------------- |
-| Gitpod Node Pool | `n2d-standard-16` | `m6i.2xlarge` |
+| Gitpod Node Pool | `n2d-standard-16` | `m6i.4xlarge` |
 
 <CloudPlatformToggle id="cloud-platform-toggle-cluster">
 
