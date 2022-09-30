@@ -545,7 +545,15 @@ ports:
 
 ### `ports[n].name`
 
-Define a name for the port, will be shown as a column in the output of `gp ports list` and as a title of port in the `Remote Explorer` under the VS Code Browser sidebar. [More detail](/docs/configure/workspaces/ports#specifying-port-names--descriptions)
+Define a name for the port, will be shown as a column in the output of `gp ports list`.
+
+With VS Code Browser, a title will be shown in the `PortsView` within `PORTS` tab in VS Code Browser and the `Remote Explorer` under sidebar.
+
+With VS Code Desktop, `PortsView` will be inside `EXPOSED PORTS` tab in VS Code Desktop.
+
+For JetBrains and Command Line, you can list them by exec `gp ports list` in the terminal
+
+[More detail](/docs/configure/workspaces/ports#specifying-port-names--descriptions)
 
 <div class="overflow-x-auto">
 
@@ -557,7 +565,9 @@ Define a name for the port, will be shown as a column in the output of `gp ports
 
 ### `ports[n].description`
 
-Adds a description to the port, will be shown as a column in the output of `gp ports list` and as a tooltip (on hover) of the port in the `Remote Explorer` in VS Code Browser sidebar.
+Adds a description to the port, will be shown as a column in the output of `gp ports list`.
+
+You can find the `description` in GUI follow the `name` field's step (For `Remote Explorer` it will be a tooltip (on hover) of the port).
 
 <div class="overflow-x-auto">
 

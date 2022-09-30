@@ -74,19 +74,59 @@ ports:
 
 You can give ports a `name` and a `description` (both optional). These properties will help you to add context about what the port is being used for.
 
-You can execute [`gp ports list`](/docs/references/gitpod-cli#list-1) to output a table-formatted list of ports along with their status, URL, name and description.
+<IdeToggle id="ide-toggle-ports">
 
-<figure>
-    <img class="shadow-medium w-full rounded-xl max-w-3xl mt-x-small" alt="Display port name and description on vscode Remote Explorer" src="/images/docs/ports-with-name-cmd.png" />
-    <figcaption>Display ports info with gp cli</figcaption>
-</figure>
+<div slot="vscodebrowser">
+    <p>
+        All ports' information and their actions can be find in <b>PortsView</b> within <b>PORTS</b> tab inside VS Code Browser
+    </p>
+    <figure>
+        <img class="shadow-medium w-full rounded-xl max-w-3xl mt-x-small" alt="PortsView in VS Code Browser with their actions" src="/images/docs/ports-view-vscode.png" />
+        <figcaption>PortsView in VS Code Browser with their actions</figcaption>
+    </figure>
+    <p>
+        The port's name and description can also be displayed in the <b>Remote Explorer</b> of VS Code Browser's sidebar immediately after you change them in your <a href="/docs/references/gitpod-yml"><code>.gitpod.yml</code></a>.
+    </p>
+    <p>
+        You can enable Remote Explorer by configure <code>gitpod.experimental.portsView.enabled</code> to <code>false</code> in VS Code settings (JSON)
+    </p>
+    <figure>
+        <img class="shadow-medium w-full rounded-xl max-w-3xl mt-x-small" alt="Display port name and description on VS Code Browser's Remote Explorer" src="/images/docs/ports-with-name-vscode.png" />
+        <figcaption>Display port name and description on VS Code Browser's Remote Explorer</figcaption>
+    </figure>
+</div>
 
-The port's name and description will be displayed in the Remote Explorer of VS Code Browser's sidebar immediately after you change them in your [`.gitpod.yml`](/docs/references/gitpod-yml).
+<div slot="vscodedesktop">
+    <p>
+        All ports' information and their actions can be find in <b>PortsView</b> within <b>EXPOSED PORTS</b> tab inside VS Code Desktop
+    </p>
+    <figure>
+        <img class="shadow-medium w-full rounded-xl max-w-3xl mt-x-small" alt="PortsView in VS Code Desktop with their actions" src="/images/docs/ports-view-vscodedesktop.png" />
+        <figcaption>PortsView in VS Code Desktop with their actions</figcaption>
+    </figure>
+</div>
 
-<figure>
-    <img class="shadow-medium w-full rounded-xl max-w-3xl mt-x-small" alt="Display port name and description on vscode Remote Explorer" src="/images/docs/ports-with-name-vscode.png" />
-    <figcaption>Display port name and description on VS Code Browser's Remote Explorer</figcaption>
-</figure>
+<div slot="jetbrains">
+    <p>
+        You can execute <a href="/docs/references/gitpod-cli#list-1"><code>gp ports list</code></a> in the terminal to output a table-formatted list of ports along with their status, URL, name and description.
+    </p>
+    <figure>
+        <img class="shadow-medium w-full rounded-xl max-w-3xl mt-x-small" alt="Display ports info with gp cli" src="/images/docs/ports-with-name-cmd.png" />
+        <figcaption>Display ports info with gp cli</figcaption>
+    </figure>
+</div>
+
+<div slot="commandline">
+    <p>
+        You can execute <a href="/docs/references/gitpod-cli#list-1"><code>gp ports list</code></a> to output a table-formatted list of ports along with their status, URL, name and description.
+    </p>
+    <figure>
+        <img class="shadow-medium w-full rounded-xl max-w-3xl mt-x-small" alt="Display ports info with gp cli" src="/images/docs/ports-with-name-cmd.png" />
+        <figcaption>Display ports info with gp cli</figcaption>
+    </figure>
+</div>
+
+</IdeToggle>
 
 The property `visibility` configures who can access a port:
 
@@ -122,7 +162,7 @@ All port configurations can be applied to ranges as well as single ports.
 
 **Example:** Prevent notifications for ports between 3000 and 8999.
 
-Ports won't be shown in VS Code Browser's Remote Explorer or in the `gp` CLI until they are opened.
+Ports won't be shown in VS Code Browser's PortsView, Remote Explorer or in the `gp` CLI until they are opened.
 
 ```yaml
 ports:
